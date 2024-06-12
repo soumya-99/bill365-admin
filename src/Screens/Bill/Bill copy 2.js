@@ -5,23 +5,39 @@ import { Message } from "../../Components/Message"
 import moment from "moment"
 import PrintIcon from "@mui/icons-material/Print"
 
-function PrintBill() {
+import "./Styles.css"
+import axios from "axios"
+import { url } from "../../Address/baseURL"
+function Bill() {
 	const params = useParams()
 	const { response, callApi } = useAPI()
 	const [dataSet, setDataSet] = useState()
 	const [isCalled, setCalled] = useState(false)
 	const [totqty, setTot] = useState(0)
-	var comp,
-		tot = 0
+	const [totAmt, setAmt] = useState(0)
+	const [info, setInfo] = useState()
+
+	var tot = 0,
+		net = 0,
+		totcgst = 0,
+		totsgst = 0
 
 	useEffect(() => {
-		comp = localStorage.getItem("comp_id")
-		callApi("/admin/print_bill", 1, { comp_id: +comp, recp_no: params.id })
+		callApi("/admin/print_bill", 1, { recp_no: params.id })
 		// setCalled(true)
 	}, [isCalled])
 	useEffect(() => {
-		console.log(response)
-		// setDataSet(response?.data?.msg);
+		console.log("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF", response)
+		setDataSet(response?.data?.msg)
+		if (response)
+			axios
+				.post(url + "/admin/store_profile", {
+					comp_id: response?.data?.msg[0].comp_id,
+				})
+				.then((res) => {
+					console.log(res)
+					setInfo(res.data.msg)
+				})
 
 		if (response?.data?.msg?.length <= 0) {
 			Message("error", "No data!")
@@ -31,7 +47,11 @@ function PrintBill() {
 			setDataSet(response?.data?.msg)
 			response?.data?.msg?.forEach((element) => {
 				tot += element.qty
+				totcgst += element.cgst_prtg
+				totsgst += element.sgst_prtg
+				net += element.qty * element.price - element.discount_amt
 				setTot(tot)
+				setAmt(net)
 			})
 			// }
 		}
@@ -274,56 +294,9 @@ function PrintBill() {
 						<td className="text-black">-----X-----</td>
 					</tr>
 				</table>
-
-				{/* </div> */}
-				{/* <div className="mt-2" id="btnclassName">
-       <div className="row">
-         <div className="col-sm-12">
-           <button
-             type="button"
-             className="btn btn-primary"
-             id="printMe"
-             onclick="printDiv()"
-           >
-             Print
-           </button>
-         </div>
-       </div>
-     </div> */}
-
-				{/* <script> */}
-				{/* function printDiv() {
-
-var divToPrint = document.getElementById('divToPrint');
-
-var WindowObject = window.open('', 'Print-Window');
-WindowObject.document.open();
-WindowObject.document.writeln('<!DOCTYPE html>');
-WindowObject.document.writeln('<html><head><title></title><style type="text/css">');
-
-
-WindowObject.document.writeln('@media print {' +
-'table { text-align: center; border: none; }' +
-'table .text-left { text-align: left; }' +
-'table .  { text-align: right; }' +
-'.tot_section { display: flex; justify-content: space-around; flex-direction: row; }' +
-'} </style>');
-WindowObject.document.writeln('<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">');
-WindowObject.document.writeln('<link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">');
-WindowObject.document.writeln('<link rel="stylesheet" href="/css/adminlte.min.css">');
-WindowObject.document.writeln('</head><body onload="window.print()">');
-WindowObject.document.writeln(divToPrint.innerHTML);
-WindowObject.document.writeln('</body></html>');
-WindowObject.document.close();
-setTimeout(function () {
-WindowObject.close();
-}, 8);
-
-}
-</script> */}
 			</div>
 		</>
 	)
 }
 
-export default PrintBill
+export default Bill
