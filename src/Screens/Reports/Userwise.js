@@ -19,4 +19,4 @@ function Userwise() {
   );
 }
 
-export default Userwise
+export default Userwise;

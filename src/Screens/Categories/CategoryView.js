@@ -35,8 +35,8 @@ function CategoryView() {
   useEffect(() => {
     setDataSet(
       response?.data?.msg?.filter((e) =>
-        e.category_name.toLowerCase().includes(search.toString().toLowerCase())
-      )
+        e.category_name.toLowerCase().includes(search.toString().toLowerCase()),
+      ),
     );
   }, [search]);
   useEffect(() => {
@@ -51,18 +51,21 @@ function CategoryView() {
   };
   return (
     <div className="py-1 w-full ">
-      <HeaderLayout title={'Category Management'} btnText={'Add category'} onPress={()=>onPress({sl_no:0})}/>
+      <HeaderLayout
+        title={"Category Management"}
+        btnText={"Add category"}
+        onPress={() => onPress({ sl_no: 0 })}
+      />
       <section class="bg-gray-50 dark:bg-gray-900 p-3 ">
         <div class="mx-auto w-full">
           <div class="bg-blue-900 dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
-        
             <div class="overflow-x-auto">
               <DatatableAdv
                 onPress={(data) => onPress(data)}
-                title={'Category Management'}
-                btnText={'Add Category'}
+                title={"Category Management"}
+                btnText={"Add Category"}
                 onclick={() => onPress({ sl_no: 0 })}
-                setSearch={(val)=>setSearch(val)}
+                setSearch={(val) => setSearch(val)}
                 flag={1}
                 headers={[
                   { name: "sl_no", value: "#" },

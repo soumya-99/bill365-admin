@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import ReportTemplate from "./ReportTemplate";
 
 function CancelBillReport() {
-    const locationpath = useLocation();
+  const locationpath = useLocation();
   var template =
     locationpath.pathname.split("/")[
       locationpath.pathname.split("/").length - 1
@@ -16,9 +16,7 @@ function CancelBillReport() {
       template={template}
       _url={"/admin/cancel_report"}
     />
-  
-    
-  )
+  );
 }
 
-export default CancelBillReport
+export default CancelBillReport;

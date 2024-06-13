@@ -16,7 +16,7 @@ function Home() {
   const navigate = useNavigate();
 
   paths.forEach(
-    (e) => isNaN(e) && e != "view" && pathnames.push({ label: pathMap[e] })
+    (e) => isNaN(e) && e != "view" && pathnames.push({ label: pathMap[e] }),
   );
 
   useEffect(() => {

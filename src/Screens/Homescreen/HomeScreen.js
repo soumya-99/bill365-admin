@@ -2,15 +2,12 @@ import React, { useState } from "react";
 import { ArrowDownOutlined, ArrowUpOutlined } from "@ant-design/icons";
 import { Card, Col, Row, Statistic } from "antd";
 
-import { Segmented } from 'antd';
+import { Segmented } from "antd";
 import useAPI from "../../Hooks/useApi";
 import axios from "axios";
 import { url } from "../../Address/baseURL";
 
-
-;
 function HomeScreen() {
-  
   const [called, setCalled] = useState(false);
   const { response, callApi } = useAPI();
   const [dataSet1, setDataSet] = useState();
@@ -23,8 +20,7 @@ function HomeScreen() {
     userSet,
     stockSet;
   var today = new Date();
- 
- 
+
   // useEffect(() => {
   //   comp = localStorage.getItem("comp_id");
   //   axios
@@ -107,69 +103,65 @@ function HomeScreen() {
   // }, []);
   return (
     <>
-<Segmented
-    options={['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Yearly']}
-    className="my-4"
-    onChange={(value) => {
-      console.log(value); // string
-    }}
-  />
-<Row gutter={16} className="mb-4">
+      <Segmented
+        options={["Daily", "Weekly", "Monthly", "Quarterly", "Yearly"]}
+        className="my-4"
+        onChange={(value) => {
+          console.log(value); // string
+        }}
+      />
+      <Row gutter={16} className="mb-4">
+        <Col span={6}>
+          <Card bordered={false}>
+            <Statistic
+              title="Active"
+              value={11.28}
+              precision={2}
+              valueStyle={{ color: "#404198" }}
+              prefix={<ArrowUpOutlined />}
+              suffix="%"
+            />
+          </Card>
+        </Col>
+        <Col span={6}>
+          <Card bordered={false}>
+            <Statistic
+              title="Idle"
+              value={9.3}
+              precision={2}
+              valueStyle={{ color: "#404198" }}
+              prefix={<ArrowDownOutlined />}
+              suffix="%"
+            />
+          </Card>
+        </Col>
+        <Col span={6}>
+          <Card bordered={false}>
+            <Statistic
+              title="Active"
+              value={11.28}
+              precision={2}
+              valueStyle={{ color: "#404198" }}
+              prefix={<ArrowUpOutlined />}
+              suffix="%"
+            />
+          </Card>
+        </Col>
+        <Col span={6}>
+          <Card bordered={false}>
+            <Statistic
+              title="Idle"
+              value={9.3}
+              precision={2}
+              valueStyle={{ color: "#404198" }}
+              prefix={<ArrowDownOutlined />}
+              suffix="%"
+            />
+          </Card>
+        </Col>
+      </Row>
 
-    <Col span={6}>
-      <Card bordered={false}>
-    
-        <Statistic
-          title="Active"
-          value={11.28}
-          precision={2}
-          valueStyle={{ color: '#404198' }}
-          prefix={<ArrowUpOutlined />}
-          suffix="%"
-        />
-      </Card>
-    </Col>
-    <Col span={6}>
-      <Card bordered={false}>
-        <Statistic
-          title="Idle"
-          value={9.3}
-          precision={2}
-          valueStyle={{ color: '#404198' }}
-          prefix={<ArrowDownOutlined />}
-          suffix="%"
-        />
-      </Card>
-    </Col>
-    <Col span={6}>
-      <Card bordered={false}>
-        <Statistic
-          title="Active"
-          value={11.28}
-          precision={2}
-          valueStyle={{ color: '#404198' }}
-          prefix={<ArrowUpOutlined />}
-          suffix="%"
-        />
-      </Card>
-    </Col>
-    <Col span={6}>
-      <Card bordered={false} >
-        <Statistic
-          
-          title="Idle"
-          value={9.3}
-          precision={2}
-          valueStyle={{ color: '#404198' }}
-          prefix={<ArrowDownOutlined />}
-          suffix="%"
-        />
-      </Card>
-    </Col>
-  </Row>
- 
- 
-    {/* Dashboard */}
+      {/* Dashboard */}
       {/* <div className="space-y-5">
         <div className="md:grid md:grid-cols-6 md:gap-1 ">
 

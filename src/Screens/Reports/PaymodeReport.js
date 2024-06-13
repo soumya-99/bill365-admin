@@ -18,4 +18,4 @@ function PaymodeReport() {
   );
 }
 
-export default PaymodeReport
+export default PaymodeReport;

@@ -1,12 +1,12 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
+import React from "react";
+import { Outlet } from "react-router-dom";
 
 function Reports() {
   return (
     <div>
-      <Outlet/>
+      <Outlet />
     </div>
-  )
+  );
 }
 
-export default Reports
+export default Reports;

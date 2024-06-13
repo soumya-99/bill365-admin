@@ -18,4 +18,4 @@ function Itemwise() {
   );
 }
 
-export default Itemwise
+export default Itemwise;

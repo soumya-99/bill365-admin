@@ -1,5 +1,5 @@
 export const reportHeaders = {
-  'salereport': {
+  salereport: {
     title: "Sale Report",
     headers: [
       { name: "receipt_no", value: "Receipt No." },
@@ -17,7 +17,7 @@ export const reportHeaders = {
     ],
     span: 5,
   },
-  'daybook': {
+  daybook: {
     title: "Day Book",
     headers: [
       { name: "receipt_no", value: "Receipt No." },
@@ -28,7 +28,7 @@ export const reportHeaders = {
     ],
     span: 3,
   },
-  'cancelbill': {
+  cancelbill: {
     title: "Cancelled Bill Report",
     headers: [
       { name: "receipt_no", value: "Receipt No." },
@@ -45,7 +45,7 @@ export const reportHeaders = {
     ],
     span: 4,
   },
-  'itemwisereport': {
+  itemwisereport: {
     title: "Itemwise Report",
     headers: [
       { name: "receipt_no", value: "Receipt No." },
@@ -55,7 +55,7 @@ export const reportHeaders = {
     ],
     span: 2,
   },
-  'userwise': {
+  userwise: {
     title: "Userwise Summary",
     headers: [
       { name: "user_name", value: "User" },
@@ -66,7 +66,7 @@ export const reportHeaders = {
     ],
     span: 1,
   },
-  'paymode': {
+  paymode: {
     title: "Paymode Report",
     headers: [
       { name: "pay_mode", value: "Mode" },

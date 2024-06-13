@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 // import Carousels from '../../Components/Carousels'
 
 function Details() {
@@ -7,7 +7,7 @@ function Details() {
       Details
       {/* <Carousels/> */}
     </div>
-  )
+  );
 }
 
-export default Details
+export default Details;

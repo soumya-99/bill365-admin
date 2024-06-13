@@ -27,7 +27,7 @@ export function calculate(data, flag) {
       cgst_amt.toFixed(2),
       sgst_amt.toFixed(2),
       " ",
-      net_amt.toFixed(2)
+      net_amt.toFixed(2),
     );
   } else if (flag == "daybook") {
     data?.forEach((e) => (net_amt += e.net_amt));
@@ -48,7 +48,7 @@ export function calculate(data, flag) {
       cgst_amt.toFixed(2),
       sgst_amt.toFixed(2),
       " ",
-      net_amt.toFixed(2)
+      net_amt.toFixed(2),
     );
   } else if (flag == "itemwisereport") {
     data?.forEach((e) => (qty += e.qty));
