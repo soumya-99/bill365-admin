@@ -33,27 +33,36 @@ const SearchComp = lazy(() => import("./Screens/Search/SearchComp"));
 const Bydata = lazy(() => import("./Screens/Search/Bydata"));
 const Byphone = lazy(() => import("./Screens/Search/Byphone"));
 const Byprod = lazy(() => import("./Screens/Search/Byprod"));
+const SuperAdminComp = lazy(() =>
+  import("./Screens/SuperAdmin/SuperAdminComp")
+);
+const ManageUsers = lazy(() => import("./Screens/SuperAdmin/ManageUsers"));
+const ManageOutlets = lazy(() => import("./Screens/SuperAdmin/ManageOutlets"));
+const ManageShops = lazy(() => import("./Screens/SuperAdmin/ManageShops"));
+const ManageLocations = lazy(() =>
+  import("./Screens/SuperAdmin/ManageLocations")
+);
 const Settings = lazy(() => import("./Screens/Settings/Settings"));
 const Unit = lazy(() => import("./Screens/Unit/Unit"));
 const ItemDetails = lazy(() => import("./Screens/Item Details/ItemDetails"));
-const ItemDetailsView = lazy(
-  () => import("./Screens/Item Details/ItemDetailsView")
+const ItemDetailsView = lazy(() =>
+  import("./Screens/Item Details/ItemDetailsView")
 );
 const AddDetails = lazy(() => import("./Screens/Item Details/AddDetails"));
 const PrintBill = lazy(() => import("./Screens/Search/PrintBill"));
-const HeaderFooterComp = lazy(
-  () => import("./Screens/HeaderFooter/HeaderFooterComp")
+const HeaderFooterComp = lazy(() =>
+  import("./Screens/HeaderFooter/HeaderFooterComp")
 );
-const HeaderFooterView = lazy(
-  () => import("./Screens/HeaderFooter/HeaderFooterView")
+const HeaderFooterView = lazy(() =>
+  import("./Screens/HeaderFooter/HeaderFooterView")
 );
-const HeaderFooterEdit = lazy(
-  () => import("./Screens/HeaderFooter/HeaderFooterEdit")
+const HeaderFooterEdit = lazy(() =>
+  import("./Screens/HeaderFooter/HeaderFooterEdit")
 );
 const CustomerComp = lazy(() => import("./Screens/Customer/CustomerComp"));
 const CustomerView = lazy(() => import("./Screens/Customer/CustomerView"));
-const CustomerAddEdit = lazy(
-  () => import("./Screens/Customer/CustomerAddEdit")
+const CustomerAddEdit = lazy(() =>
+  import("./Screens/Customer/CustomerAddEdit")
 );
 const UserComp = lazy(() => import("./Screens/User/UserComp"));
 const UserView = lazy(() => import("./Screens/User/UserView"));
@@ -66,8 +75,8 @@ const CategoryView = lazy(() => import("./Screens/Categories/CategoryView"));
 const CategoryAdd = lazy(() => import("./Screens/Categories/CategoryAdd"));
 const Itemwise = lazy(() => import("./Screens/Reports/Itemwise"));
 const DaybookReport = lazy(() => import("./Screens/Reports/DaybookReport"));
-const CancelBillReport = lazy(
-  () => import("./Screens/Reports/CancelBillReport")
+const CancelBillReport = lazy(() =>
+  import("./Screens/Reports/CancelBillReport")
 );
 const OutletComp = lazy(() => import("./Screens/Outlet/OutletComp"));
 const OutletView = lazy(() => import("./Screens/Outlet/OutletView"));
@@ -173,7 +182,29 @@ const router = createBrowserRouter([
               },
             ],
           },
-          ,
+          {
+            path: "superadmin",
+
+            element: <SuperAdminComp />,
+            children: [
+              {
+                path: "manageshops",
+                element: <ManageShops />,
+              },
+              {
+                path: "manageoutlets",
+                element: <ManageOutlets />,
+              },
+              {
+                path: "manageusers",
+                element: <ManageUsers />,
+              },
+              {
+                path: "managelocations",
+                element: <ManageLocations />,
+              },
+            ],
+          },
           {
             path: "itemdetails",
 
@@ -257,7 +288,6 @@ const router = createBrowserRouter([
             path: "unit",
             element: <Unit />,
           },
-          ,
           {
             path: "category",
             element: <CategoryComp />,
