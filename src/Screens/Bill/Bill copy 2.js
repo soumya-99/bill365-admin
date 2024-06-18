@@ -63,7 +63,7 @@ function Bill() {
     WindowObject.document.open();
     WindowObject.document.writeln("<!DOCTYPE html>");
     WindowObject.document.writeln(
-      '<html><head><title></title><style type="text/css">',
+      '<html><head><title></title><style type="text/css">'
     );
 
     WindowObject.document.writeln(
@@ -72,16 +72,16 @@ function Bill() {
         "table .text-left { text-align: left; }" +
         ".tot_section { display: flex; justify-content: space-around; flex-direction: row; }" +
         "tr { display: flex; justify-content: space-between; flex-direction: row; }" +
-        "} </style>",
+        "} </style>"
     );
     WindowObject.document.writeln(
-      '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">',
+      '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">'
     );
     WindowObject.document.writeln(
-      '<link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">',
+      '<link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">'
     );
     WindowObject.document.writeln(
-      '<link rel="stylesheet" href="/css/adminlte.min.css">',
+      '<link rel="stylesheet" href="/css/adminlte.min.css">'
     );
     WindowObject.document.writeln('</head><body onload="window.print()">');
     WindowObject.document.writeln(divToPrint.innerHTML);
@@ -96,8 +96,7 @@ function Bill() {
       <div className="flex justify-end">
         <button
           className="mt-5 inline-flex bg-red-500 items-center justify-center mr-2 sm:mr-3 px-5 py-2.5 sm:mt-2 text-sm font-medium text-center text-white bg-primary-700 rounded-full h-10 w-10  focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-          onClick={() => print()}
-        >
+          onClick={() => print()}>
           <PrintIcon />
         </button>
       </div>

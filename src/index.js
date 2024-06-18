@@ -37,23 +37,23 @@ const Settings = lazy(() => import("./Screens/Settings/Settings"));
 const Unit = lazy(() => import("./Screens/Unit/Unit"));
 const ItemDetails = lazy(() => import("./Screens/Item Details/ItemDetails"));
 const ItemDetailsView = lazy(
-  () => import("./Screens/Item Details/ItemDetailsView"),
+  () => import("./Screens/Item Details/ItemDetailsView")
 );
 const AddDetails = lazy(() => import("./Screens/Item Details/AddDetails"));
 const PrintBill = lazy(() => import("./Screens/Search/PrintBill"));
 const HeaderFooterComp = lazy(
-  () => import("./Screens/HeaderFooter/HeaderFooterComp"),
+  () => import("./Screens/HeaderFooter/HeaderFooterComp")
 );
 const HeaderFooterView = lazy(
-  () => import("./Screens/HeaderFooter/HeaderFooterView"),
+  () => import("./Screens/HeaderFooter/HeaderFooterView")
 );
 const HeaderFooterEdit = lazy(
-  () => import("./Screens/HeaderFooter/HeaderFooterEdit"),
+  () => import("./Screens/HeaderFooter/HeaderFooterEdit")
 );
 const CustomerComp = lazy(() => import("./Screens/Customer/CustomerComp"));
 const CustomerView = lazy(() => import("./Screens/Customer/CustomerView"));
 const CustomerAddEdit = lazy(
-  () => import("./Screens/Customer/CustomerAddEdit"),
+  () => import("./Screens/Customer/CustomerAddEdit")
 );
 const UserComp = lazy(() => import("./Screens/User/UserComp"));
 const UserView = lazy(() => import("./Screens/User/UserView"));
@@ -67,7 +67,7 @@ const CategoryAdd = lazy(() => import("./Screens/Categories/CategoryAdd"));
 const Itemwise = lazy(() => import("./Screens/Reports/Itemwise"));
 const DaybookReport = lazy(() => import("./Screens/Reports/DaybookReport"));
 const CancelBillReport = lazy(
-  () => import("./Screens/Reports/CancelBillReport"),
+  () => import("./Screens/Reports/CancelBillReport")
 );
 const OutletComp = lazy(() => import("./Screens/Outlet/OutletComp"));
 const OutletView = lazy(() => import("./Screens/Outlet/OutletView"));
@@ -317,17 +317,15 @@ root.render(
             <Skeleton
               className="sm:block hidden"
               height="100rem"
-              width="22rem"
-            ></Skeleton>
+              width="22rem"></Skeleton>
             <Skeleton className="sm:ml-8 m-1 w-96" height="40rem"></Skeleton>
           </div>
         </>
-      }
-    >
+      }>
       <Loader />
       <RouterProvider router={router} />
     </Suspense>
-  </Democontext>,
+  </Democontext>
 );
 
 {

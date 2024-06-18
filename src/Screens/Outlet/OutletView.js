@@ -43,8 +43,8 @@ function OutletView() {
             .toString()
             .toLowerCase()
             .includes(search?.toString().toLowerCase()) ||
-          e.email_id.toLowerCase().includes(search?.toString().toLowerCase()),
-      ),
+          e.email_id.toLowerCase().includes(search?.toString().toLowerCase())
+      )
     );
   }, [search]);
   useEffect(() => {

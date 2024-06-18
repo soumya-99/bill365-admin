@@ -84,8 +84,7 @@ function DiscountSettings() {
         <div className="col-span-2  flex items-baseline">
           <label
             htmlFor="outlet"
-            className="flex mb-2 mr-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
+            className="flex mb-2 mr-2 text-sm font-medium text-gray-900 dark:text-white">
             Type{" "}
           </label>
           <select
@@ -93,8 +92,7 @@ function DiscountSettings() {
             name="type"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
             value={type}
-            onChange={(type) => setType(type.target.value)}
-          >
+            onChange={(type) => setType(type.target.value)}>
             <option selected="">Select type</option>
             <option value="A">Amount</option>
             <option value="P">Percentage</option>
@@ -119,8 +117,7 @@ function DiscountSettings() {
         <button
           type="submit"
           className="inline-flex bg-blue-900 items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-          onClick={() => handleSubmit()}
-        >
+          onClick={() => handleSubmit()}>
           Submit
         </button>
       </div>

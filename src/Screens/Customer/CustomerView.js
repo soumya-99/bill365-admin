@@ -47,8 +47,8 @@ function CustomerView() {
           e.phone_no
             ?.toString()
             .toLowerCase()
-            .includes(search?.toString().toLowerCase()),
-      ),
+            .includes(search?.toString().toLowerCase())
+      )
     );
   }, [search]);
   return (

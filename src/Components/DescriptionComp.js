@@ -88,7 +88,7 @@ function DescriptionComp({
     WindowObject.document.open();
     WindowObject.document.writeln("<!DOCTYPE html>");
     WindowObject.document.writeln(
-      '<html><head><title></title><style type="text/css">',
+      '<html><head><title></title><style type="text/css">'
     );
 
     WindowObject.document.writeln(
@@ -103,7 +103,7 @@ function DescriptionComp({
         "                                         .border { border: 1px solid black; } " +
         "                                         .bottom { bottom: 5px; width: 100%; position: fixed " +
         "                                       " +
-        "                                   } .p-paginator-bottom.p-paginator.p-component { display: none; } .heading{display: flex; flex-direction: column; justify-content: center; align-items: center;font-weight:800;margin-bottom:15px} } </style>",
+        "                                   } .p-paginator-bottom.p-paginator.p-component { display: none; } .heading{display: flex; flex-direction: column; justify-content: center; align-items: center;font-weight:800;margin-bottom:15px} } </style>"
     );
     WindowObject.document.writeln('</head><body onload="window.print()">');
     WindowObject.document.writeln(divToPrint.innerHTML);
@@ -147,8 +147,7 @@ function DescriptionComp({
         trigger="click"
         type="primary"
         style={{ right: 24, bottom: 80 }}
-        icon={<SettingsIcon />}
-      >
+        icon={<SettingsIcon />}>
         <FloatButton onClick={() => onPress()} icon={<ArrowBackIcon />} />
         <FloatButton onClick={() => print()} icon={<PrintIcon />} />
         <FloatButton onClick={() => exportCSV(false)} icon={<DownloadIcon />} />
@@ -157,24 +156,21 @@ function DescriptionComp({
         <Tooltip title="Back">
           <button
             className="mt-5 inline-flex bg-blue-900 items-center justify-center mr-2 sm:mr-3 px-5 py-2.5 sm:mt-2 text-sm font-medium text-center text-white bg-primary-700 rounded-full h-10 w-10  focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-            onClick={() => onPress()}
-          >
+            onClick={() => onPress()}>
             <ArrowBackIcon />
           </button>
         </Tooltip>
         <Tooltip title="Print">
           <button
             className="mt-5 inline-flex bg-red-500 items-center justify-center mr-2 sm:mr-3 px-5 py-2.5 sm:mt-2 text-sm font-medium text-center text-white bg-primary-700 rounded-full h-10 w-10  focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-            onClick={() => print()}
-          >
+            onClick={() => print()}>
             <PrintIcon />
           </button>
         </Tooltip>
         <Tooltip title="Download CSV">
           <button
             className="mt-5 inline-flex bg-green-500 items-center justify-center mr-2 sm:mr-3 px-5 py-2.5 sm:mt-2 text-sm font-medium text-center text-white bg-primary-700 rounded-full h-10 w-10  focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-            onClick={() => exportCSV(false)}
-          >
+            onClick={() => exportCSV(false)}>
             <DownloadIcon />
           </button>
         </Tooltip>
@@ -217,8 +213,7 @@ function DescriptionComp({
               tableStyle={{ minWidth: "100%" }}
               paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
               currentPageReportTemplate="{first} to {last} of {totalRecords}"
-              ref={dt}
-            >
+              ref={dt}>
               {headers &&
                 headers.map((item, index) => (
                   <Column
@@ -226,8 +221,7 @@ function DescriptionComp({
                     field={item.name}
                     header={item.value}
                     headerClassName="bg-blue-900 text-white"
-                    style={{ width: "10%" }}
-                  ></Column>
+                    style={{ width: "10%" }}></Column>
                 ))}
             </DataTable>
           </div>

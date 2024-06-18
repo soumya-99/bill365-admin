@@ -87,8 +87,7 @@ function HeaderFooterEdit() {
             <div className="w-full">
               <label
                 htmlFor="brand"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                 Header1 Text{" "}
               </label>
               <input
@@ -104,8 +103,7 @@ function HeaderFooterEdit() {
               />
               <p
                 id="helper-text-explanation"
-                class="mt-2 text-sm text-gray-500 dark:text-gray-400"
-              >
+                class="mt-2 text-sm text-gray-500 dark:text-gray-400">
                 {f1Text?.length}/25
               </p>
             </div>
@@ -122,8 +120,7 @@ function HeaderFooterEdit() {
             <div className="w-full">
               <label
                 htmlFor="brand"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                 Header2 Text{" "}
               </label>
               <input
@@ -139,8 +136,7 @@ function HeaderFooterEdit() {
               />
               <p
                 id="helper-text-explanation"
-                class="mt-2 text-sm text-gray-500 dark:text-gray-400"
-              >
+                class="mt-2 text-sm text-gray-500 dark:text-gray-400">
                 {f2Text?.length}/25
               </p>
             </div>
@@ -157,8 +153,7 @@ function HeaderFooterEdit() {
             <div className="w-full">
               <label
                 htmlFor="brand"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                 Footer1 Text{" "}
               </label>
               <input
@@ -174,8 +169,7 @@ function HeaderFooterEdit() {
               />
               <p
                 id="helper-text-explanation"
-                class="mt-2 text-sm text-gray-500 dark:text-gray-400"
-              >
+                class="mt-2 text-sm text-gray-500 dark:text-gray-400">
                 {f3Text?.length}/25
               </p>
             </div>
@@ -192,8 +186,7 @@ function HeaderFooterEdit() {
             <div className="w-full">
               <label
                 htmlFor="brand"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                 Footer2 Text{" "}
               </label>
               <input
@@ -209,8 +202,7 @@ function HeaderFooterEdit() {
               />
               <p
                 id="helper-text-explanation"
-                class="mt-2 text-sm text-gray-500 dark:text-gray-400"
-              >
+                class="mt-2 text-sm text-gray-500 dark:text-gray-400">
                 {f4Text?.length}/25
               </p>
             </div>
@@ -229,8 +221,7 @@ function HeaderFooterEdit() {
             <button
               type="submit"
               onClick={() => handleSubmit()}
-              className="inline-flex bg-blue-900 items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-            >
+              className="inline-flex bg-blue-900 items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
               Submit
             </button>
           </div>

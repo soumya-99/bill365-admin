@@ -42,13 +42,13 @@ function Signin() {
       localStorage.setItem("address", response?.data?.msg[0].address);
       localStorage.setItem(
         "branch_address",
-        response?.data?.msg[0].branch_address,
+        response?.data?.msg[0].branch_address
       );
       localStorage.setItem("branch_name", response?.data?.msg[0].branch_name);
       localStorage.setItem("company_name", response?.data?.msg[0].company_name);
       localStorage.setItem(
         "contact_person",
-        response?.data?.msg[0].contact_person,
+        response?.data?.msg[0].contact_person
       );
       localStorage.setItem("comp_id", response?.data?.msg[0].comp_id);
       localStorage.setItem("phone_no", response?.data?.msg[0].phone_no);
@@ -89,8 +89,7 @@ function Signin() {
       FallbackComponent={Error}
       onError={(error) => {
         console.error(error);
-      }}
-    >
+      }}>
       <div className="bg-blue-900 flex justify-center items-center h-screen w-full bg-line bg-no-repeat bg-cover">
         <div className="md:ml-12 grid grid-cols-2 gap-0">
           <div className="hidden md:block md:col-span-1">
@@ -145,8 +144,7 @@ function Signin() {
                   <button
                     disabled={!formik.isValid}
                     type="submit"
-                    className="bg-blue-900 hover:bg-blue-800 w-full text-white p-3 rounded-md disabled:bg-blue-400 dark:bg-white dark:text-white"
-                  >
+                    className="bg-blue-900 hover:bg-blue-800 w-full text-white p-3 rounded-md disabled:bg-blue-400 dark:bg-white dark:text-white">
                     Sign In
                   </button>
                 </div>

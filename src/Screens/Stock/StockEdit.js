@@ -78,8 +78,7 @@ function StockEdit() {
             <div class="w-full">
               <label
                 for="name"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                 Name
               </label>
               <input
@@ -96,8 +95,7 @@ function StockEdit() {
             <div class="w-full">
               <label
                 for="brand"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                 Stock
               </label>
               <input
@@ -114,8 +112,7 @@ function StockEdit() {
             <div class="w-full">
               <label
                 for="price"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                 Add
               </label>
               <input
@@ -136,8 +133,7 @@ function StockEdit() {
             <div class="w-full">
               <label
                 for="brand"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                 Less
               </label>
               <input
@@ -160,8 +156,7 @@ function StockEdit() {
             <button
               type="submit"
               onClick={() => onSubmit()}
-              className="inline-flex bg-blue-900 items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-            >
+              className="inline-flex bg-blue-900 items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
               Submit
             </button>
           </div>

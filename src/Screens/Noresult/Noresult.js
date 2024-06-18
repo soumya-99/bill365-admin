@@ -16,8 +16,7 @@ function Noresult() {
         extra={
           <Button
             className="bg-blue-900 text-white"
-            onClick={() => navigate(-1)}
-          >
+            onClick={() => navigate(-1)}>
             Back
           </Button>
         }

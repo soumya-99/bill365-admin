@@ -33,8 +33,8 @@ function ItemDetailsView() {
       response?.data?.msg?.filter(
         (e) =>
           e.hsn_code.toLowerCase().includes(search?.toString().toLowerCase()) ||
-          e.item_name.toLowerCase().includes(search?.toString().toLowerCase()),
-      ),
+          e.item_name.toLowerCase().includes(search?.toString().toLowerCase())
+      )
     );
   }, [search]);
   useEffect(() => {

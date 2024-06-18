@@ -34,8 +34,7 @@ function DialogComponent({ visible, flag, onPress }) {
               flag != 3
                 ? "text-blue-900 font-bold"
                 : "text-blue-900 font-bold w-20"
-            }
-          >
+            }>
             {flag != 3 ? "Profile Information" : "Warning!"}
           </div>
         }
@@ -45,8 +44,7 @@ function DialogComponent({ visible, flag, onPress }) {
         onHide={() => {
           if (!visible) return;
           onPress();
-        }}
-      >
+        }}>
         <p className="m-0">
           {flag == 1 && <ProfileInfo flag={flag} />}
           {flag == 2 && (
@@ -66,8 +64,7 @@ function DialogComponent({ visible, flag, onPress }) {
                 <button
                   type="reset"
                   onClick={onPress}
-                  className="inline-flex mr-3 bg-white items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-blue-900 border border-blue-900 bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-                >
+                  className="inline-flex mr-3 bg-white items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-blue-900 border border-blue-900 bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                   No
                 </button>
                 <button
@@ -76,8 +73,7 @@ function DialogComponent({ visible, flag, onPress }) {
                     localStorage.clear();
                     navigate("/");
                   }}
-                  className="inline-flex bg-blue-900 items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-                >
+                  className="inline-flex bg-blue-900 items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                   Yes
                 </button>
               </div>
@@ -90,8 +86,7 @@ function DialogComponent({ visible, flag, onPress }) {
                 <button
                   type="reset"
                   onClick={onPress}
-                  className="inline-flex mr-3 bg-white items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-blue-900 border border-blue-900 bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-                >
+                  className="inline-flex mr-3 bg-white items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-blue-900 border border-blue-900 bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                   No
                 </button>
                 <button
@@ -100,8 +95,7 @@ function DialogComponent({ visible, flag, onPress }) {
                     localStorage.clear();
                     navigate("/");
                   }}
-                  className="inline-flex bg-blue-900 items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-                >
+                  className="inline-flex bg-blue-900 items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                   Yes
                 </button>
               </div>

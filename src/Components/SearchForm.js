@@ -52,8 +52,7 @@ function SearchForm({ flag, title, onPress, products }) {
             <div className="w-full">
               <label
                 htmlFor="brand"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                 From
               </label>
               <input
@@ -76,8 +75,7 @@ function SearchForm({ flag, title, onPress, products }) {
             <div className="w-full">
               <label
                 htmlFor="price"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                 To
               </label>
               <input
@@ -101,8 +99,7 @@ function SearchForm({ flag, title, onPress, products }) {
               <div className="sm:col-span-2">
                 <label
                   htmlFor="product"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Product
                 </label>
                 <select
@@ -111,8 +108,7 @@ function SearchForm({ flag, title, onPress, products }) {
                   onChange={formik.handleChange}
                   name="product"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  onBlur={formik.handleBlur}
-                >
+                  onBlur={formik.handleBlur}>
                   <option selected>Select product</option>
                   {products?.map((item) => (
                     <option value={item?.id}>{item?.item_name}</option>
@@ -131,8 +127,7 @@ function SearchForm({ flag, title, onPress, products }) {
               <div className="sm:col-span-2">
                 <label
                   htmlFor="phone"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Phone
                 </label>
                 <input
@@ -158,14 +153,12 @@ function SearchForm({ flag, title, onPress, products }) {
             <button
               type="reset"
               onClick={formik.handleReset}
-              className="inline-flex mr-3 bg-white items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-blue-900 border border-blue-900 bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-            >
+              className="inline-flex mr-3 bg-white items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-blue-900 border border-blue-900 bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
               Reset
             </button>
             <button
               type="submit"
-              className="inline-flex bg-blue-900 items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-            >
+              className="inline-flex bg-blue-900 items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
               Submit
             </button>
           </div>

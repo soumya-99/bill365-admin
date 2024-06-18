@@ -56,11 +56,9 @@ function Header() {
                 aria-haspopup="true"
                 aria-expanded={openProfile ? "true" : undefined}
                 onClick={handleClickProfile}
-                className="font-medium text-blue-900  dark:text-gray-300 cursor-pointer"
-              >
+                className="font-medium text-blue-900  dark:text-gray-300 cursor-pointer">
                 <Tooltip
-                  title={"Hello, " + localStorage.getItem("company_name")}
-                >
+                  title={"Hello, " + localStorage.getItem("company_name")}>
                   {localStorage.getItem("company_name").includes(" ")
                     ? localStorage.getItem("company_name").split(" ")[0][0] +
                       localStorage.getItem("company_name").split(" ")[1][0]
@@ -117,19 +115,16 @@ function Header() {
                   },
                 }}
                 transformOrigin={{ horizontal: "right", vertical: "top" }}
-                anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
-              >
+                anchorOrigin={{ horizontal: "right", vertical: "bottom" }}>
                 <MenuItem
                   className="text-blue-900 hover:text-blue-900"
-                  onClick={() => handleCloseProfile("", 1)}
-                >
+                  onClick={() => handleCloseProfile("", 1)}>
                   <Avatar />
                   Store Profile
                 </MenuItem>
                 <MenuItem
                   className="text-blue-900 hover:text-blue-900"
-                  onClick={() => handleCloseProfile("", 2)}
-                >
+                  onClick={() => handleCloseProfile("", 2)}>
                   <Avatar /> User Profile
                 </MenuItem>
                 <Divider />
@@ -147,8 +142,7 @@ function Header() {
         </MenuItem> */}
                 <MenuItem
                   className="text-blue-900 hover:text-blue-900"
-                  onClick={() => handleCloseProfile("/", 3)}
-                >
+                  onClick={() => handleCloseProfile("/", 3)}>
                   <ListItemIcon>
                     <Logout fontSize="small" />
                   </ListItemIcon>

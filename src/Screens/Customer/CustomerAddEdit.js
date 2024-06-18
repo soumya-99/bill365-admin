@@ -126,8 +126,7 @@ function CustomerAddEdit() {
               <div class="sm:col-span-2">
                 <label
                   for="c_name"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Customer name
                 </label>
                 <input
@@ -150,8 +149,7 @@ function CustomerAddEdit() {
               <div class="w-full">
                 <label
                   for="c_dob"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   DOB
                 </label>
                 <input
@@ -174,8 +172,7 @@ function CustomerAddEdit() {
               <div>
                 <label
                   for="c_gender"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Gender
                 </label>
                 <select
@@ -184,8 +181,7 @@ function CustomerAddEdit() {
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
-                  value={formik.values.c_gender}
-                >
+                  value={formik.values.c_gender}>
                   <option selected="">Select gender</option>
                   <option value="M">Male</option>
                   <option value="F">Female</option>
@@ -199,8 +195,7 @@ function CustomerAddEdit() {
               <div class="w-full">
                 <label
                   for="c_email"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Email
                 </label>
                 <input
@@ -224,8 +219,7 @@ function CustomerAddEdit() {
               <div class="w-full">
                 <label
                   for="c_phone"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Phone
                 </label>
                 <input
@@ -248,8 +242,7 @@ function CustomerAddEdit() {
               <div className="sm:col-span-2">
                 <label
                   for="c_paymode"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Pay mode
                 </label>
                 <select
@@ -258,8 +251,7 @@ function CustomerAddEdit() {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.c_paymode}
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                >
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                   <option selected="">Select pay mode</option>
                   <option value="U">UPI</option>
                   <option value="C">Cash</option>
@@ -276,8 +268,7 @@ function CustomerAddEdit() {
               <div class="sm:col-span-2">
                 <label
                   for="c_bill"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Billing address
                 </label>
                 <textarea
@@ -300,8 +291,7 @@ function CustomerAddEdit() {
               <div class="sm:col-span-2">
                 <label
                   for="c_del"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Delivery address
                 </label>
                 <textarea
@@ -327,15 +317,13 @@ function CustomerAddEdit() {
                 <button
                   type="reset"
                   onClick={formik.handleReset}
-                  className="inline-flex mr-3 bg-white items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-blue-900 border border-blue-900 bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-                >
+                  className="inline-flex mr-3 bg-white items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-blue-900 border border-blue-900 bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                   Reset
                 </button>
               )}
               <button
                 type="submit"
-                className="inline-flex bg-blue-900 items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-              >
+                className="inline-flex bg-blue-900 items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                 Submit
               </button>
             </div>

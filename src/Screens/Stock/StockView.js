@@ -35,8 +35,8 @@ function StockView() {
       response?.data?.msg?.filter(
         (e) =>
           e.item_name.toLowerCase().includes(search.toString().toLowerCase()) ||
-          e.stock.toString().includes(search.toString()),
-      ),
+          e.stock.toString().includes(search.toString())
+      )
     );
   }, [search]);
   useEffect(() => {

@@ -43,7 +43,7 @@ function Bydata() {
   };
   const onView = (data) => {
     navigate(
-      "/home/search/printbill/" + data.receipt_no + "/" + data.created_by,
+      "/home/search/printbill/" + data.receipt_no + "/" + data.created_by
     );
   };
 
@@ -53,8 +53,8 @@ function Bydata() {
         e?.receipt_no
           ?.toString()
           ?.toLowerCase()
-          ?.includes(search?.toString()?.toLowerCase()),
-      ),
+          ?.includes(search?.toString()?.toLowerCase())
+      )
     );
 
     console.log("RRRRRRR", response?.data?.msg);

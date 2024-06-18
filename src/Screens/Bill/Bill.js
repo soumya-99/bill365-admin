@@ -63,7 +63,7 @@ function Bill() {
     WindowObject.document.open();
     WindowObject.document.writeln("<!DOCTYPE html>");
     WindowObject.document.writeln(
-      '<html><head><title></title><style type="text/css">',
+      '<html><head><title></title><style type="text/css">'
     );
 
     WindowObject.document.writeln(
@@ -72,16 +72,16 @@ function Bill() {
         "table .text-left { text-align: left; }" +
         ".tot_section { display: flex; justify-content: space-around; flex-direction: row; }" +
         "tr { display: flex; justify-content: space-between; flex-direction: row; }" +
-        "} </style>",
+        "} </style>"
     );
     WindowObject.document.writeln(
-      '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">',
+      '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">'
     );
     WindowObject.document.writeln(
-      '<link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">',
+      '<link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">'
     );
     WindowObject.document.writeln(
-      '<link rel="stylesheet" href="/css/adminlte.min.css">',
+      '<link rel="stylesheet" href="/css/adminlte.min.css">'
     );
     WindowObject.document.writeln('</head><body onload="window.print()">');
     WindowObject.document.writeln(divToPrint.innerHTML);

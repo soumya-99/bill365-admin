@@ -54,7 +54,7 @@ function CategoryAdd() {
       const croppedImage = await getCroppedImg(
         window.URL.createObjectURL(selectedFile),
         croppedAreaPixels,
-        rotation,
+        rotation
       );
       console.log("donee", { croppedImage });
       setVisible(false);
@@ -85,7 +85,7 @@ function CategoryAdd() {
       comp = localStorage.getItem("comp_id");
       var file = new File(
         [croppedImage],
-        catgName.split(" ").join("") + ".png",
+        catgName.split(" ").join("") + ".png"
       );
       var data = new FormData();
       if (croppedImage) data.append("file", file);
@@ -109,8 +109,7 @@ function CategoryAdd() {
             <div className="w-full">
               <label
                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                for="file_input"
-              >
+                for="file_input">
                 Upload file
               </label>
               <input
@@ -127,16 +126,14 @@ function CategoryAdd() {
               />
               <p
                 class="mt-1 text-sm text-gray-500 dark:text-gray-300"
-                id="file_input_help"
-              >
+                id="file_input_help">
                 Only PNG is allowed (MAX. 800x400px).
               </p>
             </div>
             <div className="w-full">
               <label
                 htmlFor="brand"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                 Name
               </label>
               <input
@@ -177,8 +174,7 @@ function CategoryAdd() {
             {params.id == 0 && (
               <button
                 type="reset"
-                className="inline-flex mr-3 bg-white items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-blue-900 border border-blue-900 bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-              >
+                className="inline-flex mr-3 bg-white items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-blue-900 border border-blue-900 bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                 Reset
               </button>
             )}
@@ -186,8 +182,7 @@ function CategoryAdd() {
             <button
               onClick={imageSubmit}
               type="submit"
-              className="inline-flex bg-blue-900 items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-            >
+              className="inline-flex bg-blue-900 items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
               Submit
             </button>
           </div>
@@ -201,8 +196,7 @@ function CategoryAdd() {
         maximizable
         visible={visible}
         style={{ width: "50vw", height: "35vw" }}
-        onHide={() => setVisible(false)}
-      >
+        onHide={() => setVisible(false)}>
         {/* <p className="m-0"> */}
         <div className="cropper">
           {selectedFile && (
@@ -225,8 +219,7 @@ function CategoryAdd() {
           <button
             onClick={showCroppedImage}
             variant="contained"
-            className="inline-flex mr-3 bg-white items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-blue-900 border border-blue-900 bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 justify-center"
-          >
+            className="inline-flex mr-3 bg-white items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-blue-900 border border-blue-900 bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 justify-center">
             Generate
           </button>
         </div>

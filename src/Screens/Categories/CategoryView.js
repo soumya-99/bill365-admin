@@ -35,8 +35,8 @@ function CategoryView() {
   useEffect(() => {
     setDataSet(
       response?.data?.msg?.filter((e) =>
-        e.category_name.toLowerCase().includes(search.toString().toLowerCase()),
-      ),
+        e.category_name.toLowerCase().includes(search.toString().toLowerCase())
+      )
     );
   }, [search]);
   useEffect(() => {

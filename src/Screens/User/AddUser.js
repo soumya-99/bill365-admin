@@ -95,8 +95,7 @@ function AddUser() {
               <div class="sm:col-span-2">
                 <label
                   for="u_name"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Name
                 </label>
                 <input
@@ -119,8 +118,7 @@ function AddUser() {
               <div class="w-full">
                 <label
                   for="u_phone"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Phone
                 </label>
                 <input
@@ -143,8 +141,7 @@ function AddUser() {
               <div class="w-full">
                 <label
                   for="u_email"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Email
                 </label>
                 <input
@@ -167,8 +164,7 @@ function AddUser() {
               <div class="w-full">
                 <label
                   for="u_type"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Type
                 </label>
                 <select
@@ -176,8 +172,7 @@ function AddUser() {
                   value={formik.values.u_type}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                >
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                   <option selected="">Select type</option>
                   <option value="U">User</option>
                   <option value="M">Master</option>
@@ -191,8 +186,7 @@ function AddUser() {
               <div>
                 <label
                   for="u_branch"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Branch
                 </label>
                 <select
@@ -200,8 +194,7 @@ function AddUser() {
                   value={formik.values.u_branch}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                >
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                   <option selected="">Select branch</option>
                   {dataSet?.map((item) => (
                     <option value={item.id}>{item.branch_name}</option>
@@ -219,14 +212,12 @@ function AddUser() {
               <button
                 type="reset"
                 onClick={formik.handleReset}
-                className="inline-flex mr-3 bg-white items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-blue-900 border border-blue-900 bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-              >
+                className="inline-flex mr-3 bg-white items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-blue-900 border border-blue-900 bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                 Reset
               </button>
               <button
                 type="submit"
-                className="inline-flex bg-blue-900 items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-              >
+                className="inline-flex bg-blue-900 items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                 Submit
               </button>
             </div>

@@ -102,8 +102,7 @@ function ReportForm({ title, onPress, flag, outlet }) {
             <div className="w-full">
               <label
                 htmlFor="brand"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                 From
               </label>
               <input
@@ -126,8 +125,7 @@ function ReportForm({ title, onPress, flag, outlet }) {
             <div className="w-full">
               <label
                 htmlFor="price"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                 To
               </label>
               <input
@@ -150,8 +148,7 @@ function ReportForm({ title, onPress, flag, outlet }) {
             <div className={flag == 0 ? "sm:col-span-2" : "w-full"}>
               <label
                 htmlFor="outlet"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                 Outlet
               </label>
               <select
@@ -160,8 +157,7 @@ function ReportForm({ title, onPress, flag, outlet }) {
                 onChange={handleChangeWithAPI}
                 name="outlet"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                onBlur={formik.handleBlur}
-              >
+                onBlur={formik.handleBlur}>
                 <option selected>Select outlet</option>
                 <option value="0">All outlets</option>
                 {outlet?.map((item, i) => (
@@ -180,8 +176,7 @@ function ReportForm({ title, onPress, flag, outlet }) {
               <div className="w-full">
                 <label
                   htmlFor="userlist"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   User List
                 </label>
                 <select
@@ -190,8 +185,7 @@ function ReportForm({ title, onPress, flag, outlet }) {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   name="userlist"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                >
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                   <option selected="">Select user</option>
                   {d?.map((item) => (
                     <option value={item?.user_id}>{item?.user_name}</option>
@@ -210,8 +204,7 @@ function ReportForm({ title, onPress, flag, outlet }) {
               <div className="w-full">
                 <label
                   htmlFor="outlet"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Pay mode{" "}
                 </label>
                 <select
@@ -219,8 +212,7 @@ function ReportForm({ title, onPress, flag, outlet }) {
                   value={formik.values.paymentmode}
                   onChange={formik.handleChange}
                   name="paymentmode"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                >
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                   <option selected="">Select mode</option>
                   <option value="U">UPI</option>
                   <option value="C">Cash</option>
@@ -240,8 +232,7 @@ function ReportForm({ title, onPress, flag, outlet }) {
               <div className="w-full">
                 <label
                   htmlFor="outlet"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Item{" "}
                 </label>
                 <select
@@ -249,8 +240,7 @@ function ReportForm({ title, onPress, flag, outlet }) {
                   value={formik.values.item_lst}
                   onChange={formik.handleChange}
                   name="item_lst"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                >
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                   <option selected="">Select item</option>
                   {d?.map((item) => (
                     <option value={item?.id}>{item?.item_name}</option>
@@ -270,14 +260,12 @@ function ReportForm({ title, onPress, flag, outlet }) {
             <button
               type="reset"
               onClick={formik.handleReset}
-              className="inline-flex mr-3 bg-white items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-blue-900 border border-blue-900 bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-            >
+              className="inline-flex mr-3 bg-white items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-blue-900 border border-blue-900 bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
               Reset
             </button>
             <button
               type="submit"
-              className="inline-flex bg-blue-900 items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-            >
+              className="inline-flex bg-blue-900 items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
               Submit
             </button>
           </div>

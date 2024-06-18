@@ -80,8 +80,7 @@ function HeaderFooterView() {
             <button
               type="submit"
               onClick={() => navigation("/home/headerfooter/hfdetails")}
-              className="absolute right-12 bg-blue-900 items-center justify-center  text-sm font-medium text-center text-white bg-primary-700 rounded-full h-10 w-10  focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-            >
+              className="absolute right-12 bg-blue-900 items-center justify-center  text-sm font-medium text-center text-white bg-primary-700 rounded-full h-10 w-10  focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
               <EditIcon />
             </button>
           </Tooltip>

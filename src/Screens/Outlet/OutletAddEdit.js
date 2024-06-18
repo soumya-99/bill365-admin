@@ -112,8 +112,7 @@ function OutletAddEdit() {
               <div class="w-full">
                 <label
                   for="o_name"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Outlet
                 </label>
                 <input
@@ -135,8 +134,7 @@ function OutletAddEdit() {
               <div class="w-full">
                 <label
                   for="o_contact"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Contact person
                 </label>
                 <input
@@ -158,8 +156,7 @@ function OutletAddEdit() {
               <div class="w-full">
                 <label
                   for="o_phone"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Phone
                 </label>
                 <input
@@ -182,8 +179,7 @@ function OutletAddEdit() {
               <div class="w-full">
                 <label
                   for="o_email"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Email
                 </label>
                 <input
@@ -207,8 +203,7 @@ function OutletAddEdit() {
               <div class="sm:col-span-2">
                 <label
                   for="o_address"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Outlet address
                 </label>
                 <textarea
@@ -234,15 +229,13 @@ function OutletAddEdit() {
                 <button
                   type="reset"
                   onClick={formik.handleReset}
-                  className="inline-flex mr-3 bg-white items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-blue-900 border border-blue-900 bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-                >
+                  className="inline-flex mr-3 bg-white items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-blue-900 border border-blue-900 bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                   Reset
                 </button>
               )}
               <button
                 type="submit"
-                className="inline-flex bg-blue-900 items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-              >
+                className="inline-flex bg-blue-900 items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                 Submit
               </button>
             </div>

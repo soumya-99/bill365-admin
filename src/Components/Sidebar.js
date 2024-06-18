@@ -81,8 +81,7 @@ function SidebarComp() {
                 location.pathname.includes("report/daybook")
                   ? "  font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white hover:duration-100  dark:hover:bg-gray-700 group"
                   : "flex items-center p-2  rounded-lg dark:text-white  dark:hover:bg-gray-700 group"
-              }
-            >
+              }>
               <Link to={"report/daybook"}>Day book </Link>
             </div>
           ),
@@ -104,8 +103,7 @@ function SidebarComp() {
                 location.pathname.includes("report/salereport")
                   ? "  font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white hover:duration-100  dark:hover:bg-gray-700 group"
                   : "flex items-center p-2  rounded-lg dark:text-white hover:duration-100  dark:hover:bg-gray-700 group"
-              }
-            >
+              }>
               <Link to={"report/salereport"}>Sale Report</Link>{" "}
             </div>
           ),
@@ -127,8 +125,7 @@ function SidebarComp() {
                 location.pathname.includes("report/cancelbill")
                   ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
                   : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-              }
-            >
+              }>
               <Link to={"report/cancelbill"}>Cancelled Bill Report</Link>
             </div>
           ),
@@ -150,8 +147,7 @@ function SidebarComp() {
                 location.pathname.includes("report/itemwise")
                   ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
                   : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-              }
-            >
+              }>
               <Link to={"report/itemwisereport"}>Itemwise Report</Link>
             </div>
           ),
@@ -173,8 +169,7 @@ function SidebarComp() {
                 location.pathname.includes("report/userwise")
                   ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
                   : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-              }
-            >
+              }>
               <Link to={"report/userwise"}>Userwise Summary</Link>
             </div>
           ),
@@ -196,8 +191,7 @@ function SidebarComp() {
                 location.pathname.includes("report/paymode")
                   ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
                   : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-              }
-            >
+              }>
               <Link to={"report/paymode"}>Pay mode Report </Link>
             </div>
           ),
@@ -234,8 +228,7 @@ function SidebarComp() {
                 location.pathname.includes("search/bydate")
                   ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
                   : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-              }
-            >
+              }>
               <Link to={"search/bydate"}> By Date</Link>
             </div>
           ),
@@ -257,8 +250,7 @@ function SidebarComp() {
                 location.pathname.includes("search/byphone")
                   ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
                   : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-              }
-            >
+              }>
               <Link to={"search/byphone"}>By Phone</Link>
             </div>
           ),
@@ -280,8 +272,7 @@ function SidebarComp() {
                 location.pathname.includes("search/byproduct")
                   ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
                   : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-              }
-            >
+              }>
               <Link to={"search/byproduct"}>By Product</Link>
             </div>
           ),
@@ -305,8 +296,7 @@ function SidebarComp() {
             location.pathname.includes("category")
               ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
               : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-          }
-        >
+          }>
           <Link to={"category/view"}>Category</Link>
         </div>
       ),
@@ -328,8 +318,7 @@ function SidebarComp() {
             location.pathname.includes("settings")
               ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
               : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-          }
-        >
+          }>
           <Link to={"settings"}>Settings</Link>
         </div>
       ),
@@ -352,8 +341,7 @@ function SidebarComp() {
             location.pathname.includes("unit")
               ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
               : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-          }
-        >
+          }>
           <Link to={"unit"}>Unit</Link>
         </div>
       ),
@@ -376,8 +364,7 @@ function SidebarComp() {
             location.pathname.includes("itemdetails")
               ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
               : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-          }
-        >
+          }>
           <Link to={"itemdetails/view"}>Item Details</Link>
         </div>
       ),
@@ -399,8 +386,7 @@ function SidebarComp() {
             location.pathname.includes("headerfooter")
               ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
               : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-          }
-        >
+          }>
           <Link to={"headerfooter/view"}>Header/Footer</Link>
         </div>
       ),
@@ -422,8 +408,7 @@ function SidebarComp() {
             location.pathname.includes("stock")
               ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
               : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-          }
-        >
+          }>
           <Link to={"stock/view"}>Stock</Link>
         </div>
       ),
@@ -445,8 +430,7 @@ function SidebarComp() {
             location.pathname.includes("outlet")
               ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
               : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-          }
-        >
+          }>
           <Link to={"outlet/view"}>Outlet Managment</Link>
         </div>
       ),
@@ -468,8 +452,7 @@ function SidebarComp() {
             location.pathname.includes("usermng")
               ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
               : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-          }
-        >
+          }>
           <Link to={"usermng/view"}>User Management</Link>
         </div>
       ),
@@ -491,8 +474,7 @@ function SidebarComp() {
             location.pathname.includes("customer")
               ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
               : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-          }
-        >
+          }>
           <Link to={"customer/view"}>Customer Management</Link>
         </div>
       ),
@@ -514,8 +496,7 @@ function SidebarComp() {
           closable={true}
           onClose={onClose}
           open={open}
-          key={placement}
-        >
+          key={placement}>
           <div className="h-full overflow-y-auto bg-white dark:bg-gray-800 min-h-screen overflow-auto">
             <Menu
               className="mt-4"
@@ -532,21 +513,18 @@ function SidebarComp() {
           onClick={showDrawer}
           aria-controls="separator-sidebar"
           type="button"
-          className="inline-flex items-center p-2 mt-2 ms-3 text-sm bg-blue-300 text-blue-900 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-        >
+          className="inline-flex items-center p-2 mt-2 ms-3 text-sm bg-blue-300 text-blue-900 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
           <span className="sr-only">Open sidebar</span>
           <svg
             className="w-6 h-6"
             aria-hidden="true"
             fill="currentColor"
             viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+            xmlns="http://www.w3.org/2000/svg">
             <path
               clipRule="evenodd"
               fillRule="evenodd"
-              d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
-            ></path>
+              d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
           </svg>
         </button>
       </div>
@@ -554,14 +532,12 @@ function SidebarComp() {
       <aside
         id="separator-sidebar"
         className=" overflow-y-auto fixed top-0 bg-blue-300 left-0 z-40 w-64 max-h-screen transition-transform -translate-x-full overflow-x-hidden sm:translate-x-0"
-        aria-label="Sidebar"
-      >
+        aria-label="Sidebar">
         <div className="h-full  bg-blue-300 sticky top-0 dark:bg-gray-800 ">
           <div className="bg-white w-64 flex justify-center py-4">
             <Link
               to={"/home/report/daybook"}
-              className="flex items-center space-x-3 rtl:space-x-reverse"
-            >
+              className="flex items-center space-x-3 rtl:space-x-reverse">
               <img src={IMG} className="h-16 mx-5" alt="Flowbite Logo" />
             </Link>
           </div>

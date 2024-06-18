@@ -16,7 +16,7 @@ function Home() {
   const navigate = useNavigate();
 
   paths.forEach(
-    (e) => isNaN(e) && e != "view" && pathnames.push({ label: pathMap[e] }),
+    (e) => isNaN(e) && e != "view" && pathnames.push({ label: pathMap[e] })
   );
 
   useEffect(() => {
@@ -38,8 +38,7 @@ function Home() {
               pathnames.length != 1
                 ? "border-2 h-auto p-3 bg-white border-white shadow-lg rounded-xl dark:border-gray-700 "
                 : "border-2 h-auto p-3 bg-blue-300 border-blue-300 rounded-xl dark:border-gray-700 "
-            }
-          >
+            }>
             {pathnames?.length > 1 && (
               <BreadCrumb model={pathnames} className="text-xs" />
             )}
@@ -47,8 +46,7 @@ function Home() {
               FallbackComponent={Error}
               onError={(error) => {
                 console.error(error);
-              }}
-            >
+              }}>
               <ScrollTop style={{ backgroundColor: "#404198" }} />
 
               <Outlet />

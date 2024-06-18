@@ -18,8 +18,7 @@ const ReportContext = ({ children }) => {
   };
   return (
     <FormContext.Provider
-      value={{ from_dt, to_dt, outlet, setForm }}
-    ></FormContext.Provider>
+      value={{ from_dt, to_dt, outlet, setForm }}></FormContext.Provider>
   );
 };
 

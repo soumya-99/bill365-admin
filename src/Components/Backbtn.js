@@ -20,8 +20,7 @@ function Backbtn() {
         <Tooltip title="Back">
           <button
             className="mt-4 inline-flex bg-blue-900 items-center justify-center mr-4 sm:mr-4 px-5 py-2.5 sm:mt-1 text-sm font-medium text-center text-white bg-primary-700 rounded-full h-10 w-10  focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-            onClick={() => navigation(-1)}
-          >
+            onClick={() => navigation(-1)}>
             <ArrowBackIcon />
           </button>
         </Tooltip>

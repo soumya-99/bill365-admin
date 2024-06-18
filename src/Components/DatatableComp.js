@@ -41,8 +41,7 @@ function DatatableComp({ headers, data, span, totals }) {
         paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
         currentPageReportTemplate="{first} to {last} of {totalRecords}"
         paginatorLeft={paginatorLeft}
-        paginatorRight={paginatorRight}
-      >
+        paginatorRight={paginatorRight}>
         {headers.map((item, index) => (
           <Column
             key={index}
@@ -50,8 +49,7 @@ function DatatableComp({ headers, data, span, totals }) {
             header={item.value}
             sortable
             headerClassName="bg-blue-900 text-white text-sm"
-            style={{ width: "10%" }}
-          ></Column>
+            style={{ width: "10%" }}></Column>
         ))}
       </DataTable>
     </div>

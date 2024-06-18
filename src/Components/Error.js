@@ -8,16 +8,14 @@ function Error({ error }) {
       <Result
         status="error"
         title="Aw, Snap!"
-        subTitle="This screen has met with some issues. If you are viewing this message then immediately contact the developer!"
-      >
+        subTitle="This screen has met with some issues. If you are viewing this message then immediately contact the developer!">
         <div className="desc">
           <Paragraph>
             <Text
               strong
               style={{
                 fontSize: 16,
-              }}
-            >
+              }}>
               The content you wanted has the following error(s):
             </Text>
           </Paragraph>

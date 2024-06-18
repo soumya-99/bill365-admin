@@ -139,8 +139,7 @@ function AddDetails() {
               <div class="sm:col-span-2">
                 <label
                   for="i_name"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Item Name
                 </label>
                 <input
@@ -163,8 +162,7 @@ function AddDetails() {
               <div class="w-full">
                 <label
                   for="i_hsn"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   HSN Code
                 </label>
                 <input
@@ -188,8 +186,7 @@ function AddDetails() {
               <div class="w-full">
                 <label
                   for="i_price"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Price
                 </label>
                 <input
@@ -212,8 +209,7 @@ function AddDetails() {
               <div className="sm:col-span-2">
                 <label
                   for="i_cat"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Category
                 </label>
                 <select
@@ -222,8 +218,7 @@ function AddDetails() {
                   value={formik.values.i_cat}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                >
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                   <option selected="">Select category</option>
                   {category?.map((item) => (
                     <option value={item.sl_no}>{item.category_name}</option>
@@ -242,8 +237,7 @@ function AddDetails() {
               <div>
                 <label
                   for="i_unit"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Unit
                 </label>
                 <select
@@ -252,8 +246,7 @@ function AddDetails() {
                   value={formik.values.i_unit}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                >
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                   <option selected="">Select Unit</option>
                   {dataSet?.map((item) => (
                     <option value={item.sl_no}>{item.unit_name}</option>
@@ -272,8 +265,7 @@ function AddDetails() {
               <div>
                 <label
                   for="i_discount"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Discount
                 </label>
                 <input
@@ -296,8 +288,7 @@ function AddDetails() {
               <div class="w-full">
                 <label
                   for="i_cgst"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   CGST
                 </label>
                 <input
@@ -320,8 +311,7 @@ function AddDetails() {
               <div class="w-full">
                 <label
                   for="i_sgst"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   SGST
                 </label>
                 <input
@@ -347,15 +337,13 @@ function AddDetails() {
                 <button
                   type="reset"
                   onClick={formik.handleReset}
-                  className="inline-flex mr-3 bg-white items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-blue-900 border border-blue-900 bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-                >
+                  className="inline-flex mr-3 bg-white items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-blue-900 border border-blue-900 bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                   Reset
                 </button>
               )}
               <button
                 type="submit"
-                className="inline-flex bg-blue-900 items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-              >
+                className="inline-flex bg-blue-900 items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                 Submit
               </button>
             </div>

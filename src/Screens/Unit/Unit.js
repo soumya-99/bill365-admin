@@ -57,8 +57,8 @@ function Unit() {
   useEffect(() => {
     setDataSet(
       response?.data?.msg?.filter((e) =>
-        e.unit_name.toLowerCase().includes(search?.toString().toLowerCase()),
-      ),
+        e.unit_name.toLowerCase().includes(search?.toString().toLowerCase())
+      )
     );
   }, [search]);
   const handleAdd = (data) => {
@@ -146,8 +146,7 @@ function Unit() {
                         class="w-5 h-5 text-gray-500 dark:text-gray-400"
                         fill="currentColor"
                         viewbox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
+                        xmlns="http://www.w3.org/2000/svg">
                         <path
                           fill-rule="evenodd"
                           d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
@@ -169,8 +168,7 @@ function Unit() {
                     <Tooltip title="Add unit">
                       <button
                         onClick={handleClickOpen}
-                        className="sm:block hidden  items-center justify-center text-blue-900 bg-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
-                      >
+                        className="sm:block hidden  items-center justify-center text-blue-900 bg-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
                         <AddIcon /> Add unit
                       </button>
                     </Tooltip>
@@ -203,8 +201,7 @@ function Unit() {
                     minWidth: "10rem",
                     fontSize: "14px",
                     fontFamily: "sans-serif",
-                  }}
-                >
+                  }}>
                   {headers?.map((field) => {
                     return (
                       <Column
@@ -241,8 +238,7 @@ function Unit() {
             console.log(unit);
             handleClose();
           },
-        }}
-      >
+        }}>
         <DialogTitle className="mb-4 text-xl font-bold text-blue-900 dark:text-white">
           Add unit
         </DialogTitle>
@@ -268,8 +264,7 @@ function Unit() {
         <DialogActions>
           <Button
             className="inline-flex mr-3 bg-white items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-blue-900 border border-blue-900 bg-primary-700 rounded-full focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
-            onClick={handleClose}
-          >
+            onClick={handleClose}>
             Cancel
           </Button>
           <Button
@@ -278,8 +273,7 @@ function Unit() {
               handleAdd(unit);
               handleClose();
             }}
-            type="submit"
-          >
+            type="submit">
             Add
           </Button>
         </DialogActions>

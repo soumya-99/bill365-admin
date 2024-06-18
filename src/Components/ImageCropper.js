@@ -12,7 +12,7 @@ function ImageCropper(props) {
       unit: "%",
       width: 30,
       aspect: 16 / 9,
-    },
+    }
   );
 
   const [imageRef, setImageRef] = useState();
@@ -22,7 +22,7 @@ function ImageCropper(props) {
       const croppedImage = await getCroppedImage(
         imageRef,
         crop,
-        "croppedImage.jpeg", // destination filename
+        "croppedImage.jpeg" // destination filename
       );
 
       // calling the props function to expose
@@ -49,7 +49,7 @@ function ImageCropper(props) {
       0,
       0,
       cropConfig.width,
-      cropConfig.height,
+      cropConfig.height
     );
 
     return new Promise((resolve, reject) => {

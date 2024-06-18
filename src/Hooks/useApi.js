@@ -27,7 +27,7 @@ axios_instance.interceptors.request.use(
   },
   function (error) {
     return Promise.reject(error);
-  },
+  }
 );
 
 axios_instance.interceptors.response.use(
@@ -52,7 +52,7 @@ axios_instance.interceptors.response.use(
     }
 
     return Promise.reject(error);
-  },
+  }
 );
 
 /******************************************************************************************* */

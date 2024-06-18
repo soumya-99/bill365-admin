@@ -85,8 +85,7 @@ const DatatableAdv = ({
                     class="w-5 h-5 text-gray-500 dark:text-gray-400"
                     fill="currentColor"
                     viewbox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
+                    xmlns="http://www.w3.org/2000/svg">
                     <path
                       fill-rule="evenodd"
                       d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
@@ -110,8 +109,7 @@ const DatatableAdv = ({
                     <button
                       type="submit"
                       onClick={() => onclick()}
-                      className="sm:block hidden  items-center justify-center text-blue-900 bg-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
-                    >
+                      className="sm:block hidden  items-center justify-center text-blue-900 bg-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
                       <AddIcon /> {btnText}
                     </button>
                   </Tooltip>
@@ -165,8 +163,7 @@ const DatatableAdv = ({
                 header={"Action"}
                 headerClassName="text-blue-900 bg-blue-300"
                 style={{ width: "10%" }}
-                frozen
-              ></Column>
+                frozen></Column>
             )}
             {flag == 2 && (
               <Column
@@ -174,8 +171,7 @@ const DatatableAdv = ({
                 header={"Action"}
                 headerClassName="text-blue-900 bg-blue-300"
                 style={{ width: "10%" }}
-                frozen
-              ></Column>
+                frozen></Column>
             )}
           </DataTable>
         </div>

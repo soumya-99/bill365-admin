@@ -36,7 +36,7 @@ function PasswordComponent({ onPress }) {
           setDisableMsg(
             res.data.suc > 0
               ? ""
-              : "The password you have given does not match with the original one!",
+              : "The password you have given does not match with the original one!"
           );
         });
     }
@@ -86,8 +86,7 @@ function PasswordComponent({ onPress }) {
         <div class="mb-5 relative">
           <label
             for="oldPass"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Old password
           </label>
           <input
@@ -108,8 +107,7 @@ function PasswordComponent({ onPress }) {
         <div class="mb-5">
           <label
             for="password"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             New password
           </label>
           <input
@@ -124,8 +122,7 @@ function PasswordComponent({ onPress }) {
         <div class="mb-5">
           <label
             for="rPass"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Confirm password
           </label>
           <input
@@ -151,8 +148,7 @@ function PasswordComponent({ onPress }) {
           </div>
           <label
             for="remember"
-            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >
+            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             Show Password
           </label>
         </div>
@@ -162,8 +158,7 @@ function PasswordComponent({ onPress }) {
           onClick={() => {
             changePass();
           }}
-          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 disabled:bg-blue-400"
-        >
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 disabled:bg-blue-400">
           {called ? (
             <Spin
               className="text-white"
