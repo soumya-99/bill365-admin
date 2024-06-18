@@ -32,7 +32,7 @@ function Home() {
         {localStorage.getItem("email_id") && <Header />}
         {localStorage.getItem("email_id") && <SidebarComp />}
 
-        <div className="p-6 sm:ml-72 bg-blue-300 min-h-screen ">
+        <div className="p-6 sm:ml-64 bg-blue-300 min-h-screen ">
           <div
             className={
               pathnames.length != 1
