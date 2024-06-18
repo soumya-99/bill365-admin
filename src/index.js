@@ -36,7 +36,6 @@ const Byprod = lazy(() => import("./Screens/Search/Byprod"));
 const SuperAdminComp = lazy(() =>
   import("./Screens/SuperAdmin/SuperAdminComp")
 );
-const ManageUsers = lazy(() => import("./Screens/SuperAdmin/ManageUsers"));
 const ManageOutlets = lazy(() => import("./Screens/SuperAdmin/ManageOutlets"));
 const ManageShopsComp = lazy(() =>
   import("./Screens/SuperAdmin/ManageShops/ManageShopsComp")
@@ -49,6 +48,15 @@ const ManageShopsAddEdit = lazy(() =>
 );
 const ManageLocations = lazy(() =>
   import("./Screens/SuperAdmin/ManageLocations")
+);
+const ManageUsersComp = lazy(() =>
+  import("./Screens/SuperAdmin/ManageUsers/ManageUsersComp")
+);
+const ManageUsersView = lazy(() =>
+  import("./Screens/SuperAdmin/ManageUsers/ManageUsersView")
+);
+const ManageUsersAddEdit = lazy(() =>
+  import("./Screens/SuperAdmin/ManageUsers/ManageUsersAddEdit")
 );
 const Settings = lazy(() => import("./Screens/Settings/Settings"));
 const Unit = lazy(() => import("./Screens/Unit/Unit"));
@@ -215,7 +223,17 @@ const router = createBrowserRouter([
               },
               {
                 path: "manageusers",
-                element: <ManageUsers />,
+                element: <ManageUsersComp />,
+                children: [
+                  {
+                    path: "view",
+                    element: <ManageUsersView />,
+                  },
+                  {
+                    path: "manageuser/:id",
+                    element: <ManageUsersAddEdit />,
+                  },
+                ],
               },
               {
                 path: "managelocations",

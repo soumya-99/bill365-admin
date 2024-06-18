@@ -5,7 +5,7 @@ import { Message } from "../../../Components/Message";
 import useAPI from "../../../Hooks/useApi";
 import HeaderLayout from "../../../Components/HeaderLayout";
 
-function ManageShopsView() {
+function ManageUsersView() {
   const navigation = useNavigate();
   const [called, setCalled] = useState(false);
   const { response, callApi } = useAPI();
@@ -34,26 +34,22 @@ function ManageShopsView() {
 
   useEffect(() => {
     // comp = localStorage.getItem("comp_id");
-    callApi(`/admin/S_Admin/select_shop?id=${0}`, 0);
+    callApi(`/admin/S_Admin/select_user?id=${0}`, 0);
   }, []);
 
   const onPress = (data) => {
     console.log(data);
-    navigation("/home/superadmin/manageshops/manageshop/" + data.id);
+    navigation("/home/superadmin/manageusers/manageuser/" + data.id);
   };
 
   useEffect(() => {
     setDataSet(
       response?.data?.msg?.filter(
         (e) =>
-          e.company_name
+          e.user_name
             .toLowerCase()
             .includes(search?.toString().toLowerCase()) ||
-          e.phone_no
-            ?.toString()
-            .toLowerCase()
-            .includes(search?.toString().toLowerCase()) ||
-          e.email_id
+          e.user_id
             ?.toString()
             .toLowerCase()
             .includes(search?.toString().toLowerCase())
@@ -63,8 +59,8 @@ function ManageShopsView() {
   return (
     <div className="py-1 w-full ">
       <HeaderLayout
-        title={"Manage Shops"}
-        btnText={"Add shop"}
+        title={"Manage Users"}
+        btnText={"Add User"}
         onPress={() => onPress({ id: 0 })}
       />
       <section class="bg-gray-50 dark:bg-gray-900 p-3 ">
@@ -74,17 +70,18 @@ function ManageShopsView() {
               <DatatableAdv
                 onPress={(data) => onPress(data)}
                 setSearch={(val) => setSearch(val)}
-                title={"Manage Shops"}
-                btnText={"Add Shop"}
+                title={"Manage Users"}
+                btnText={"Add User"}
                 onclick={() => onPress({ id: 0 })}
                 flag={1}
                 headers={[
                   { name: "id", value: "#" },
-                  { name: "company_name", value: "Company" },
-                  { name: "phone_no", value: "Phone No." },
-                  { name: "email_id", value: "Email" },
+                  { name: "comp_id", value: "Company ID" },
+                  { name: "br_id", value: "Branch ID" },
+                  { name: "user_name", value: "User" },
+                  { name: "user_id", value: "User ID" },
                   { name: "active_flag", value: "Active Flag" },
-                  { name: "max_user", value: "Max User" },
+                  { name: "login_flag", value: "Login Flag" },
                 ]}
                 data={dataSet}
               />
@@ -97,4 +94,4 @@ function ManageShopsView() {
   );
 }
 
-export default ManageShopsView;
+export default ManageUsersView;
