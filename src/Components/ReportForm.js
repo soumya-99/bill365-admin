@@ -164,8 +164,10 @@ function ReportForm({ title, onPress, flag, outlet }) {
               >
                 <option selected>Select outlet</option>
                 <option value="0">All outlets</option>
-                {outlet?.map((item) => (
-                  <option value={item?.id}>{item?.branch_name}</option>
+                {outlet?.map((item, i) => (
+                  <option key={i} value={item?.id}>
+                    {item?.branch_name}
+                  </option>
                 ))}
               </select>
               {formik.errors.outlet && formik.touched.outlet ? (
