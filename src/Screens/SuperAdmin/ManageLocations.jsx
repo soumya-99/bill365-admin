@@ -50,11 +50,13 @@ function ManageLocations() {
       }
     }
   }, [response]);
+
   useEffect(() => {
     // comp = localStorage.getItem("comp_id");
     callApi("/admin/S_Admin/select_location", 0);
     // setDataSet(response?.data?.msg)
   }, [isCalled]);
+
   useEffect(() => {
     setDataSet(
       response?.data?.msg?.filter((e) =>
@@ -62,6 +64,7 @@ function ManageLocations() {
       )
     );
   }, [search]);
+
   const handleAdd = (data) => {
     userId = localStorage.getItem("user_id");
     setCalled(true);
@@ -74,10 +77,12 @@ function ManageLocations() {
     else Message("error", "Unit is required!");
     // callApi('/admin/unit_list',1,{comp_id:+comp});
   };
+
   var headers = [
     { id: "sl_no", name: "#" },
     { id: "location_name", name: "Location" },
   ];
+
   const onCellEditComplete = (e) => {
     let { rowData, newValue, field, originalEvent: event, value } = e;
     console.log(e.rowData);
@@ -119,6 +124,7 @@ function ManageLocations() {
       />
     );
   };
+  
   return (
     <div className="py-1 w-full">
       <HeaderLayout

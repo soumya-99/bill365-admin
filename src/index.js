@@ -38,7 +38,15 @@ const SuperAdminComp = lazy(() =>
 );
 const ManageUsers = lazy(() => import("./Screens/SuperAdmin/ManageUsers"));
 const ManageOutlets = lazy(() => import("./Screens/SuperAdmin/ManageOutlets"));
-const ManageShops = lazy(() => import("./Screens/SuperAdmin/ManageShops"));
+const ManageShopsComp = lazy(() =>
+  import("./Screens/SuperAdmin/ManageShops/ManageShopsComp")
+);
+const ManageShopsView = lazy(() =>
+  import("./Screens/SuperAdmin/ManageShops/ManageShopsView")
+);
+const ManageShopsAddEdit = lazy(() =>
+  import("./Screens/SuperAdmin/ManageShops/ManageShopsAddEdit")
+);
 const ManageLocations = lazy(() =>
   import("./Screens/SuperAdmin/ManageLocations")
 );
@@ -189,7 +197,17 @@ const router = createBrowserRouter([
             children: [
               {
                 path: "manageshops",
-                element: <ManageShops />,
+                element: <ManageShopsComp />,
+                children: [
+                  {
+                    path: "view",
+                    element: <ManageShopsView />,
+                  },
+                  {
+                    path: "manageshop/:id",
+                    element: <ManageShopsAddEdit />,
+                  },
+                ],
               },
               {
                 path: "manageoutlets",
