@@ -15,6 +15,9 @@ import { Democontext, loadingContext } from "./Context/Democontext";
 import Loader from "./Components/Loader";
 import Noresult from "./Screens/Noresult/Noresult";
 import Bill from "./Screens/Bill/Bill";
+import RecoveryReport from "./Screens/Reports/RecoveryReport";
+import DueReport from "./Screens/Reports/DueReport";
+import CustomerLedger from "./Screens/Reports/CustomerLedger";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const Auth = lazy(() => import("./Screens/Auth/Auth"));
 const Signin = lazy(() => import("./Screens/Auth/Signin"));
@@ -168,10 +171,21 @@ const router = createBrowserRouter([
                 path: "daybook",
                 element: <DaybookReport />,
               },
-              ,
               {
                 path: "cancelbill",
                 element: <CancelBillReport />,
+              },
+              {
+                path: "recoveryreport",
+                element: <RecoveryReport />,
+              },
+              {
+                path: "duereport",
+                element: <DueReport />,
+              },
+              {
+                path: "customerledger",
+                element: <CustomerLedger />,
               },
             ],
           },

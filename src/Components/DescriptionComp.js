@@ -179,10 +179,18 @@ function DescriptionComp({
         <div className="mt-10 my-5 w-full ">
           <Descriptions
             title={
-              <div className="text-blue-900 font-bold">
-                {title} from {moment(from).format("DD/MM/YYYY")} to{" "}
-                {moment(to).format("DD/MM/YYYY")}
-              </div>
+              from && to ? (
+                <div className="text-blue-900 font-bold">
+                  {title} from {moment(from).format("DD/MM/YYYY")} to{" "}
+                  {moment(to).format("DD/MM/YYYY")}
+                </div>
+              ) : from && !to ? (
+                <div className="text-blue-900 font-bold">
+                  {title} on {moment(from).format("DD/MM/YYYY")}{" "}
+                </div>
+              ) : (
+                <div className="text-blue-900 font-bold">{title}</div>
+              )
             }
             items={item}
           />

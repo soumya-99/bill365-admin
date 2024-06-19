@@ -76,4 +76,35 @@ export const reportHeaders = {
     ],
     span: 1,
   },
+  recoveryreport: {
+    title: "Recovery Report",
+    headers: [
+      { name: "cust_name", value: "Customer Name" },
+      { name: "phone_no", value: "Phone No." },
+      { name: "recover_dt", value: "Date" },
+      { name: "recovery_amt", value: "Recovery Amount" },
+    ],
+    span: 3,
+  },
+  duereport: {
+    title: "Due Report",
+    headers: [
+      { name: "cust_name", value: "Customer Name" },
+      { name: "phone_no", value: "Phone No." },
+      { name: "due_amt", value: "Due Amount" },
+    ],
+    span: 2,
+  },
+  customerledger: {
+    title: "Customer Ledger",
+    headers: [
+      { name: "cust_name", value: "Customer Name" },
+      { name: "phone_no", value: "Phone No." },
+      { name: "recover_dt", value: "Date" },
+      { name: "paid_amt", value: "Paid Amount" },
+      { name: "due_amt", value: "Due Amount" },
+      { name: "balance", value: "Balance Amount" },
+    ],
+    span: 3,
+  },
 };

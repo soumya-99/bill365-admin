@@ -11,6 +11,10 @@ export function calculate(data, flag) {
     no_of_bills = 0,
     initpay = 0,
     can_amt = 0,
+    rec_amt = 0,
+    due_amt = 0,
+    paid_amt = 0,
+    balance = 0,
     rcpt = 0;
 
   if (flag == "salereport") {
@@ -67,6 +71,20 @@ export function calculate(data, flag) {
     data?.forEach((e) => (rcpt += e.no_of_rcpt));
 
     totals.push(rcpt, initpay.toFixed(2), can_amt.toFixed(2));
+  } else if (flag == "recoveryreport") {
+    data?.forEach((e) => (rec_amt += e.recovery_amt));
+
+    totals.push(rec_amt.toFixed(2));
+  } else if (flag == "duereport") {
+    data?.forEach((e) => (due_amt += e.due_amt));
+
+    totals.push(due_amt.toFixed(2));
+  } else if (flag == "customerledger") {
+    data?.forEach((e) => (paid_amt += e.paid_amt));
+    data?.forEach((e) => (due_amt += e.due_amt));
+    data?.forEach((e) => (balance += e.balance));
+
+    totals.push(paid_amt.toFixed(2), due_amt.toFixed(2), balance.toFixed(2));
   }
 
   return totals;
