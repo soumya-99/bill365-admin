@@ -24,7 +24,7 @@ function ManageShopsAddEdit() {
   useEffect(() => {
     console.log(params);
     comp = localStorage.getItem("comp_id");
-    if (params.id > 0) callApi(`/admin/S_Admin/select_shop?id=${params.id}`, 0);
+    if (params.id > 0) callApi(`/admin/S_Admin/select_user?id=${params.id}`, 0);
     // setDataSet(response?.data?.msg)
   }, [isCalled]);
 
@@ -33,13 +33,17 @@ function ManageShopsAddEdit() {
     if (Array.isArray(response?.data?.msg)) {
       console.log(response);
       const rsp = {
-        sh_company_name: response?.data?.msg[0].company_name,
-        sh_address: response?.data?.msg[0].address,
-        sh_phone_no: response?.data?.msg[0].phone_no,
-        sh_email_id: response?.data?.msg[0].email_id,
-        sh_active_flag: response?.data?.msg[0].active_flag,
-        sh_max_user: response?.data?.msg[0].max_user,
-        sh_web_portal: response?.data?.msg[0].web_portal,
+        u_comp_id: +response?.data?.msg[0].comp_id,
+        u_br_id: +response?.data?.msg[0].br_id,
+        u_user_name: response?.data?.msg[0].user_name,
+        u_user_type: response?.data?.msg[0].user_type,
+        u_user_id: response?.data?.msg[0].user_id,
+        u_phone_no: +response?.data?.msg[0].phone_no,
+        u_email_id: response?.data?.msg[0].email_id,
+        u_password: response?.data?.msg[0].password,
+        u_active_flag: response?.data?.msg[0].active_flag,
+        u_login_flag: response?.data?.msg[0].login_flag,
+        u_created_by: response?.data?.msg[0].created_by,
       };
       setValues(rsp);
       //  setBill(response?.data?.msg[0].bill_address)
@@ -61,27 +65,19 @@ function ManageShopsAddEdit() {
   }, [response]);
 
   const initialValues = {
-    sh_company_name: "",
-    sh_address: "",
-    sh_phone_no: "",
-    sh_email_id: "",
-    sh_active_flag: "",
-    sh_max_user: "",
-    sh_web_portal: "",
-
     // "id": 0,
-    // "comp_id": 0,
-    // "br_id": 0,
-    // "user_name": "string",
-    // "user_type": "string",
-    // "user_id": "string",
-    // "phone_no": 0,
-    // "email_id": "string",
-    // "device_id": "string",
-    // "password": "string",
-    // "active_flag": "string",
-    // "login_flag": "string",
-    // "created_by": "string"
+    u_comp_id: "",
+    u_br_id: "",
+    u_user_name: "",
+    u_user_type: "",
+    u_user_id: "",
+    u_phone_no: "",
+    u_email_id: "",
+    // device_id: string,
+    u_password: "",
+    u_active_flag: "",
+    u_login_flag: "",
+    u_created_by: "",
   };
 
   const onSubmit = (values) => {
@@ -90,18 +86,19 @@ function ManageShopsAddEdit() {
     // comp = localStorage.getItem("comp_id");
     userId = localStorage.getItem("user_id");
     callApi("/admin/S_Admin/add_edit_user", 1, {
-      //   id: +params.id,
-      //   company_name: values?.sh_company_name,
-      //   address: values?.sh_company_name,
-      //   location: 0,
-      //   contact_person: "",
-      //   phone_no: values?.sh_phone_no,
-      //   email_id: values?.sh_email_id,
-      //   logo: "",
-      //   web_portal: values?.sh_web_portal,
-      //   active_flag: values?.sh_active_flag,
-      //   max_user: +values?.sh_max_user,
-      //   user_id: userId,
+      id: +params.id,
+      comp_id: +values?.u_comp_id,
+      br_id: +values?.u_br_id,
+      user_name: values?.u_user_name,
+      user_type: values?.u_user_type,
+      user_id: userId,
+      phone_no: +values?.u_phone_no,
+      email_id: values?.u_email_id,
+      device_id: "",
+      password: values?.u_password,
+      active_flag: values?.u_active_flag,
+      login_flag: values?.u_login_flag,
+      created_by: values?.u_created_by,
     });
   };
 
@@ -113,6 +110,18 @@ function ManageShopsAddEdit() {
     sh_active_flag: Yup.string().required("Active Flag is required."),
     sh_max_user: Yup.number().min(0).max(20).required("Max user is required."),
     sh_web_portal: Yup.string().required("Web Portal is required."),
+
+    u_comp_id: Yup.string().required("Company ID is required."),
+    u_br_id: Yup.string().required("Branch ID is required."),
+    u_user_name: Yup.string().required("Company Name is required."),
+    u_user_type: Yup.string().required("Company Name is required."),
+    u_user_id: Yup.string().required("Company Name is required."),
+    u_phone_no: Yup.string().required("Company Name is required."),
+    u_email_id: Yup.string().required("Company Name is required."),
+    u_password: Yup.string().required("Company Name is required."),
+    u_active_flag: Yup.string().required("Company Name is required."),
+    u_login_flag: Yup.string().required("Company Name is required."),
+    u_created_by: Yup.string().required("Company Name is required."),
   });
 
   const [formValues, setValues] = useState(initialValues);

@@ -79,7 +79,7 @@ function ManageUsersView() {
                   { name: "comp_id", value: "Company ID" },
                   { name: "br_id", value: "Branch ID" },
                   { name: "user_name", value: "User" },
-                  { name: "user_id", value: "User ID" },
+                  { name: "user_type", value: "User Type" },
                   { name: "active_flag", value: "Active Flag" },
                   { name: "login_flag", value: "Login Flag" },
                 ]}
