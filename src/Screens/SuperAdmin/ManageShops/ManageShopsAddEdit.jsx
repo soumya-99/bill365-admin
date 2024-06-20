@@ -3,9 +3,11 @@ import { useParams, useNavigate } from "react-router";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import useAPI from "../../../Hooks/useApi";
-import { Message } from "@mui/icons-material";
+import { Message } from "../../../Components/Message";
 import { DurationMessage } from "../../../Components/DurationMessage";
 import Backbtn from "../../../Components/Backbtn";
+import axios from "axios";
+import { url } from "../../../Address/baseURL";
 
 function ManageShopsAddEdit() {
   const params = useParams();
@@ -18,6 +20,7 @@ function ManageShopsAddEdit() {
   const [dataSet, setDataSet] = useState();
   const [c_del, setDel] = useState("");
   const [c_bill, setBill] = useState("");
+  const [locations, setLocations] = useState(() => []);
 
   var comp, userId;
 
@@ -27,6 +30,19 @@ function ManageShopsAddEdit() {
     if (params.id > 0) callApi(`/admin/S_Admin/select_shop?id=${params.id}`, 0);
     // setDataSet(response?.data?.msg)
   }, [isCalled]);
+
+  useEffect(() => {
+    // callApi(`/admin/S_Admin/select_location`, 0);
+    axios
+      .get(`${url}/admin/S_Admin/select_location`)
+      .then((res) => {
+        setLocations(res?.data?.msg);
+        console.log(res);
+      })
+      .catch((err) => {
+        Message("error", err);
+      });
+  }, []);
 
   useEffect(() => {
     console.log(response, Array.isArray(response?.data?.msg));
@@ -65,6 +81,7 @@ function ManageShopsAddEdit() {
     sh_address: "",
     sh_phone_no: "",
     sh_email_id: "",
+    sh_location: "",
     sh_active_flag: "",
     sh_max_user: "",
     sh_web_portal: "",
@@ -79,7 +96,7 @@ function ManageShopsAddEdit() {
       id: +params.id,
       company_name: values?.sh_company_name,
       address: values?.sh_company_name,
-      location: 0,
+      location: values?.sh_location,
       contact_person: "",
       phone_no: values?.sh_phone_no,
       email_id: values?.sh_email_id,
@@ -94,6 +111,7 @@ function ManageShopsAddEdit() {
   const validationSchema = Yup.object({
     sh_company_name: Yup.string().required("Company Name is required."),
     sh_address: Yup.string().required("Company Address is required."),
+    sh_location: Yup.string().required("Location is required."),
     sh_phone_no: Yup.string().required("Phone no. is required."),
     sh_email_id: Yup.string().required("Email is required."),
     sh_active_flag: Yup.string().required("Active Flag is required."),
@@ -121,7 +139,7 @@ function ManageShopsAddEdit() {
           </h2>
           <form onSubmit={formik.handleSubmit}>
             <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
-              <div>
+              <div className="sm:col-span-2">
                 <label
                   for="sh_company_name"
                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -147,7 +165,7 @@ function ManageShopsAddEdit() {
               </div>
               <div>
                 <label
-                  for="sh_active_flag"
+                  for="sh_web_portal"
                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Web Portal
                 </label>
@@ -165,6 +183,34 @@ function ManageShopsAddEdit() {
                 {formik.errors.sh_web_portal && formik.touched.sh_web_portal ? (
                   <div className="text-red-500 text-sm">
                     {formik.errors.sh_web_portal}
+                  </div>
+                ) : null}
+              </div>
+              <div>
+                <label
+                  for="sh_location"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  Location
+                </label>
+                <select
+                  id="sh_location"
+                  name="sh_location"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.sh_location}>
+                  <option selected="">Select Location</option>
+                  {locations?.map((item, i) => (
+                    <option key={i} value={item?.sl_no}>
+                      {item?.location_name}
+                    </option>
+                  ))}
+                  {/* <option value="Y">Yes</option>
+                  <option value="N">No</option> */}
+                </select>
+                {formik.errors.sh_location && formik.touched.sh_location ? (
+                  <div className="text-red-500 text-sm">
+                    {formik.errors.sh_location}
                   </div>
                 ) : null}
               </div>
