@@ -25,6 +25,7 @@ import {
   UsergroupAddOutlined,
   UserOutlined,
   GlobalOutlined,
+  AccountBookOutlined
 } from "@ant-design/icons";
 import { Divider, Menu, Switch } from "antd";
 import IMG from "../Assets/Images/mainlogo.png";
@@ -199,7 +200,7 @@ function SidebarComp() {
         {
           key: "81",
           icon: (
-            <UserSwitchOutlined
+            <ProfileOutlined
               className={
                 location.pathname.includes("report/recoveryreport")
                   ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
@@ -221,7 +222,7 @@ function SidebarComp() {
         {
           key: "82",
           icon: (
-            <UserSwitchOutlined
+            <MoneyCollectOutlined
               className={
                 location.pathname.includes("report/duereport")
                   ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
