@@ -1,10 +1,10 @@
 import { Switch } from "antd";
 import React, { useEffect, useState } from "react";
-import useAPI from "../../Hooks/useApi";
-import { DurationMessage } from "../../Components/DurationMessage";
-import { Message } from "../../Components/Message";
+import useAPI from "../../../Hooks/useApi";
+import { DurationMessage } from "../../../Components/DurationMessage";
+import { Message } from "../../../Components/Message";
 import { useNavigate } from "react-router-dom";
-import Backbtn from "../../Components/Backbtn";
+import Backbtn from "../../../Components/Backbtn";
 
 function HeaderFooterEdit() {
   const { response, callApi } = useAPI();
@@ -44,7 +44,7 @@ function HeaderFooterEdit() {
           setCalled(false);
           DurationMessage();
           setTimeout(() => {
-            navigation("/home/headerfooter/view");
+            navigation("/home/settings/headerfooter/view");
           }, 4500);
         }
         // setDataSet(response?.data?.msg)

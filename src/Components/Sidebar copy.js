@@ -346,66 +346,6 @@ function SidebarComp() {
         },
       ],
     },
-    // settings
-    {
-      key: "sub3",
-      label: "Settings",
-      icon: (
-        <FileSearchOutlined
-          className={
-            location.pathname.includes("settings")
-              ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-              : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-          }
-        />
-      ),
-      children: [
-        {
-          key: "settingsmain",
-          icon: (
-            <SettingOutlined
-              className={
-                location.pathname.includes("settings/settingsmain")
-                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-              }
-            />
-          ),
-          label: (
-            <div
-              className={
-                location.pathname.includes("settings/settingsmain")
-                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-              }>
-              <Link to={"settings/settingsmain"}>Settings Main</Link>
-            </div>
-          ),
-        },
-        {
-          key: "headerfooter",
-          icon: (
-            <PhoneOutlined
-              className={
-                location.pathname.includes("settings/headerfooter")
-                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-              }
-            />
-          ),
-          label: (
-            <div
-              className={
-                location.pathname.includes("settings/headerfooter/view")
-                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-              }>
-              <Link to={"settings/headerfooter/view"}>Header/Footer</Link>
-            </div>
-          ),
-        },
-      ],
-    },
     // {
     //   key: "sub3",
     //   label: "Super Admin",
@@ -531,29 +471,29 @@ function SidebarComp() {
         </div>
       ),
     },
+    {
+      key: "settings",
+      icon: (
+        <SettingOutlined
+          className={
+            location.pathname.includes("settings")
+              ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+              : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+          }
+        />
+      ),
+      label: (
+        <div
+          className={
+            location.pathname.includes("settings")
+              ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+              : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+          }>
+          <Link to={"settings"}>Settings</Link>
+        </div>
+      ),
+    },
     ,
-    // {
-    //   key: "settings",
-    //   icon: (
-    //     <SettingOutlined
-    //       className={
-    //         location.pathname.includes("settings")
-    //           ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-    //           : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-    //       }
-    //     />
-    //   ),
-    //   label: (
-    //     <div
-    //       className={
-    //         location.pathname.includes("settings")
-    //           ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-    //           : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-    //       }>
-    //       <Link to={"settings"}>Settings</Link>
-    //     </div>
-    //   ),
-    // },
     {
       key: "unit",
       icon: (
@@ -599,28 +539,28 @@ function SidebarComp() {
         </div>
       ),
     },
-    // {
-    //   key: "headerfooter",
-    //   icon: (
-    //     <AlignCenterOutlined
-    //       className={
-    //         location.pathname.includes("headerfooter")
-    //           ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-    //           : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-    //       }
-    //     />
-    //   ),
-    //   label: (
-    //     <div
-    //       className={
-    //         location.pathname.includes("headerfooter")
-    //           ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-    //           : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-    //       }>
-    //       <Link to={"headerfooter/view"}>Header/Footer</Link>
-    //     </div>
-    //   ),
-    // },
+    {
+      key: "headerfooter",
+      icon: (
+        <AlignCenterOutlined
+          className={
+            location.pathname.includes("headerfooter")
+              ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+              : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+          }
+        />
+      ),
+      label: (
+        <div
+          className={
+            location.pathname.includes("headerfooter")
+              ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+              : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+          }>
+          <Link to={"headerfooter/view"}>Header/Footer</Link>
+        </div>
+      ),
+    },
     {
       key: "stock",
       icon: (

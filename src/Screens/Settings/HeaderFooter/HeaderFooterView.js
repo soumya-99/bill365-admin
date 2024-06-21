@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Badge, Descriptions } from "antd";
 import { DescriptionsProps } from "antd";
-import useAPI from "../../Hooks/useApi";
+import useAPI from "../../../Hooks/useApi";
 import DoneIcon from "@mui/icons-material/Done";
 import CloseIcon from "@mui/icons-material/Close";
 import EditIcon from "@mui/icons-material/Edit";
@@ -79,7 +79,9 @@ function HeaderFooterView() {
           <Tooltip title="View and edit">
             <button
               type="submit"
-              onClick={() => navigation("/home/headerfooter/hfdetails")}
+              onClick={() =>
+                navigation("/home/settings/headerfooter/hfdetails")
+              }
               className="absolute right-12 bg-blue-900 items-center justify-center  text-sm font-medium text-center text-white bg-primary-700 rounded-full h-10 w-10  focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
               <EditIcon />
             </button>

@@ -15,9 +15,10 @@ import { Democontext, loadingContext } from "./Context/Democontext";
 import Loader from "./Components/Loader";
 import Noresult from "./Screens/Noresult/Noresult";
 import Bill from "./Screens/Bill/Bill";
-import RecoveryReport from "./Screens/Reports/RecoveryReport";
-import DueReport from "./Screens/Reports/DueReport";
-import CustomerLedger from "./Screens/Reports/CustomerLedger";
+import SettingsComp from "./Screens/Settings/SettingsComp";
+// import RecoveryReport from "./Screens/Reports/RecoveryReport";
+// import DueReport from "./Screens/Reports/DueReport";
+// import CustomerLedger from "./Screens/Reports/CustomerLedger";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const Auth = lazy(() => import("./Screens/Auth/Auth"));
 const Signin = lazy(() => import("./Screens/Auth/Signin"));
@@ -32,6 +33,14 @@ const Gststatement = lazy(() => import("./Screens/Reports/Gststatement"));
 const Gstsummary = lazy(() => import("./Screens/Reports/Gstsummary"));
 const RefundReport = lazy(() => import("./Screens/Reports/RefundReport"));
 const CreditReport = lazy(() => import("./Screens/Reports/CreditReport"));
+
+// import RecoveryReport from "./Screens/Reports/RecoveryReport";
+// import DueReport from "./Screens/Reports/DueReport";
+// import CustomerLedger from "./Screens/Reports/CustomerLedger";
+const RecoveryReport = lazy(() => import("./Screens/Reports/RecoveryReport"));
+const DueReport = lazy(() => import("./Screens/Reports/DueReport"));
+const CustomerLedger = lazy(() => import("./Screens/Reports/CustomerLedger"));
+
 const SearchComp = lazy(() => import("./Screens/Search/SearchComp"));
 const Bydata = lazy(() => import("./Screens/Search/Bydata"));
 const Byphone = lazy(() => import("./Screens/Search/Byphone"));
@@ -70,13 +79,13 @@ const ItemDetailsView = lazy(() =>
 const AddDetails = lazy(() => import("./Screens/Item Details/AddDetails"));
 const PrintBill = lazy(() => import("./Screens/Search/PrintBill"));
 const HeaderFooterComp = lazy(() =>
-  import("./Screens/HeaderFooter/HeaderFooterComp")
+  import("./Screens/Settings/HeaderFooter/HeaderFooterComp")
 );
 const HeaderFooterView = lazy(() =>
-  import("./Screens/HeaderFooter/HeaderFooterView")
+  import("./Screens/Settings/HeaderFooter/HeaderFooterView")
 );
 const HeaderFooterEdit = lazy(() =>
-  import("./Screens/HeaderFooter/HeaderFooterEdit")
+  import("./Screens/Settings/HeaderFooter/HeaderFooterEdit")
 );
 const CustomerComp = lazy(() => import("./Screens/Customer/CustomerComp"));
 const CustomerView = lazy(() => import("./Screens/Customer/CustomerView"));
@@ -270,21 +279,21 @@ const router = createBrowserRouter([
               },
             ],
           },
-          {
-            path: "headerfooter",
+          // {
+          //   path: "headerfooter",
 
-            element: <HeaderFooterComp />,
-            children: [
-              {
-                path: "view",
-                element: <HeaderFooterView />,
-              },
-              {
-                path: "hfdetails",
-                element: <HeaderFooterEdit />,
-              },
-            ],
-          },
+          //   element: <HeaderFooterComp />,
+          //   children: [
+          //     {
+          //       path: "view",
+          //       element: <HeaderFooterView />,
+          //     },
+          //     {
+          //       path: "hfdetails",
+          //       element: <HeaderFooterEdit />,
+          //     },
+          //   ],
+          // },
           {
             path: "customer",
 
@@ -330,9 +339,35 @@ const router = createBrowserRouter([
               },
             ],
           },
+          // {
+          //   path: "settings",
+          //   element: <Settings />,
+          // },
           {
             path: "settings",
-            element: <Settings />,
+
+            element: <SettingsComp />,
+            children: [
+              {
+                path: "settingsmain",
+                element: <Settings />,
+              },
+              {
+                path: "headerfooter",
+
+                element: <HeaderFooterComp />,
+                children: [
+                  {
+                    path: "view",
+                    element: <HeaderFooterView />,
+                  },
+                  {
+                    path: "hfdetails",
+                    element: <HeaderFooterEdit />,
+                  },
+                ],
+              },
+            ],
           },
           {
             path: "unit",
