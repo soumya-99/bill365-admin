@@ -53,7 +53,7 @@ function UserView() {
     callApi("/admin/user_list", 1, { comp_id: +comp, br_id: 0 });
   }, [called]);
   const onPress = () => {
-    navigation("/home/usermng/usermngadd");
+    navigation("/home/manage/usermng/usermngadd");
   };
 
   const onPageChange = (event) => {
@@ -108,10 +108,14 @@ function UserView() {
                     />
                   </div>
                   <div class="w-full md:w-auto sm:block flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
-                    {/* <Tooltip title="Add user">
-      <button type="submit" onClick={()=>onPress({sl_no:0})} className="sm:block hidden  items-center justify-center text-blue-900 bg-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
-          <AddIcon/> Add user
-       </button></Tooltip> */}
+                    <Tooltip title="Add user">
+                      <button
+                        type="submit"
+                        onClick={() => onPress({ sl_no: 0 })}
+                        className="sm:block hidden  items-center justify-center text-blue-900 bg-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
+                        <AddIcon /> Add user
+                      </button>
+                    </Tooltip>
                   </div>
                 </div>
               </div>

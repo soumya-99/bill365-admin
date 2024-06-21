@@ -12,7 +12,7 @@ function AddUser() {
   const navigation = useNavigate();
   const [isCalled, setCalled] = useState(false);
   const [dataSet, setDataSet] = useState();
-  var comp;
+  var comp, userId;
   useEffect(() => {
     // axios.post('http://192.168.1.238:3005/admin/outlet_list',{comp_id:+localStorage.getItem('comp_id'),}).then(resp=>{console.log(resp); setDataSet(resp?.data?.msg)})
 
@@ -44,7 +44,7 @@ function AddUser() {
     u_name: "",
     u_email: "",
     u_type: "",
-    u_branch: "",
+    u_br_id: "",
     u_phone: "",
   };
 
@@ -52,15 +52,18 @@ function AddUser() {
     setCalled(true);
     console.log(values);
     comp = localStorage.getItem("comp_id");
+    userId = localStorage.getItem("user_id");
     callApi("/admin/add_user", 1, {
       comp_id: +comp,
-      br_id: +values.u_branch,
+      br_id: +values.u_br_id,
       user_name: values.u_name,
       phone_no: values.u_phone.toString(),
       email_id: values.u_email,
       user_type: values.u_type,
-      active_flag: "N",
+      active_flag: "Y",
       login_flag: "N",
+      device_id: "",
+      created_by: userId,
     });
     formik.handleReset();
   };
@@ -72,7 +75,7 @@ function AddUser() {
       .required("Email is required")
       .email("Email format incorrect"),
     u_type: Yup.string().required("Type is required"),
-    u_branch: Yup.string().required("Branch is required"),
+    u_br_id: Yup.string().required("Branch is required"),
   });
   const formik = useFormik({
     initialValues,
@@ -185,13 +188,13 @@ function AddUser() {
               </div>
               <div>
                 <label
-                  for="u_branch"
+                  for="u_br_id"
                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Branch
                 </label>
                 <select
-                  id="u_branch"
-                  value={formik.values.u_branch}
+                  id="u_br_id"
+                  value={formik.values.u_br_id}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
@@ -200,9 +203,9 @@ function AddUser() {
                     <option value={item.id}>{item.branch_name}</option>
                   ))}
                 </select>
-                {formik.errors.u_branch && formik.touched.u_branch ? (
+                {formik.errors.u_br_id && formik.touched.u_br_id ? (
                   <div className="text-red-500 text-sm">
-                    {formik.errors.u_branch}
+                    {formik.errors.u_br_id}
                   </div>
                 ) : null}
               </div>
