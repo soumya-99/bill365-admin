@@ -39,6 +39,7 @@ export const pathMap = {
   usermngadd: "Add users",
   master: "Master",
   manage: "Manage",
+  settingsmain: "Settings Master",
   printbill: "Print",
   stock: "Stock",
   stockedit: "Edit stock",

@@ -1,15 +1,15 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import useAPI from "../../Hooks/useApi";
+import useAPI from "../../../Hooks/useApi";
 import Cropper from "react-easy-crop";
 import "./styles.css";
 
 import { Dialog } from "primereact/dialog";
-import getCroppedImg from "../../Components/cropImage";
-import { Message } from "../../Components/Message";
+import getCroppedImg from "../../../Components/cropImage";
+import { Message } from "../../../Components/Message";
 import { Image } from "antd";
-import Backbtn from "../../Components/Backbtn";
-import { url } from "../../Address/baseURL";
+import Backbtn from "../../../Components/Backbtn";
+import { url } from "../../../Address/baseURL";
 
 const CROP_AREA_ASPECT = 1 / 1;
 

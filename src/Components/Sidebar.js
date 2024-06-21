@@ -351,7 +351,7 @@ function SidebarComp() {
       key: "sub3",
       label: "Settings",
       icon: (
-        <FileSearchOutlined
+        <SettingOutlined
           className={
             location.pathname.includes("settings")
               ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
@@ -378,14 +378,14 @@ function SidebarComp() {
                   ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
                   : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
               }>
-              <Link to={"settings/settingsmain"}>Settings Main</Link>
+              <Link to={"settings/settingsmain"}>Settings Master</Link>
             </div>
           ),
         },
         {
           key: "headerfooter",
           icon: (
-            <PhoneOutlined
+            <AlignCenterOutlined
               className={
                 location.pathname.includes("settings/headerfooter")
                   ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
@@ -410,7 +410,7 @@ function SidebarComp() {
       key: "sub4",
       label: "Master",
       icon: (
-        <FileSearchOutlined
+        <ProfileOutlined
           className={
             location.pathname.includes("master")
               ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
@@ -442,9 +442,31 @@ function SidebarComp() {
           ),
         },
         {
+          key: "category",
+          icon: (
+            <AppstoreOutlined
+              className={
+                location.pathname.includes("master/category")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }
+            />
+          ),
+          label: (
+            <div
+              className={
+                location.pathname.includes("master/category")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }>
+              <Link to={"master/category/view"}>Category</Link>
+            </div>
+          ),
+        },
+        {
           key: "itemdetails",
           icon: (
-            <PhoneOutlined
+            <ProfileOutlined
               className={
                 location.pathname.includes("master/itemdetails/view")
                   ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
@@ -752,8 +774,8 @@ function SidebarComp() {
             <div
               className={
                 location.pathname.includes("manage/customer/view")
-                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 text-xs text-wrap group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 text-xs text-wrap group"
               }>
               <Link to={"manage/customer/view"}>Customer Management</Link>
             </div>
@@ -761,28 +783,28 @@ function SidebarComp() {
         },
       ],
     },
-    {
-      key: "category",
-      icon: (
-        <AppstoreOutlined
-          className={
-            location.pathname.includes("category")
-              ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-              : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-          }
-        />
-      ),
-      label: (
-        <div
-          className={
-            location.pathname.includes("category")
-              ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-              : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-          }>
-          <Link to={"category/view"}>Category</Link>
-        </div>
-      ),
-    },
+    // {
+    //   key: "category",
+    //   icon: (
+    //     <AppstoreOutlined
+    //       className={
+    //         location.pathname.includes("category")
+    //           ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+    //           : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+    //       }
+    //     />
+    //   ),
+    //   label: (
+    //     <div
+    //       className={
+    //         location.pathname.includes("category")
+    //           ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+    //           : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+    //       }>
+    //       <Link to={"category/view"}>Category</Link>
+    //     </div>
+    //   ),
+    // },
   ];
   const showDrawer = () => {
     setOpen(true);
@@ -801,6 +823,13 @@ function SidebarComp() {
           onClose={onClose}
           open={open}
           key={placement}>
+          <div className="bg-white w-64 flex justify-center py-4">
+            <Link
+              to={"/home/report/daybook"}
+              className="flex items-center space-x-3 rtl:space-x-reverse">
+              <img src={IMG} className="h-16 mx-5" alt="Flowbite Logo" />
+            </Link>
+          </div>
           <div className="h-full overflow-y-auto bg-white dark:bg-gray-800 min-h-screen overflow-auto">
             <Menu
               className="mt-4"

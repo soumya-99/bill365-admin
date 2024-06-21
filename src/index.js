@@ -108,9 +108,15 @@ const AddUser = lazy(() => import("./Screens/Manage/User/AddUser"));
 const StockComp = lazy(() => import("./Screens/Manage/Stock/StockComp"));
 const StockView = lazy(() => import("./Screens/Manage/Stock/StockView"));
 const StockEdit = lazy(() => import("./Screens/Manage/Stock/StockEdit"));
-const CategoryComp = lazy(() => import("./Screens/Categories/CategoryComp"));
-const CategoryView = lazy(() => import("./Screens/Categories/CategoryView"));
-const CategoryAdd = lazy(() => import("./Screens/Categories/CategoryAdd"));
+const CategoryComp = lazy(() =>
+  import("./Screens/Master/Categories/CategoryComp")
+);
+const CategoryView = lazy(() =>
+  import("./Screens/Master/Categories/CategoryView")
+);
+const CategoryAdd = lazy(() =>
+  import("./Screens/Master/Categories/CategoryAdd")
+);
 const Itemwise = lazy(() => import("./Screens/Reports/Itemwise"));
 const DaybookReport = lazy(() => import("./Screens/Reports/DaybookReport"));
 const CancelBillReport = lazy(() =>
@@ -393,6 +399,20 @@ const router = createBrowserRouter([
                 element: <Unit />,
               },
               {
+                path: "category",
+                element: <CategoryComp />,
+                children: [
+                  {
+                    path: "view",
+                    element: <CategoryView />,
+                  },
+                  {
+                    path: "categoryedit/:id",
+                    element: <CategoryAdd />,
+                  },
+                ],
+              },
+              {
                 path: "itemdetails",
 
                 element: <ItemDetails />,
@@ -479,20 +499,20 @@ const router = createBrowserRouter([
           //   path: "unit",
           //   element: <Unit />,
           // },
-          {
-            path: "category",
-            element: <CategoryComp />,
-            children: [
-              {
-                path: "view",
-                element: <CategoryView />,
-              },
-              {
-                path: "categoryedit/:id",
-                element: <CategoryAdd />,
-              },
-            ],
-          },
+          // {
+          //   path: "category",
+          //   element: <CategoryComp />,
+          //   children: [
+          //     {
+          //       path: "view",
+          //       element: <CategoryView />,
+          //     },
+          //     {
+          //       path: "categoryedit/:id",
+          //       element: <CategoryAdd />,
+          //     },
+          //   ],
+          // },
           // {
           //   path: "outlet",
           //   element: <OutletComp />,

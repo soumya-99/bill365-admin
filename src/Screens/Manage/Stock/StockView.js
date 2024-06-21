@@ -17,14 +17,14 @@ function StockView() {
   var comp;
   useEffect(() => {
     console.log(response);
-    setDataSet(response?.data?.msg);
+    if (Array.isArray(response?.data?.msg)) setDataSet(response?.data?.msg);
 
     if (response?.data?.msg?.length <= 0) {
       Message("error", "No data!");
       setIsReport(false);
     } else {
       if (called) {
-        setDataSet(response?.data?.msg);
+        // setDataSet(response?.data?.msg)
         setIsReport(true);
         setCalled(false);
       }
@@ -42,6 +42,7 @@ function StockView() {
   useEffect(() => {
     comp = localStorage.getItem("comp_id");
     callApi("/admin/stock_list", 1, { comp_id: +comp, item_id: 0 });
+    console.log(response);
   }, []);
   const onPress = (data) => {
     navigation("/home/manage/stock/stockedit/" + data?.id + "/" + data?.br_id);

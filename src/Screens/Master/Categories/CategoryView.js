@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import DatatableAdv from "../../Components/DatatableAdv";
+import DatatableAdv from "../../../Components/DatatableAdv";
 import { useNavigate } from "react-router-dom";
-import { Message } from "../../Components/Message";
-import useAPI from "../../Hooks/useApi";
-import HeaderLayout from "../../Components/HeaderLayout";
+import { Message } from "../../../Components/Message";
+import useAPI from "../../../Hooks/useApi";
+import HeaderLayout from "../../../Components/HeaderLayout";
 function CategoryView() {
   const navigation = useNavigate();
   const [called, setCalled] = useState(false);
@@ -47,7 +47,7 @@ function CategoryView() {
     }
   });
   const onPress = (data) => {
-    navigation("/home/category/categoryedit/" + data.sl_no);
+    navigation("/home/master/category/categoryedit/" + data.sl_no);
   };
   return (
     <div className="py-1 w-full ">
