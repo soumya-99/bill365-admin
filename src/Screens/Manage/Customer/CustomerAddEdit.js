@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router";
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import useAPI from "../../Hooks/useApi";
+import useAPI from "../../../Hooks/useApi";
 import { Message } from "@mui/icons-material";
-import { DurationMessage } from "../../Components/DurationMessage";
-import Backbtn from "../../Components/Backbtn";
+import { DurationMessage } from "../../../Components/DurationMessage";
+import Backbtn from "../../../Components/Backbtn";
 
 function CustomerAddEdit() {
   const params = useParams();
@@ -57,7 +57,7 @@ function CustomerAddEdit() {
         setCalled(false);
         DurationMessage();
         setTimeout(() => {
-          navigation("/home/customer/view");
+          navigation("/home/manage/customer/view");
         }, 4500);
       }
     }

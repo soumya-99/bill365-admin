@@ -17,6 +17,7 @@ import Noresult from "./Screens/Noresult/Noresult";
 import Bill from "./Screens/Bill/Bill";
 import SettingsComp from "./Screens/Settings/SettingsComp";
 import MasterComp from "./Screens/Master/MasterComp";
+import ManageComp from "./Screens/Manage/ManageComp";
 // import RecoveryReport from "./Screens/Reports/RecoveryReport";
 // import DueReport from "./Screens/Reports/DueReport";
 // import CustomerLedger from "./Screens/Reports/CustomerLedger";
@@ -92,17 +93,21 @@ const HeaderFooterView = lazy(() =>
 const HeaderFooterEdit = lazy(() =>
   import("./Screens/Settings/HeaderFooter/HeaderFooterEdit")
 );
-const CustomerComp = lazy(() => import("./Screens/Customer/CustomerComp"));
-const CustomerView = lazy(() => import("./Screens/Customer/CustomerView"));
-const CustomerAddEdit = lazy(() =>
-  import("./Screens/Customer/CustomerAddEdit")
+const CustomerComp = lazy(() =>
+  import("./Screens/Manage/Customer/CustomerComp")
 );
-const UserComp = lazy(() => import("./Screens/User/UserComp"));
-const UserView = lazy(() => import("./Screens/User/UserView"));
-const AddUser = lazy(() => import("./Screens/User/AddUser"));
-const StockComp = lazy(() => import("./Screens/Stock/StockComp"));
-const StockView = lazy(() => import("./Screens/Stock/StockView"));
-const StockEdit = lazy(() => import("./Screens/Stock/StockEdit"));
+const CustomerView = lazy(() =>
+  import("./Screens/Manage/Customer/CustomerView")
+);
+const CustomerAddEdit = lazy(() =>
+  import("./Screens/Manage/Customer/CustomerAddEdit")
+);
+const UserComp = lazy(() => import("./Screens/Manage/User/UserComp"));
+const UserView = lazy(() => import("./Screens/Manage/User/UserView"));
+const AddUser = lazy(() => import("./Screens/Manage/User/AddUser"));
+const StockComp = lazy(() => import("./Screens/Manage/Stock/StockComp"));
+const StockView = lazy(() => import("./Screens/Manage/Stock/StockView"));
+const StockEdit = lazy(() => import("./Screens/Manage/Stock/StockEdit"));
 const CategoryComp = lazy(() => import("./Screens/Categories/CategoryComp"));
 const CategoryView = lazy(() => import("./Screens/Categories/CategoryView"));
 const CategoryAdd = lazy(() => import("./Screens/Categories/CategoryAdd"));
@@ -111,9 +116,11 @@ const DaybookReport = lazy(() => import("./Screens/Reports/DaybookReport"));
 const CancelBillReport = lazy(() =>
   import("./Screens/Reports/CancelBillReport")
 );
-const OutletComp = lazy(() => import("./Screens/Outlet/OutletComp"));
-const OutletView = lazy(() => import("./Screens/Outlet/OutletView"));
-const OutletAddEdit = lazy(() => import("./Screens/Outlet/OutletAddEdit"));
+const OutletComp = lazy(() => import("./Screens/Manage/Outlet/OutletComp"));
+const OutletView = lazy(() => import("./Screens/Manage/Outlet/OutletView"));
+const OutletAddEdit = lazy(() =>
+  import("./Screens/Manage/Outlet/OutletAddEdit")
+);
 const router = createBrowserRouter([
   {
     path: "/",
@@ -226,49 +233,50 @@ const router = createBrowserRouter([
               },
             ],
           },
-          {
-            path: "superadmin",
+          // {
+          //   path: "superadmin",
 
-            element: <SuperAdminComp />,
-            children: [
-              {
-                path: "manageshops",
-                element: <ManageShopsComp />,
-                children: [
-                  {
-                    path: "view",
-                    element: <ManageShopsView />,
-                  },
-                  {
-                    path: "manageshop/:id",
-                    element: <ManageShopsAddEdit />,
-                  },
-                ],
-              },
-              {
-                path: "manageoutlets",
-                element: <ManageOutlets />,
-              },
-              {
-                path: "manageusers",
-                element: <ManageUsersComp />,
-                children: [
-                  {
-                    path: "view",
-                    element: <ManageUsersView />,
-                  },
-                  {
-                    path: "manageuser/:id",
-                    element: <ManageUsersAddEdit />,
-                  },
-                ],
-              },
-              {
-                path: "managelocations",
-                element: <ManageLocations />,
-              },
-            ],
-          },
+          //   element: <SuperAdminComp />,
+          //   children: [
+          //     {
+          //       path: "manageshops",
+          //       element: <ManageShopsComp />,
+          //       children: [
+          //         {
+          //           path: "view",
+          //           element: <ManageShopsView />,
+          //         },
+          //         {
+          //           path: "manageshop/:id",
+          //           element: <ManageShopsAddEdit />,
+          //         },
+          //       ],
+          //     },
+          //     {
+          //       path: "manageoutlets",
+          //       element: <ManageOutlets />,
+          //     },
+          //     {
+          //       path: "manageusers",
+          //       element: <ManageUsersComp />,
+          //       children: [
+          //         {
+          //           path: "view",
+          //           element: <ManageUsersView />,
+          //         },
+          //         {
+          //           path: "manageuser/:id",
+          //           element: <ManageUsersAddEdit />,
+          //         },
+          //       ],
+          //     },
+          //     {
+          //       path: "managelocations",
+          //       element: <ManageLocations />,
+          //     },
+          //   ],
+          // },
+
           // {
           //   path: "itemdetails",
 
@@ -299,51 +307,52 @@ const router = createBrowserRouter([
           //     },
           //   ],
           // },
-          {
-            path: "customer",
 
-            element: <CustomerComp />,
-            children: [
-              {
-                path: "view",
-                element: <CustomerView />,
-              },
-              {
-                path: "custEdit/:id",
-                element: <CustomerAddEdit />,
-              },
-            ],
-          },
-          {
-            path: "usermng",
+          // {
+          //   path: "customer",
 
-            element: <UserComp />,
-            children: [
-              {
-                path: "view",
-                element: <UserView />,
-              },
-              {
-                path: "usermngadd",
-                element: <AddUser />,
-              },
-            ],
-          },
-          {
-            path: "stock",
+          //   element: <CustomerComp />,
+          //   children: [
+          //     {
+          //       path: "view",
+          //       element: <CustomerView />,
+          //     },
+          //     {
+          //       path: "custEdit/:id",
+          //       element: <CustomerAddEdit />,
+          //     },
+          //   ],
+          // },
+          // {
+          //   path: "usermng",
 
-            element: <StockComp />,
-            children: [
-              {
-                path: "view",
-                element: <StockView />,
-              },
-              {
-                path: "stockedit/:id/:br_id",
-                element: <StockEdit />,
-              },
-            ],
-          },
+          //   element: <UserComp />,
+          //   children: [
+          //     {
+          //       path: "view",
+          //       element: <UserView />,
+          //     },
+          //     {
+          //       path: "usermngadd",
+          //       element: <AddUser />,
+          //     },
+          //   ],
+          // },
+          // {
+          //   path: "stock",
+
+          //   element: <StockComp />,
+          //   children: [
+          //     {
+          //       path: "view",
+          //       element: <StockView />,
+          //     },
+          //     {
+          //       path: "stockedit/:id/:br_id",
+          //       element: <StockEdit />,
+          //     },
+          //   ],
+          // },
           // {
           //   path: "settings",
           //   element: <Settings />,
@@ -400,6 +409,72 @@ const router = createBrowserRouter([
               },
             ],
           },
+          {
+            path: "manage",
+
+            element: <ManageComp />,
+            children: [
+              {
+                path: "customer",
+
+                element: <CustomerComp />,
+                children: [
+                  {
+                    path: "view",
+                    element: <CustomerView />,
+                  },
+                  {
+                    path: "custEdit/:id",
+                    element: <CustomerAddEdit />,
+                  },
+                ],
+              },
+              {
+                path: "outlet",
+                element: <OutletComp />,
+                children: [
+                  {
+                    path: "view",
+                    element: <OutletView />,
+                  },
+                  {
+                    path: "outletaddedit/:id",
+                    element: <OutletAddEdit />,
+                  },
+                ],
+              },
+              {
+                path: "usermng",
+
+                element: <UserComp />,
+                children: [
+                  {
+                    path: "view",
+                    element: <UserView />,
+                  },
+                  {
+                    path: "usermngadd",
+                    element: <AddUser />,
+                  },
+                ],
+              },
+              {
+                path: "stock",
+
+                element: <StockComp />,
+                children: [
+                  {
+                    path: "view",
+                    element: <StockView />,
+                  },
+                  {
+                    path: "stockedit/:id/:br_id",
+                    element: <StockEdit />,
+                  },
+                ],
+              },
+            ],
+          },
           // {
           //   path: "unit",
           //   element: <Unit />,
@@ -418,20 +493,20 @@ const router = createBrowserRouter([
               },
             ],
           },
-          {
-            path: "outlet",
-            element: <OutletComp />,
-            children: [
-              {
-                path: "view",
-                element: <OutletView />,
-              },
-              {
-                path: "outletaddedit/:id",
-                element: <OutletAddEdit />,
-              },
-            ],
-          },
+          // {
+          //   path: "outlet",
+          //   element: <OutletComp />,
+          //   children: [
+          //     {
+          //       path: "view",
+          //       element: <OutletView />,
+          //     },
+          //     {
+          //       path: "outletaddedit/:id",
+          //       element: <OutletAddEdit />,
+          //     },
+          //   ],
+          // },
         ],
       },
     ],

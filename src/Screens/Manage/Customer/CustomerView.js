@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
-import DatatableAdv from "../../Components/DatatableAdv";
+import DatatableAdv from "../../../Components/DatatableAdv";
 import { useNavigate } from "react-router-dom";
-import { Message } from "../../Components/Message";
-import useAPI from "../../Hooks/useApi";
-import HeaderLayout from "../../Components/HeaderLayout";
+import { Message } from "../../../Components/Message";
+import useAPI from "../../../Hooks/useApi";
+import HeaderLayout from "../../../Components/HeaderLayout";
 
-function StockView() {
+function CustomerView() {
   const navigation = useNavigate();
   const [called, setCalled] = useState(false);
   const { response, callApi } = useAPI();
   const [resp, setRestp] = useState();
   const [isReport, setIsReport] = useState(false);
   const [dataSet, setDataSet] = useState();
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState();
 
   var comp;
   useEffect(() => {
@@ -31,24 +31,33 @@ function StockView() {
     }
   }, [response]);
   useEffect(() => {
+    comp = localStorage.getItem("comp_id");
+    callApi("/admin/all_customer_list", 1, { comp_id: +comp });
+  }, []);
+  const onPress = (data) => {
+    navigation("/home/manage/customer/custedit/" + data.cust_id);
+  };
+  useEffect(() => {
     setDataSet(
       response?.data?.msg?.filter(
         (e) =>
-          e.item_name.toLowerCase().includes(search.toString().toLowerCase()) ||
-          e.stock.toString().includes(search.toString())
+          e.cust_name
+            .toLowerCase()
+            .includes(search?.toString().toLowerCase()) ||
+          e.phone_no
+            ?.toString()
+            .toLowerCase()
+            .includes(search?.toString().toLowerCase())
       )
     );
   }, [search]);
-  useEffect(() => {
-    comp = localStorage.getItem("comp_id");
-    callApi("/admin/stock_list", 1, { comp_id: +comp, item_id: 0 });
-  }, []);
-  const onPress = (data) => {
-    navigation("/home/stock/stockedit/" + data.id + "/" + data.br_id);
-  };
   return (
     <div className="py-1 w-full ">
-      <HeaderLayout title={"Stock"} btnText={""} />
+      <HeaderLayout
+        title={"Customer Management"}
+        btnText={"Add customer"}
+        onPress={() => onPress({ cust_id: 0 })}
+      />
       <section class="bg-gray-50 dark:bg-gray-900 p-3 ">
         <div class="mx-auto w-full">
           <div class="bg-blue-900 dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
@@ -56,13 +65,14 @@ function StockView() {
               <DatatableAdv
                 onPress={(data) => onPress(data)}
                 setSearch={(val) => setSearch(val)}
-                title={"Stock"}
-                btnText={""}
+                title={"Customer Management"}
+                btnText={"Add customer"}
+                onclick={() => onPress({ cust_id: 0 })}
                 flag={1}
                 headers={[
-                  { name: "id", value: "#" },
-                  { name: "item_name", value: "Item" },
-                  { name: "stock", value: "In stock" },
+                  { name: "cust_id", value: "#" },
+                  { name: "cust_name", value: "Name" },
+                  { name: "phone_no", value: "Phone No." },
                 ]}
                 data={dataSet}
               />
@@ -70,8 +80,9 @@ function StockView() {
           </div>
         </div>
       </section>
+      {/*  */}
     </div>
   );
 }
 
-export default StockView;
+export default CustomerView;

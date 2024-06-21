@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import DatatableAdv from "../../Components/DatatableAdv";
+import DatatableAdv from "../../../Components/DatatableAdv";
 import { useNavigate } from "react-router-dom";
-import { Message } from "../../Components/Message";
-import useAPI from "../../Hooks/useApi";
-import HeaderLayout from "../../Components/HeaderLayout";
+import { Message } from "../../../Components/Message";
+import useAPI from "../../../Hooks/useApi";
+import HeaderLayout from "../../../Components/HeaderLayout";
 
-function CustomerView() {
+function OutletView() {
   const navigation = useNavigate();
   const [called, setCalled] = useState(false);
   const { response, callApi } = useAPI();
@@ -13,7 +13,6 @@ function CustomerView() {
   const [isReport, setIsReport] = useState(false);
   const [dataSet, setDataSet] = useState();
   const [search, setSearch] = useState();
-
   var comp;
   useEffect(() => {
     console.log(response);
@@ -31,32 +30,36 @@ function CustomerView() {
     }
   }, [response]);
   useEffect(() => {
-    comp = localStorage.getItem("comp_id");
-    callApi("/admin/all_customer_list", 1, { comp_id: +comp });
-  }, []);
-  const onPress = (data) => {
-    navigation("/home/customer/custedit/" + data.cust_id);
-  };
-  useEffect(() => {
     setDataSet(
       response?.data?.msg?.filter(
         (e) =>
-          e.cust_name
+          e.branch_name
+            .toLowerCase()
+            .includes(search?.toString().toLowerCase()) ||
+          e.contact_person
             .toLowerCase()
             .includes(search?.toString().toLowerCase()) ||
           e.phone_no
-            ?.toString()
+            .toString()
             .toLowerCase()
-            .includes(search?.toString().toLowerCase())
+            .includes(search?.toString().toLowerCase()) ||
+          e.email_id.toLowerCase().includes(search?.toString().toLowerCase())
       )
     );
   }, [search]);
+  useEffect(() => {
+    comp = localStorage.getItem("comp_id");
+    callApi("/admin/outlet_list", 1, { comp_id: +comp });
+  }, []);
+  const onPress = (data) => {
+    navigation("/home/manage/outlet/outletaddedit/" + data.id);
+  };
   return (
     <div className="py-1 w-full ">
       <HeaderLayout
-        title={"Customer Management"}
-        btnText={"Add customer"}
-        onPress={() => onPress({ cust_id: 0 })}
+        title={"Outlet Management"}
+        btnText={"Add outlet"}
+        onPress={() => onPress({ id: 0 })}
       />
       <section class="bg-gray-50 dark:bg-gray-900 p-3 ">
         <div class="mx-auto w-full">
@@ -65,14 +68,17 @@ function CustomerView() {
               <DatatableAdv
                 onPress={(data) => onPress(data)}
                 setSearch={(val) => setSearch(val)}
-                title={"Customer Management"}
-                btnText={"Add customer"}
-                onclick={() => onPress({ cust_id: 0 })}
                 flag={1}
+                title={"Outlet Management"}
+                btnText={"Add outlet"}
+                onclick={() => onPress({ id: 0 })}
                 headers={[
-                  { name: "cust_id", value: "#" },
-                  { name: "cust_name", value: "Name" },
+                  { name: "id", value: "#" },
+                  { name: "branch_name", value: "Outlet" },
+                  { name: "contact_person", value: "Contact person" },
+                  ,
                   { name: "phone_no", value: "Phone No." },
+                  { name: "email_id", value: "Email" },
                 ]}
                 data={dataSet}
               />
@@ -80,9 +86,8 @@ function CustomerView() {
           </div>
         </div>
       </section>
-      {/*  */}
     </div>
   );
 }
 
-export default CustomerView;
+export default OutletView;

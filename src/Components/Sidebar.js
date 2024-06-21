@@ -568,29 +568,7 @@ function SidebarComp() {
     //     },
     //   ],
     // },
-    {
-      key: "category",
-      icon: (
-        <AppstoreOutlined
-          className={
-            location.pathname.includes("category")
-              ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-              : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-          }
-        />
-      ),
-      label: (
-        <div
-          className={
-            location.pathname.includes("category")
-              ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-              : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-          }>
-          <Link to={"category/view"}>Category</Link>
-        </div>
-      ),
-    },
-    ,
+
     // {
     //   key: "settings",
     //   icon: (
@@ -680,33 +658,115 @@ function SidebarComp() {
     //   ),
     // },
     {
-      key: "stock",
+      key: "sub5",
+      label: "Manage",
       icon: (
-        <DatabaseOutlined
+        <TableOutlined
           className={
-            location.pathname.includes("stock")
-              ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+            location.pathname.includes("manage")
+              ? "  font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white hover:duration-100  dark:hover:bg-gray-700 group"
               : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
           }
         />
       ),
-      label: (
-        <div
-          className={
-            location.pathname.includes("stock")
-              ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-              : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-          }>
-          <Link to={"stock/view"}>Stock</Link>
-        </div>
-      ),
+      children: [
+        {
+          key: "stock",
+          icon: (
+            <DatabaseOutlined
+              className={
+                location.pathname.includes("manage/stock/view")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }
+            />
+          ),
+          label: (
+            <div
+              className={
+                location.pathname.includes("manage/stock/view")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }>
+              <Link to={"manage/stock/view"}>Stock</Link>
+            </div>
+          ),
+        },
+
+        {
+          key: "outlet",
+          icon: (
+            <GlobalOutlined
+              className={
+                location.pathname.includes("manage/outlet/view")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }
+            />
+          ),
+          label: (
+            <div
+              className={
+                location.pathname.includes("manage/outlet/view")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }>
+              <Link to={"manage/outlet/view"}>Outlet Managment</Link>
+            </div>
+          ),
+        },
+        {
+          key: "user",
+          icon: (
+            <UsergroupAddOutlined
+              className={
+                location.pathname.includes("manage/usermng/view")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }
+            />
+          ),
+          label: (
+            <div
+              className={
+                location.pathname.includes("manage/usermng/view")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }>
+              <Link to={"manage/usermng/view"}>User Management</Link>
+            </div>
+          ),
+        },
+        {
+          key: "customer",
+          icon: (
+            <UserOutlined
+              className={
+                location.pathname.includes("manage/customer/view")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }
+            />
+          ),
+          label: (
+            <div
+              className={
+                location.pathname.includes("manage/customer/view")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }>
+              <Link to={"manage/customer/view"}>Customer Management</Link>
+            </div>
+          ),
+        },
+      ],
     },
     {
-      key: "outlet",
+      key: "category",
       icon: (
-        <GlobalOutlined
+        <AppstoreOutlined
           className={
-            location.pathname.includes("outlet")
+            location.pathname.includes("category")
               ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
               : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
           }
@@ -715,55 +775,11 @@ function SidebarComp() {
       label: (
         <div
           className={
-            location.pathname.includes("outlet")
+            location.pathname.includes("category")
               ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
               : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
           }>
-          <Link to={"outlet/view"}>Outlet Managment</Link>
-        </div>
-      ),
-    },
-    {
-      key: "user",
-      icon: (
-        <UsergroupAddOutlined
-          className={
-            location.pathname.includes("usermng")
-              ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-              : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-          }
-        />
-      ),
-      label: (
-        <div
-          className={
-            location.pathname.includes("usermng")
-              ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-              : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-          }>
-          <Link to={"usermng/view"}>User Management</Link>
-        </div>
-      ),
-    },
-    {
-      key: "customer",
-      icon: (
-        <UserOutlined
-          className={
-            location.pathname.includes("customer")
-              ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-              : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-          }
-        />
-      ),
-      label: (
-        <div
-          className={
-            location.pathname.includes("customer")
-              ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-              : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-          }>
-          <Link to={"customer/view"}>Customer Management</Link>
+          <Link to={"category/view"}>Category</Link>
         </div>
       ),
     },

@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
-import DatatableAdv from "../../Components/DatatableAdv";
+import DatatableAdv from "../../../Components/DatatableAdv";
 import { useNavigate } from "react-router-dom";
-import { Message } from "../../Components/Message";
-import useAPI from "../../Hooks/useApi";
-import HeaderLayout from "../../Components/HeaderLayout";
+import { Message } from "../../../Components/Message";
+import useAPI from "../../../Hooks/useApi";
+import HeaderLayout from "../../../Components/HeaderLayout";
 
-function OutletView() {
+function StockView() {
   const navigation = useNavigate();
   const [called, setCalled] = useState(false);
   const { response, callApi } = useAPI();
   const [resp, setRestp] = useState();
   const [isReport, setIsReport] = useState(false);
   const [dataSet, setDataSet] = useState();
-  const [search, setSearch] = useState();
+  const [search, setSearch] = useState("");
+
   var comp;
   useEffect(() => {
     console.log(response);
@@ -33,34 +34,21 @@ function OutletView() {
     setDataSet(
       response?.data?.msg?.filter(
         (e) =>
-          e.branch_name
-            .toLowerCase()
-            .includes(search?.toString().toLowerCase()) ||
-          e.contact_person
-            .toLowerCase()
-            .includes(search?.toString().toLowerCase()) ||
-          e.phone_no
-            .toString()
-            .toLowerCase()
-            .includes(search?.toString().toLowerCase()) ||
-          e.email_id.toLowerCase().includes(search?.toString().toLowerCase())
+          e.item_name.toLowerCase().includes(search.toString().toLowerCase()) ||
+          e.stock.toString().includes(search.toString())
       )
     );
   }, [search]);
   useEffect(() => {
     comp = localStorage.getItem("comp_id");
-    callApi("/admin/outlet_list", 1, { comp_id: +comp });
+    callApi("/admin/stock_list", 1, { comp_id: +comp, item_id: 0 });
   }, []);
   const onPress = (data) => {
-    navigation("/home/outlet/outletaddedit/" + data.id);
+    navigation("/home/manage/stock/stockedit/" + data?.id + "/" + data?.br_id);
   };
   return (
     <div className="py-1 w-full ">
-      <HeaderLayout
-        title={"Outlet Management"}
-        btnText={"Add outlet"}
-        onPress={() => onPress({ id: 0 })}
-      />
+      <HeaderLayout title={"Stock"} btnText={""} />
       <section class="bg-gray-50 dark:bg-gray-900 p-3 ">
         <div class="mx-auto w-full">
           <div class="bg-blue-900 dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
@@ -68,17 +56,13 @@ function OutletView() {
               <DatatableAdv
                 onPress={(data) => onPress(data)}
                 setSearch={(val) => setSearch(val)}
+                title={"Stock"}
+                btnText={""}
                 flag={1}
-                title={"Outlet Management"}
-                btnText={"Add outlet"}
-                onclick={() => onPress({ id: 0 })}
                 headers={[
                   { name: "id", value: "#" },
-                  { name: "branch_name", value: "Outlet" },
-                  { name: "contact_person", value: "Contact person" },
-                  ,
-                  { name: "phone_no", value: "Phone No." },
-                  { name: "email_id", value: "Email" },
+                  { name: "item_name", value: "Item" },
+                  { name: "stock", value: "In stock" },
                 ]}
                 data={dataSet}
               />
@@ -90,4 +74,4 @@ function OutletView() {
   );
 }
 
-export default OutletView;
+export default StockView;

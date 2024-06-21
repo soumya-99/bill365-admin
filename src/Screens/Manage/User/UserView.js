@@ -2,11 +2,11 @@ import AddIcon from "@mui/icons-material/Add";
 import Tooltip from "@mui/material/Tooltip";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Message } from "../../Components/Message";
-import useAPI from "../../Hooks/useApi";
+import { Message } from "../../../Components/Message";
+import useAPI from "../../../Hooks/useApi";
 import { Switch } from "antd";
 import { Paginator } from "primereact/paginator";
-import HeaderLayout from "../../Components/HeaderLayout";
+import HeaderLayout from "../../../Components/HeaderLayout";
 function UserView() {
   const navigation = useNavigate();
   const [called, setCalled] = useState(false);
@@ -65,7 +65,7 @@ function UserView() {
     <div className="py-1 w-full ">
       <HeaderLayout
         title={"User Management"}
-        btnText={""}
+        btnText={"Add user"}
         onPress={() => onPress()}
       />
 

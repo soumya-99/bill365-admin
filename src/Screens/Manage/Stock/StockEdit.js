@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import useAPI from "../../Hooks/useApi";
+import useAPI from "../../../Hooks/useApi";
 import { Message } from "@mui/icons-material";
-import { DurationMessage } from "../../Components/DurationMessage";
+import { DurationMessage } from "../../../Components/DurationMessage";
 import { useNavigate } from "react-router-dom";
-import Backbtn from "../../Components/Backbtn";
+import Backbtn from "../../../Components/Backbtn";
 function StockEdit() {
   const params = useParams();
   const [name, setName] = useState("");
@@ -42,7 +42,7 @@ function StockEdit() {
           setCalled(false);
           DurationMessage();
           setTimeout(() => {
-            navigation("/home/stock/view");
+            navigation("/home/manage/stock/view");
           }, 4500);
         }
         // setDataSet(response?.data?.msg)
