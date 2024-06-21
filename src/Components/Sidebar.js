@@ -406,6 +406,65 @@ function SidebarComp() {
         },
       ],
     },
+    {
+      key: "sub4",
+      label: "Master",
+      icon: (
+        <FileSearchOutlined
+          className={
+            location.pathname.includes("master")
+              ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+              : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+          }
+        />
+      ),
+      children: [
+        {
+          key: "unit",
+          icon: (
+            <MoneyCollectOutlined
+              className={
+                location.pathname.includes("master/unit")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }
+            />
+          ),
+          label: (
+            <div
+              className={
+                location.pathname.includes("master/unit")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }>
+              <Link to={"master/unit"}>Unit</Link>
+            </div>
+          ),
+        },
+        {
+          key: "itemdetails",
+          icon: (
+            <PhoneOutlined
+              className={
+                location.pathname.includes("master/itemdetails/view")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }
+            />
+          ),
+          label: (
+            <div
+              className={
+                location.pathname.includes("master/itemdetails/view")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }>
+              <Link to={"master/itemdetails/view"}>Item Details</Link>
+            </div>
+          ),
+        },
+      ],
+    },
     // {
     //   key: "sub3",
     //   label: "Super Admin",
@@ -554,51 +613,50 @@ function SidebarComp() {
     //     </div>
     //   ),
     // },
-    {
-      key: "unit",
-      icon: (
-        <MoneyCollectOutlined
-          className={
-            location.pathname.includes("unit")
-              ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-              : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-          }
-        />
-      ),
-      label: (
-        <div
-          className={
-            location.pathname.includes("unit")
-              ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-              : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-          }>
-          <Link to={"unit"}>Unit</Link>
-        </div>
-      ),
-    },
-    ,
-    {
-      key: "details",
-      icon: (
-        <ProfileOutlined
-          className={
-            location.pathname.includes("itemdetails")
-              ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-              : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-          }
-        />
-      ),
-      label: (
-        <div
-          className={
-            location.pathname.includes("itemdetails")
-              ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-              : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-          }>
-          <Link to={"itemdetails/view"}>Item Details</Link>
-        </div>
-      ),
-    },
+    // {
+    //   key: "unit",
+    //   icon: (
+    //     <MoneyCollectOutlined
+    //       className={
+    //         location.pathname.includes("unit")
+    //           ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+    //           : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+    //       }
+    //     />
+    //   ),
+    //   label: (
+    //     <div
+    //       className={
+    //         location.pathname.includes("unit")
+    //           ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+    //           : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+    //       }>
+    //       <Link to={"unit"}>Unit</Link>
+    //     </div>
+    //   ),
+    // },
+    // {
+    //   key: "details",
+    //   icon: (
+    //     <ProfileOutlined
+    //       className={
+    //         location.pathname.includes("itemdetails")
+    //           ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+    //           : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+    //       }
+    //     />
+    //   ),
+    //   label: (
+    //     <div
+    //       className={
+    //         location.pathname.includes("itemdetails")
+    //           ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+    //           : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+    //       }>
+    //       <Link to={"itemdetails/view"}>Item Details</Link>
+    //     </div>
+    //   ),
+    // },
     // {
     //   key: "headerfooter",
     //   icon: (

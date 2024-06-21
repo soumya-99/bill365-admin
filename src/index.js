@@ -16,6 +16,7 @@ import Loader from "./Components/Loader";
 import Noresult from "./Screens/Noresult/Noresult";
 import Bill from "./Screens/Bill/Bill";
 import SettingsComp from "./Screens/Settings/SettingsComp";
+import MasterComp from "./Screens/Master/MasterComp";
 // import RecoveryReport from "./Screens/Reports/RecoveryReport";
 // import DueReport from "./Screens/Reports/DueReport";
 // import CustomerLedger from "./Screens/Reports/CustomerLedger";
@@ -71,12 +72,16 @@ const ManageUsersAddEdit = lazy(() =>
   import("./Screens/SuperAdmin/ManageUsers/ManageUsersAddEdit")
 );
 const Settings = lazy(() => import("./Screens/Settings/Settings"));
-const Unit = lazy(() => import("./Screens/Unit/Unit"));
-const ItemDetails = lazy(() => import("./Screens/Item Details/ItemDetails"));
-const ItemDetailsView = lazy(() =>
-  import("./Screens/Item Details/ItemDetailsView")
+const Unit = lazy(() => import("./Screens/Master/Unit"));
+const ItemDetails = lazy(() =>
+  import("./Screens/Master/Item Details/ItemDetails")
 );
-const AddDetails = lazy(() => import("./Screens/Item Details/AddDetails"));
+const ItemDetailsView = lazy(() =>
+  import("./Screens/Master/Item Details/ItemDetailsView")
+);
+const AddDetails = lazy(() =>
+  import("./Screens/Master/Item Details/AddDetails")
+);
 const PrintBill = lazy(() => import("./Screens/Search/PrintBill"));
 const HeaderFooterComp = lazy(() =>
   import("./Screens/Settings/HeaderFooter/HeaderFooterComp")
@@ -264,21 +269,21 @@ const router = createBrowserRouter([
               },
             ],
           },
-          {
-            path: "itemdetails",
+          // {
+          //   path: "itemdetails",
 
-            element: <ItemDetails />,
-            children: [
-              {
-                path: "view",
-                element: <ItemDetailsView />,
-              },
-              {
-                path: "adddetails/:id",
-                element: <AddDetails />,
-              },
-            ],
-          },
+          //   element: <ItemDetails />,
+          //   children: [
+          //     {
+          //       path: "view",
+          //       element: <ItemDetailsView />,
+          //     },
+          //     {
+          //       path: "adddetails/:id",
+          //       element: <AddDetails />,
+          //     },
+          //   ],
+          // },
           // {
           //   path: "headerfooter",
 
@@ -370,9 +375,35 @@ const router = createBrowserRouter([
             ],
           },
           {
-            path: "unit",
-            element: <Unit />,
+            path: "master",
+
+            element: <MasterComp />,
+            children: [
+              {
+                path: "unit",
+                element: <Unit />,
+              },
+              {
+                path: "itemdetails",
+
+                element: <ItemDetails />,
+                children: [
+                  {
+                    path: "view",
+                    element: <ItemDetailsView />,
+                  },
+                  {
+                    path: "adddetails/:id",
+                    element: <AddDetails />,
+                  },
+                ],
+              },
+            ],
           },
+          // {
+          //   path: "unit",
+          //   element: <Unit />,
+          // },
           {
             path: "category",
             element: <CategoryComp />,

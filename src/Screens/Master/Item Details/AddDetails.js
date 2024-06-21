@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import useAPI from "../../Hooks/useApi";
+import useAPI from "../../../Hooks/useApi";
 import { Message } from "@mui/icons-material";
 import axios from "axios";
-import { DurationMessage } from "../../Components/DurationMessage";
+import { DurationMessage } from "../../../Components/DurationMessage";
 import { useNavigate } from "react-router-dom";
-import Backbtn from "../../Components/Backbtn";
-import { url } from "../../Address/baseURL";
+import Backbtn from "../../../Components/Backbtn";
+import { url } from "../../../Address/baseURL";
 
 function AddDetails() {
   const params = useParams();
@@ -71,7 +71,7 @@ function AddDetails() {
         setCalled(false);
         DurationMessage();
         setTimeout(() => {
-          navigation("/home/itemdetails/view");
+          navigation("/home/master/itemdetails/view");
         }, 4500);
       }
     }
