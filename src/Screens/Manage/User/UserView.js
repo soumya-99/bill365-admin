@@ -131,6 +131,9 @@ function UserView() {
                       User
                     </th>
                     <th scope="col" class="px-6 py-3">
+                      User Type
+                    </th>
+                    <th scope="col" class="px-6 py-3">
                       ID
                     </th>
                     <th scope="col" class="px-3 py-3">
@@ -146,6 +149,9 @@ function UserView() {
                       </td>
                       <td scope="row" class="px-6 py-4 dark:text-white">
                         {item.user_name}
+                      </td>
+                      <td scope="row" class="px-6 py-4 dark:text-white">
+                        {item.user_type}
                       </td>
                       <td class="px-6 py-4">{item.user_id}</td>
                       <td class="px-3 py-4">
