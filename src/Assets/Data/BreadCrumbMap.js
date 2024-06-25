@@ -24,6 +24,8 @@ export const pathMap = {
   manageshops: "Manage Shops",
   manageoutlets: "Manage Outlets",
   manageusers: "Manage Users",
+  manageuser: "Add/Edit User",
+  manageshop: "Add/Edit Shop",
   managelocations: "Manage Locations",
   settings: "Settings",
   unit: "Units",

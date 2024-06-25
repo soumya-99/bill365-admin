@@ -239,130 +239,130 @@ const router = createBrowserRouter([
               },
             ],
           },
-          // {
-          //   path: "superadmin",
+          {
+            path: "superadmin",
 
-          //   element: <SuperAdminComp />,
-          //   children: [
-          //     {
-          //       path: "manageshops",
-          //       element: <ManageShopsComp />,
-          //       children: [
-          //         {
-          //           path: "view",
-          //           element: <ManageShopsView />,
-          //         },
-          //         {
-          //           path: "manageshop/:id",
-          //           element: <ManageShopsAddEdit />,
-          //         },
-          //       ],
-          //     },
-          //     {
-          //       path: "manageoutlets",
-          //       element: <ManageOutlets />,
-          //     },
-          //     {
-          //       path: "manageusers",
-          //       element: <ManageUsersComp />,
-          //       children: [
-          //         {
-          //           path: "view",
-          //           element: <ManageUsersView />,
-          //         },
-          //         {
-          //           path: "manageuser/:id",
-          //           element: <ManageUsersAddEdit />,
-          //         },
-          //       ],
-          //     },
-          //     {
-          //       path: "managelocations",
-          //       element: <ManageLocations />,
-          //     },
-          //   ],
-          // },
+            element: <SuperAdminComp />,
+            children: [
+              {
+                path: "manageshops",
+                element: <ManageShopsComp />,
+                children: [
+                  {
+                    path: "view",
+                    element: <ManageShopsView />,
+                  },
+                  {
+                    path: "manageshop/:id",
+                    element: <ManageShopsAddEdit />,
+                  },
+                ],
+              },
+              {
+                path: "manageoutlets",
+                element: <ManageOutlets />,
+              },
+              {
+                path: "manageusers",
+                element: <ManageUsersComp />,
+                children: [
+                  {
+                    path: "view",
+                    element: <ManageUsersView />,
+                  },
+                  {
+                    path: "manageuser/:id",
+                    element: <ManageUsersAddEdit />,
+                  },
+                ],
+              },
+              {
+                path: "managelocations",
+                element: <ManageLocations />,
+              },
+            ],
+          },
 
-          // {
-          //   path: "itemdetails",
+          {
+            path: "itemdetails",
 
-          //   element: <ItemDetails />,
-          //   children: [
-          //     {
-          //       path: "view",
-          //       element: <ItemDetailsView />,
-          //     },
-          //     {
-          //       path: "adddetails/:id",
-          //       element: <AddDetails />,
-          //     },
-          //   ],
-          // },
-          // {
-          //   path: "headerfooter",
+            element: <ItemDetails />,
+            children: [
+              {
+                path: "view",
+                element: <ItemDetailsView />,
+              },
+              {
+                path: "adddetails/:id",
+                element: <AddDetails />,
+              },
+            ],
+          },
+          {
+            path: "headerfooter",
 
-          //   element: <HeaderFooterComp />,
-          //   children: [
-          //     {
-          //       path: "view",
-          //       element: <HeaderFooterView />,
-          //     },
-          //     {
-          //       path: "hfdetails",
-          //       element: <HeaderFooterEdit />,
-          //     },
-          //   ],
-          // },
+            element: <HeaderFooterComp />,
+            children: [
+              {
+                path: "view",
+                element: <HeaderFooterView />,
+              },
+              {
+                path: "hfdetails",
+                element: <HeaderFooterEdit />,
+              },
+            ],
+          },
 
-          // {
-          //   path: "customer",
+          {
+            path: "customer",
 
-          //   element: <CustomerComp />,
-          //   children: [
-          //     {
-          //       path: "view",
-          //       element: <CustomerView />,
-          //     },
-          //     {
-          //       path: "custEdit/:id",
-          //       element: <CustomerAddEdit />,
-          //     },
-          //   ],
-          // },
-          // {
-          //   path: "usermng",
+            element: <CustomerComp />,
+            children: [
+              {
+                path: "view",
+                element: <CustomerView />,
+              },
+              {
+                path: "custEdit/:id",
+                element: <CustomerAddEdit />,
+              },
+            ],
+          },
+          {
+            path: "usermng",
 
-          //   element: <UserComp />,
-          //   children: [
-          //     {
-          //       path: "view",
-          //       element: <UserView />,
-          //     },
-          //     {
-          //       path: "usermngadd",
-          //       element: <AddUser />,
-          //     },
-          //   ],
-          // },
-          // {
-          //   path: "stock",
+            element: <UserComp />,
+            children: [
+              {
+                path: "view",
+                element: <UserView />,
+              },
+              {
+                path: "usermngadd",
+                element: <AddUser />,
+              },
+            ],
+          },
+          {
+            path: "stock",
 
-          //   element: <StockComp />,
-          //   children: [
-          //     {
-          //       path: "view",
-          //       element: <StockView />,
-          //     },
-          //     {
-          //       path: "stockedit/:id/:br_id",
-          //       element: <StockEdit />,
-          //     },
-          //   ],
-          // },
-          // {
-          //   path: "settings",
-          //   element: <Settings />,
-          // },
+            element: <StockComp />,
+            children: [
+              {
+                path: "view",
+                element: <StockView />,
+              },
+              {
+                path: "stockedit/:id/:br_id",
+                element: <StockEdit />,
+              },
+            ],
+          },
+          {
+            path: "settings",
+            element: <Settings />,
+          },
           {
             path: "settings",
 
