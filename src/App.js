@@ -17,6 +17,13 @@ function App() {
               itemSelectedBg: "#E2E2F3",
               itemSelectedColor: "#404198",
             },
+            Tabs: {
+              inkBarColor: "#404198",
+              itemColor: "#404198",
+              itemSelectedColor: "#404198",
+              itemHoverColor: "#404198",
+            },
+            Switch: { colorPrimary: "#404198" },
           },
         }}>
         <Outlet />

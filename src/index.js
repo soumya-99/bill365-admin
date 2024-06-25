@@ -272,7 +272,7 @@ const router = createBrowserRouter([
                     element: <ManageOutletsView />,
                   },
                   {
-                    path: "manageoutlet/:id",
+                    path: "manageoutlet/:id/:id2",
                     element: <ManageOutletsAddEdit />,
                   },
                 ],

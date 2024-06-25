@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import DatatableAdv from "../../../Components/DatatableAdv";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Message } from "../../../Components/Message";
 import useAPI from "../../../Hooks/useApi";
 import HeaderLayout from "../../../Components/HeaderLayout";
+import { url } from "../../../Address/baseURL";
 
 function ManageOutletsView() {
+  const params = useParams();
   const navigation = useNavigate();
   const [called, setCalled] = useState(false);
   const { response, callApi } = useAPI();
@@ -35,11 +38,17 @@ function ManageOutletsView() {
   useEffect(() => {
     // comp = localStorage.getItem("comp_id");
     callApi(`/admin/S_Admin/select_outlet?comp_id=${0}`, 0);
+    // callApi(`/admin/S_Admin/select_one_outlet?comp_id=${0}&br_id=${0}`, 0);
   }, []);
 
   const onPress = (data) => {
     console.log(data);
-    navigation("/home/superadmin/manageoutlets/manageoutlet/" + data.id);
+    navigation(
+      "/home/superadmin/manageoutlets/manageoutlet/" +
+        data.id +
+        "/" +
+        data.comp_id
+    );
   };
 
   useEffect(() => {
@@ -76,7 +85,7 @@ function ManageOutletsView() {
                 setSearch={(val) => setSearch(val)}
                 title={"Manage Outlets"}
                 btnText={"Add Outlet"}
-                onclick={() => onPress({ id: 0 })}
+                onclick={() => onPress({ id: 0, id2: 0 })}
                 flag={1}
                 headers={[
                   { name: "id", value: "Outlet ID" },
@@ -91,7 +100,6 @@ function ManageOutletsView() {
           </div>
         </div>
       </section>
-      {/*  */}
     </div>
   );
 }
