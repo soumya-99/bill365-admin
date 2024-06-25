@@ -18,6 +18,9 @@ import Bill from "./Screens/Bill/Bill";
 import SettingsComp from "./Screens/Settings/SettingsComp";
 import MasterComp from "./Screens/Master/MasterComp";
 import ManageComp from "./Screens/Manage/ManageComp";
+import ManageOutletsComp from "./Screens/SuperAdmin/ManageOutlets/ManageOutletsComp";
+import ManageOutletsView from "./Screens/SuperAdmin/ManageOutlets/ManageOutletsView";
+import ManageOutletsAddEdit from "./Screens/SuperAdmin/ManageOutlets/ManageOutletsAddEdit";
 // import RecoveryReport from "./Screens/Reports/RecoveryReport";
 // import DueReport from "./Screens/Reports/DueReport";
 // import CustomerLedger from "./Screens/Reports/CustomerLedger";
@@ -50,7 +53,9 @@ const Byprod = lazy(() => import("./Screens/Search/Byprod"));
 const SuperAdminComp = lazy(() =>
   import("./Screens/SuperAdmin/SuperAdminComp")
 );
-const ManageOutlets = lazy(() => import("./Screens/SuperAdmin/ManageOutlets"));
+const ManageOutlets = lazy(() =>
+  import("./Screens/SuperAdmin/ManageOutlets/ManageOutletsComp")
+);
 const ManageShopsComp = lazy(() =>
   import("./Screens/SuperAdmin/ManageShops/ManageShopsComp")
 );
@@ -260,7 +265,17 @@ const router = createBrowserRouter([
               },
               {
                 path: "manageoutlets",
-                element: <ManageOutlets />,
+                element: <ManageOutletsComp />,
+                children: [
+                  {
+                    path: "view",
+                    element: <ManageOutletsView />,
+                  },
+                  {
+                    path: "manageoutlet/:id",
+                    element: <ManageOutletsAddEdit />,
+                  },
+                ],
               },
               {
                 path: "manageusers",

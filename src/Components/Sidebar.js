@@ -571,7 +571,7 @@ function SidebarComp() {
           icon: (
             <PhoneOutlined
               className={
-                location.pathname.includes("superadmin/manageoutlets")
+                location.pathname.includes("superadmin/manageoutlets/view")
                   ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
                   : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
               }
@@ -580,11 +580,11 @@ function SidebarComp() {
           label: (
             <div
               className={
-                location.pathname.includes("superadmin/manageoutlets")
+                location.pathname.includes("superadmin/manageoutlets/view")
                   ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
                   : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
               }>
-              <Link to={"superadmin/manageoutlets"}>Manage Outlets</Link>
+              <Link to={"superadmin/manageoutlets/view"}>Manage Outlets</Link>
             </div>
           ),
         },
