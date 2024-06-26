@@ -21,6 +21,9 @@ import ManageComp from "./Screens/Manage/ManageComp";
 import ManageOutletsComp from "./Screens/SuperAdmin/ManageOutlets/ManageOutletsComp";
 import ManageOutletsView from "./Screens/SuperAdmin/ManageOutlets/ManageOutletsView";
 import ManageOutletsAddEdit from "./Screens/SuperAdmin/ManageOutlets/ManageOutletsAddEdit";
+import ManageHeaderFooterComp from "./Screens/SuperAdmin/ManageHeaderFooter/ManageHeaderFooterComp";
+import ManageHeaderFooterView from "./Screens/SuperAdmin/ManageHeaderFooter/ManageHeaderFooterView";
+import ManageHeaderFooterAddEdit from "./Screens/SuperAdmin/ManageHeaderFooter/ManageHeaderFooterAddEdit";
 // import RecoveryReport from "./Screens/Reports/RecoveryReport";
 // import DueReport from "./Screens/Reports/DueReport";
 // import CustomerLedger from "./Screens/Reports/CustomerLedger";
@@ -288,6 +291,20 @@ const router = createBrowserRouter([
                   {
                     path: "manageuser/:id",
                     element: <ManageUsersAddEdit />,
+                  },
+                ],
+              },
+              {
+                path: "manageheaderfooters",
+                element: <ManageHeaderFooterComp />,
+                children: [
+                  {
+                    path: "view",
+                    element: <ManageHeaderFooterView />,
+                  },
+                  {
+                    path: "manageheaderfooter/:id",
+                    element: <ManageHeaderFooterAddEdit />,
                   },
                 ],
               },

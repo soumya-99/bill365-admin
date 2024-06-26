@@ -28,6 +28,7 @@ export const pathMap = {
   manageshop: "Add/Edit Shop",
   managelocations: "Manage Locations",
   manageoutlet: "Manage Outlet Add/Edit",
+  manageheaderfooters: "Manage Headers/Footers",
   settings: "Settings",
   unit: "Units",
   itemdetails: "Item details",
