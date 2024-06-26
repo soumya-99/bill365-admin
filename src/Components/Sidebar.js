@@ -858,19 +858,14 @@ function SidebarComp() {
               <img src={IMG} className="h-16 mx-5" alt="Flowbite Logo" />
             </Link>
           </div>
-          <Menu
-            style={{ width: 256 }}
-            defaultOpenKeys={[""]}
-            mode="inline"
-            items={items}
-          />
-          {/* <div className="bg-white w-64 flex justify-center py-4 fixed bottom-0 z-10">
-            <Link
-              to={"/home/report/daybook"}
-              className="flex items-center space-x-3 rtl:space-x-reverse">
-              <img src={IMG} className="h-16 mx-5" alt="Flowbite Logo" />
-            </Link>
-          </div> */}
+          <div>
+            <Menu
+              style={{ width: 256 }}
+              defaultOpenKeys={[""]}
+              mode="inline"
+              items={items}
+            />
+          </div>
         </div>
       </aside>
     </>
