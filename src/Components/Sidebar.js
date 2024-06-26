@@ -638,6 +638,28 @@ function SidebarComp() {
             </div>
           ),
         },
+        {
+          key: "17",
+          icon: (
+            <ProductOutlined
+              className={
+                location.pathname.includes("superadmin/managesettings/view")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }
+            />
+          ),
+          label: (
+            <div
+              className={
+                location.pathname.includes("superadmin/managesettings/view")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }>
+              <Link to={"superadmin/managesettings/view"}>Manage Settings</Link>
+            </div>
+          ),
+        },
       ],
     },
 
@@ -828,8 +850,8 @@ function SidebarComp() {
         id="separator-sidebar"
         className=" overflow-y-auto fixed top-0 bg-blue-300 left-0 z-40 w-64 max-h-screen transition-transform -translate-x-full overflow-x-hidden sm:translate-x-0"
         aria-label="Sidebar">
-        <div className="h-full  bg-blue-300 sticky top-0 dark:bg-gray-800 ">
-          <div className="bg-white w-64 flex justify-center py-4">
+        <div className="h-full  bg-blue-300 sticky top-0 dark:bg-gray-800">
+          <div className="bg-white w-64 flex justify-center py-4 sticky top-0 z-10">
             <Link
               to={"/home/report/daybook"}
               className="flex items-center space-x-3 rtl:space-x-reverse">
@@ -842,6 +864,13 @@ function SidebarComp() {
             mode="inline"
             items={items}
           />
+          {/* <div className="bg-white w-64 flex justify-center py-4 fixed bottom-0 z-10">
+            <Link
+              to={"/home/report/daybook"}
+              className="flex items-center space-x-3 rtl:space-x-reverse">
+              <img src={IMG} className="h-16 mx-5" alt="Flowbite Logo" />
+            </Link>
+          </div> */}
         </div>
       </aside>
     </>

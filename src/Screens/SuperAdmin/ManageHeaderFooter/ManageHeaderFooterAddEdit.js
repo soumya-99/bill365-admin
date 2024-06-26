@@ -97,15 +97,15 @@ function ManageHeaderFooterAddEdit() {
     // comp = localStorage.getItem("comp_id");
     userId = localStorage.getItem("user_id");
     callApi("/admin/S_Admin/add_edit_header_footer", 1, {
-      comp_id: +params.id,
-      header1: values?.header1,
-      on_off_flag1: values?.on_off_flag1,
-      header2: values?.header2,
-      on_off_flag2: values?.on_off_flag2,
-      footer1: values?.footer1,
-      on_off_flag3: values?.on_off_flag3,
-      footer2: values?.footer2,
-      on_off_flag4: values?.on_off_flag4,
+      comp_id: values?.m_comp_id,
+      header1: values?.m_header1,
+      on_off_flag1: values?.m_on_off_flag1,
+      header2: values?.m_header2,
+      on_off_flag2: values?.m_on_off_flag2,
+      footer1: values?.m_footer1,
+      on_off_flag3: values?.m_on_off_flag3,
+      footer2: values?.m_footer2,
+      on_off_flag4: values?.m_on_off_flag4,
       created_by: userId,
     });
   };
