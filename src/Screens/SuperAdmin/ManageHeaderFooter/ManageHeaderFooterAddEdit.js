@@ -184,9 +184,15 @@ function ManageHeaderFooterAddEdit() {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.m_header1}
+                  maxLength="25"
                   placeholder="Header 1"
                   required=""
                 />
+                {/* <p
+                  id="helper-text-explanation"
+                  class="mt-2 text-sm text-gray-500 dark:text-gray-400">
+                  {f1Text?.length}/25
+                </p> */}
                 {formik.errors.m_header1 && formik.touched.m_header1 ? (
                   <div className="text-red-500 text-sm">
                     {formik.errors.m_header1}
@@ -232,6 +238,7 @@ function ManageHeaderFooterAddEdit() {
                   onBlur={formik.handleBlur}
                   value={formik.values.m_header2}
                   placeholder="Header 2"
+                  maxLength="25"
                   required=""
                 />
                 {formik.errors.m_header2 && formik.touched.m_header2 ? (
@@ -279,6 +286,7 @@ function ManageHeaderFooterAddEdit() {
                   onBlur={formik.handleBlur}
                   value={formik.values.m_footer1}
                   placeholder="Footer 1"
+                  maxLength="25"
                   required=""
                 />
                 {formik.errors.m_footer1 && formik.touched.m_footer1 ? (
@@ -326,6 +334,7 @@ function ManageHeaderFooterAddEdit() {
                   onBlur={formik.handleBlur}
                   value={formik.values.m_footer2}
                   placeholder="Footer 2"
+                  maxLength="25"
                   required=""
                 />
                 {formik.errors.m_footer2 && formik.touched.m_footer2 ? (

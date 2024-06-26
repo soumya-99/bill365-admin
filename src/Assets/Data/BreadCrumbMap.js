@@ -29,6 +29,7 @@ export const pathMap = {
   managelocations: "Manage Locations",
   manageoutlet: "Manage Outlet Add/Edit",
   manageheaderfooters: "Manage Headers/Footers",
+  manageheaderfooter: "Add/Edit Header/Footer",
   settings: "Settings",
   unit: "Units",
   itemdetails: "Item details",
