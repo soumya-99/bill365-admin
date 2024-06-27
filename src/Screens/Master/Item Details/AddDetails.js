@@ -19,8 +19,21 @@ function AddDetails() {
   const [isReport, setIsReport] = useState(false);
   const [isCalled, setCalled] = useState(false);
   const [dataSet, setDataSet] = useState();
+  const [outlets, setOutlets] = useState(() => []);
   const [category, setCat] = useState();
-  var comp;
+  var comp, userId;
+
+  useEffect(() => {
+    axios
+      .post(url + "/admin/outlet_list", {
+        comp_id: +localStorage.getItem("comp_id"),
+      })
+      .then((resp) => {
+        console.log(resp);
+        setOutlets(resp?.data?.msg);
+      });
+  }, []);
+
   useEffect(() => {
     axios
       .post(url + "/admin/unit_list", {
@@ -51,14 +64,15 @@ function AddDetails() {
     if (Array.isArray(response?.data?.msg)) {
       console.log(response);
       const rsp = {
+        // i_br_id: +response?.data?.msg[0].br_id,
         i_name: response?.data?.msg[0].item_name,
-        i_hsn: response?.data?.msg[0].hsn_code,
-        i_price: response?.data?.msg[0].price,
-        i_discount: response?.data?.msg[0].discount,
-        i_cgst: response?.data?.msg[0].cgst,
-        i_sgst: response?.data?.msg[0].sgst,
-        i_unit: response?.data?.msg[0].unit_id,
-        i_cat: response?.data?.msg[0].catg_id,
+        i_hsn: +response?.data?.msg[0].hsn_code,
+        i_price: +response?.data?.msg[0].price,
+        i_discount: +response?.data?.msg[0].discount,
+        i_cgst: +response?.data?.msg[0].cgst,
+        i_sgst: +response?.data?.msg[0].sgst,
+        i_unit: +response?.data?.msg[0].unit_id,
+        i_cat: +response?.data?.msg[0].catg_id,
       };
       setValues(rsp);
       console.log(rsp);
@@ -77,6 +91,7 @@ function AddDetails() {
     }
   }, [response]);
   const initialValues = {
+    // i_br_id: "",
     i_name: "",
     i_hsn: "",
     i_price: "",
@@ -91,29 +106,33 @@ function AddDetails() {
     setCalled(true);
     console.log(values, params.id);
     comp = localStorage.getItem("comp_id");
+    userId = localStorage.getItem("user_id");
     callApi("/admin/add_edit_items", 1, {
       comp_id: +comp,
+      // br_id: +values?.i_br_id,
       item_id: +params.id,
       item_name: values.i_name,
-      unit_id: values.i_unit,
-      price: values.i_price,
-      discount: values.i_discount,
-      cgst: values.i_cgst,
-      sgst: values.i_sgst,
-      hsn_code: values.i_hsn,
+      unit_id: +values.i_unit,
+      price: +values.i_price,
+      discount: +values.i_discount,
+      cgst: +values.i_cgst,
+      sgst: +values.i_sgst,
+      hsn_code: +values.i_hsn,
       catg_id: +values.i_cat,
+      created_by: userId,
     });
   };
 
   const validationSchema = Yup.object({
     i_name: Yup.string().required("Name is required"),
-    i_hsn: Yup.string().required("HSN is required"),
-    i_price: Yup.string().required("Price is required"),
-    i_unit: Yup.string().required("Unit is required"),
-    i_discount: Yup.string().required("Discount is required"),
-    i_cgst: Yup.string().required("CGST is required"),
-    i_sgst: Yup.string().required("SGST is required"),
-    i_cat: Yup.string().required("Category is required"),
+    // i_br_id: Yup.number().required("Branch is required"),
+    i_hsn: Yup.number().required("HSN is required"),
+    i_price: Yup.number().required("Price is required"),
+    i_unit: Yup.number().required("Unit is required"),
+    i_discount: Yup.number().required("Discount is required"),
+    i_cgst: Yup.number().required("CGST is required"),
+    i_sgst: Yup.number().required("SGST is required"),
+    i_cat: Yup.number().required("Category is required"),
   });
   const [formValues, setValues] = useState(initialValues);
   console.log(formValues);
@@ -166,7 +185,7 @@ function AddDetails() {
                   HSN Code
                 </label>
                 <input
-                  type="text"
+                  type="number"
                   name="i_hsn"
                   value={formik.values.i_hsn}
                   onChange={formik.handleChange}

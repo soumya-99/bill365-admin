@@ -27,6 +27,9 @@ import ManageHeaderFooterAddEdit from "./Screens/SuperAdmin/ManageHeaderFooter/M
 import ManageSettingsComp from "./Screens/SuperAdmin/ManageSettings/ManageSettingsComp";
 import ManageSettingsView from "./Screens/SuperAdmin/ManageSettings/ManageSettingsView";
 import ManageSettingsAddEdit from "./Screens/SuperAdmin/ManageSettings/ManageSettingsAddEdit";
+import ManageUnitsComp from "./Screens/SuperAdmin/ManageUnits/ManageUnitsComp";
+import ManageUnitsView from "./Screens/SuperAdmin/ManageUnits/ManageUnitsView";
+import ManageUnitsAddEdit from "./Screens/SuperAdmin/ManageUnits/ManageUnitsAddEdit";
 // import RecoveryReport from "./Screens/Reports/RecoveryReport";
 // import DueReport from "./Screens/Reports/DueReport";
 // import CustomerLedger from "./Screens/Reports/CustomerLedger";
@@ -322,6 +325,20 @@ const router = createBrowserRouter([
                   {
                     path: "managesetting/:id",
                     element: <ManageSettingsAddEdit />,
+                  },
+                ],
+              },
+              {
+                path: "manageunits",
+                element: <ManageUnitsComp />,
+                children: [
+                  {
+                    path: "view",
+                    element: <ManageUnitsView />,
+                  },
+                  {
+                    path: "manageunit/:id/:id2",
+                    element: <ManageUnitsAddEdit />,
                   },
                 ],
               },
