@@ -15,21 +15,47 @@ import { Democontext, loadingContext } from "./Context/Democontext";
 import Loader from "./Components/Loader";
 import Noresult from "./Screens/Noresult/Noresult";
 import Bill from "./Screens/Bill/Bill";
-import SettingsComp from "./Screens/Settings/SettingsComp";
-import MasterComp from "./Screens/Master/MasterComp";
-import ManageComp from "./Screens/Manage/ManageComp";
-import ManageOutletsComp from "./Screens/SuperAdmin/ManageOutlets/ManageOutletsComp";
-import ManageOutletsView from "./Screens/SuperAdmin/ManageOutlets/ManageOutletsView";
-import ManageOutletsAddEdit from "./Screens/SuperAdmin/ManageOutlets/ManageOutletsAddEdit";
-import ManageHeaderFooterComp from "./Screens/SuperAdmin/ManageHeaderFooter/ManageHeaderFooterComp";
-import ManageHeaderFooterView from "./Screens/SuperAdmin/ManageHeaderFooter/ManageHeaderFooterView";
-import ManageHeaderFooterAddEdit from "./Screens/SuperAdmin/ManageHeaderFooter/ManageHeaderFooterAddEdit";
-import ManageSettingsComp from "./Screens/SuperAdmin/ManageSettings/ManageSettingsComp";
-import ManageSettingsView from "./Screens/SuperAdmin/ManageSettings/ManageSettingsView";
-import ManageSettingsAddEdit from "./Screens/SuperAdmin/ManageSettings/ManageSettingsAddEdit";
-import ManageUnitsComp from "./Screens/SuperAdmin/ManageUnits/ManageUnitsComp";
-import ManageUnitsView from "./Screens/SuperAdmin/ManageUnits/ManageUnitsView";
-import ManageUnitsAddEdit from "./Screens/SuperAdmin/ManageUnits/ManageUnitsAddEdit";
+
+const SettingsComp = lazy(() => import("./Screens/Settings/SettingsComp"));
+const MasterComp = lazy(() => import("./Screens/Master/MasterComp"));
+const ManageComp = lazy(() => import("./Screens/Manage/ManageComp"));
+const ManageOutletsComp = lazy(() =>
+  import("./Screens/SuperAdmin/ManageOutlets/ManageOutletsComp")
+);
+const ManageOutletsView = lazy(() =>
+  import("./Screens/SuperAdmin/ManageOutlets/ManageOutletsView")
+);
+const ManageOutletsAddEdit = lazy(() =>
+  import("./Screens/SuperAdmin/ManageOutlets/ManageOutletsAddEdit")
+);
+const ManageHeaderFooterComp = lazy(() =>
+  import("./Screens/SuperAdmin/ManageHeaderFooter/ManageHeaderFooterComp")
+);
+const ManageHeaderFooterView = lazy(() =>
+  import("./Screens/SuperAdmin/ManageHeaderFooter/ManageHeaderFooterView")
+);
+const ManageHeaderFooterAddEdit = lazy(() =>
+  import("./Screens/SuperAdmin/ManageHeaderFooter/ManageHeaderFooterAddEdit")
+);
+const ManageSettingsComp = lazy(() =>
+  import("./Screens/SuperAdmin/ManageSettings/ManageSettingsComp")
+);
+const ManageSettingsView = lazy(() =>
+  import("./Screens/SuperAdmin/ManageSettings/ManageSettingsView")
+);
+const ManageSettingsAddEdit = lazy(() =>
+  import("./Screens/SuperAdmin/ManageSettings/ManageSettingsAddEdit")
+);
+const ManageUnitsComp = lazy(() =>
+  import("./Screens/SuperAdmin/ManageUnits/ManageUnitsComp")
+);
+const ManageUnitsView = lazy(() =>
+  import("./Screens/SuperAdmin/ManageUnits/ManageUnitsView")
+);
+const ManageUnitsAddEdit = lazy(() =>
+  import("./Screens/SuperAdmin/ManageUnits/ManageUnitsAddEdit")
+);
+
 // import RecoveryReport from "./Screens/Reports/RecoveryReport";
 // import DueReport from "./Screens/Reports/DueReport";
 // import CustomerLedger from "./Screens/Reports/CustomerLedger";
