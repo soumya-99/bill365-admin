@@ -43,18 +43,6 @@ function ManageUnitsAddEdit() {
   }, [isCalled]);
 
   useEffect(() => {
-    axios
-      .get(`${url}/admin/S_Admin/select_location`)
-      .then((res) => {
-        setLocations(res?.data?.msg);
-        console.log(res);
-      })
-      .catch((err) => {
-        Message("error", err);
-      });
-  }, []);
-
-  useEffect(() => {
     // callApi(`/admin/S_Admin/select_location`, 0);
     axios
       .get(`${url}/admin/S_Admin/select_shop?id=0`)
