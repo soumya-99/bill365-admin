@@ -72,15 +72,8 @@ function ManageUnitsAddEdit() {
     if (Array.isArray(response?.data?.msg)) {
       console.log(response);
       const rsp = {
-        // "br_id": 0,
-        o_comp_id: +response?.data?.msg[0].comp_id,
-        o_branch_name: response?.data?.msg[0]?.branch_name,
-        o_branch_address: response?.data?.msg[0]?.branch_address,
-        o_location: response?.data?.msg[0]?.location,
-        o_contact_person: response?.data?.msg[0]?.contact_person,
-        o_phone_no: +response?.data?.msg[0]?.phone_no,
-        o_email_id: response?.data?.msg[0]?.email_id,
-        o_created_by: response?.data?.msg[0]?.created_by,
+        su_comp_id: +response?.data?.msg[0].comp_id,
+        su_unit_name: +response?.data?.msg[0].comp_id,
       };
       setValues(rsp);
       //  setBill(response?.data?.msg[0].bill_address)
@@ -95,22 +88,15 @@ function ManageUnitsAddEdit() {
         setCalled(false);
         DurationMessage();
         setTimeout(() => {
-          navigation("/home/superadmin/manageoutlets/view");
-        }, 4500);
+          navigation("/home/superadmin/manageunits/view");
+        }, 3500);
       }
     }
   }, [response]);
 
   const initialValues = {
-    // "br_id": 0,
-    o_comp_id: "",
-    o_branch_name: "",
-    o_branch_address: "",
-    o_location: "",
-    o_contact_person: "",
-    o_phone_no: "",
-    o_email_id: "",
-    o_created_by: "",
+    su_comp_id: "",
+    su_unit_name: "",
   };
 
   const onSubmit = (values) => {
@@ -118,41 +104,17 @@ function ManageUnitsAddEdit() {
     console.log(values, params.id);
     // comp = localStorage.getItem("comp_id");
     userId = localStorage.getItem("user_id");
-    callApi("/admin/S_Admin/add_edit_outlet", 1, {
-      //   id: +params.id,
-      //   comp_id: +values?.u_comp_id,
-      //   br_id: +values?.u_br_id,
-      //   user_name: values?.u_user_name,
-      //   user_type: values?.u_user_type,
-      //   user_id: values?.u_user_id,
-      //   phone_no: +values?.u_phone_no,
-      //   email_id: values?.u_email_id,
-      //   password: values?.u_password,
-      //   active_flag: values?.u_active_flag,
-      //   login_flag: values?.u_login_flag,
-      //   created_by: userId,
-
-      br_id: +params.id,
-      comp_id: +values?.o_comp_id,
-      branch_name: values?.o_branch_name,
-      branch_address: values?.o_branch_address,
-      location: values?.o_location,
-      contact_person: values?.o_email_id,
-      phone_no: +values?.o_phone_no,
-      email_id: values?.o_email_id,
+    callApi("/admin/S_Admin/add_edit_unit", 1, {
+      sl_no: +params.id,
+      comp_id: +values?.su_comp_id,
+      unit_name: values?.su_unit_name,
       created_by: userId,
     });
   };
 
   const validationSchema = Yup.object({
-    // u_br_id: Yup.string().required("Outlet is required."),
-    o_comp_id: Yup.string().required("Company is required."),
-    o_branch_name: Yup.string().required("Outlet name is required."),
-    o_branch_address: Yup.string().required("Outlet address is required."),
-    o_location: Yup.string().required("Location is required."),
-    o_contact_person: Yup.string().required("Contact person is required."),
-    o_phone_no: Yup.string().required("Phone no. is required."),
-    o_email_id: Yup.string().required("Email is required."),
+    su_comp_id: Yup.string().required("Company is required."),
+    su_unit_name: Yup.string().required("Unit name is required."),
   });
 
   const [formValues, setValues] = useState(initialValues);
@@ -195,17 +157,17 @@ function ManageUnitsAddEdit() {
             <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
               <div>
                 <label
-                  for="u_comp_id"
+                  for="su_comp_id"
                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Select Shop
                 </label>
                 <select
-                  id="o_comp_id"
-                  name="o_comp_id"
+                  id="su_comp_id"
+                  name="su_comp_id"
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
-                  value={formik.values.o_comp_id}>
+                  value={formik.values.su_comp_id}>
                   <option selected="">Select Shop</option>
 
                   {shops?.map((items, i) => (
@@ -214,108 +176,32 @@ function ManageUnitsAddEdit() {
                     </option>
                   ))}
                 </select>
-                {formik.errors.o_comp_id && formik.touched.o_comp_id ? (
+                {formik.errors.su_comp_id && formik.touched.su_comp_id ? (
                   <div className="text-red-500 text-sm">
-                    {formik.errors.o_comp_id}
+                    {formik.errors.su_comp_id}
                   </div>
                 ) : null}
               </div>
               <div class="w-full">
                 <label
-                  for="o_branch_name"
+                  for="su_unit_name"
                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Outlet Name
+                  Unit Name
                 </label>
                 <input
                   type="text"
-                  name="o_branch_name"
-                  id="o_branch_name"
+                  name="su_unit_name"
+                  id="su_unit_name"
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
-                  value={formik.values.o_branch_name}
-                  placeholder="Enter Outlet Name"
+                  value={formik.values.su_unit_name}
+                  placeholder="Unit Name"
                   required=""
                 />
-                {formik.errors.o_branch_name && formik.touched.o_branch_name ? (
+                {formik.errors.su_unit_name && formik.touched.su_unit_name ? (
                   <div className="text-red-500 text-sm">
-                    {formik.errors.o_branch_name}
-                  </div>
-                ) : null}
-              </div>
-              <div class="sm:col-span-2">
-                <label
-                  for="o_branch_address"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Outlet address
-                </label>
-                <textarea
-                  id="o_branch_address"
-                  name="o_branch_address"
-                  value={formik.values.o_branch_address}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  rows="8"
-                  class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  placeholder="Your outlet address here"
-                />
-
-                {formik.errors.o_branch_address &&
-                formik.touched.o_branch_address ? (
-                  <div className="text-red-500 text-sm">
-                    {formik.errors.o_branch_address}
-                  </div>
-                ) : null}
-              </div>
-              <div>
-                <label
-                  for="o_location"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Location
-                </label>
-                <select
-                  id="o_location"
-                  name="o_location"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.o_location}>
-                  <option selected="">Select Location</option>
-                  {locations?.map((item, i) => (
-                    <option key={i} value={item?.sl_no}>
-                      {item?.location_name}
-                    </option>
-                  ))}
-                  {/* <option value="Y">Yes</option>
-                  <option value="N">No</option> */}
-                </select>
-                {formik.errors.o_location && formik.touched.o_location ? (
-                  <div className="text-red-500 text-sm">
-                    {formik.errors.o_location}
-                  </div>
-                ) : null}
-              </div>
-              <div class="w-full">
-                <label
-                  for="o_contact_person"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Contact Person
-                </label>
-                <input
-                  type="text"
-                  name="o_contact_person"
-                  id="o_contact_person"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.o_contact_person}
-                  placeholder="Contact Person Name"
-                  required=""
-                />
-                {formik.errors.o_contact_person &&
-                formik.touched.o_contact_person ? (
-                  <div className="text-red-500 text-sm">
-                    {formik.errors.o_contact_person}
+                    {formik.errors.su_unit_name}
                   </div>
                 ) : null}
               </div>

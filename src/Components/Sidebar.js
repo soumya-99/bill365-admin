@@ -287,6 +287,7 @@ function SidebarComp() {
         },
       ],
     },
+
     {
       key: "sub2",
       label: "Search Bill",
@@ -368,6 +369,7 @@ function SidebarComp() {
         },
       ],
     },
+
     // settings
     {
       key: "sub3",
@@ -428,6 +430,7 @@ function SidebarComp() {
         },
       ],
     },
+
     {
       key: "sub4",
       label: "Master",
@@ -509,181 +512,182 @@ function SidebarComp() {
         },
       ],
     },
-    // {
-    //   key: "sub33",
-    //   label: "Super Admin",
-    //   icon: (
-    //     <FileSearchOutlined
-    //       className={
-    //         location.pathname.includes("superadmin")
-    //           ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-    //           : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-    //       }
-    //     />
-    //   ),
-    //   children: [
-    //     {
-    //       key: "15",
-    //       icon: (
-    //         <ProductOutlined
-    //           className={
-    //             location.pathname.includes("superadmin/managelocations")
-    //               ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-    //               : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-    //           }
-    //         />
-    //       ),
-    //       label: (
-    //         <div
-    //           className={
-    //             location.pathname.includes("superadmin/managelocations")
-    //               ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-    //               : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-    //           }>
-    //           <Link to={"superadmin/managelocations"}>Manage Locations</Link>
-    //         </div>
-    //       ),
-    //     },
-    //     {
-    //       key: "12",
-    //       icon: (
-    //         <CalendarOutlined
-    //           className={
-    //             location.pathname.includes("superadmin/manageshops/view")
-    //               ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-    //               : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-    //           }
-    //         />
-    //       ),
-    //       label: (
-    //         <div
-    //           className={
-    //             location.pathname.includes("superadmin/manageshops/view")
-    //               ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-    //               : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-    //           }>
-    //           <Link to={"superadmin/manageshops/view"}> Manage Shops</Link>
-    //         </div>
-    //       ),
-    //     },
-    //     {
-    //       key: "13",
-    //       icon: (
-    //         <PhoneOutlined
-    //           className={
-    //             location.pathname.includes("superadmin/manageoutlets/view")
-    //               ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-    //               : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-    //           }
-    //         />
-    //       ),
-    //       label: (
-    //         <div
-    //           className={
-    //             location.pathname.includes("superadmin/manageoutlets/view")
-    //               ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-    //               : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-    //           }>
-    //           <Link to={"superadmin/manageoutlets/view"}>Manage Outlets</Link>
-    //         </div>
-    //       ),
-    //     },
-    //     {
-    //       key: "14",
-    //       icon: (
-    //         <ProductOutlined
-    //           className={
-    //             location.pathname.includes("superadmin/manageusers/view")
-    //               ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-    //               : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-    //           }
-    //         />
-    //       ),
-    //       label: (
-    //         <div
-    //           className={
-    //             location.pathname.includes("superadmin/manageusers/view")
-    //               ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-    //               : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-    //           }>
-    //           <Link to={"superadmin/manageusers/view"}>Manage Users</Link>
-    //         </div>
-    //       ),
-    //     },
-    //     {
-    //       key: "16",
-    //       icon: (
-    //         <ProductOutlined
-    //           className={
-    //             location.pathname.includes(
-    //               "superadmin/manageheaderfooters/view"
-    //             )
-    //               ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-    //               : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-    //           }
-    //         />
-    //       ),
-    //       label: (
-    //         <div
-    //           className={
-    //             location.pathname.includes(
-    //               "superadmin/manageheaderfooters/view"
-    //             )
-    //               ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-    //               : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-    //           }>
-    //           <Link to={"superadmin/manageheaderfooters/view"}>
-    //             Manage Header/Footer
-    //           </Link>
-    //         </div>
-    //       ),
-    //     },
-    //     {
-    //       key: "17",
-    //       icon: (
-    //         <ProductOutlined
-    //           className={
-    //             location.pathname.includes("superadmin/managesettings/view")
-    //               ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-    //               : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-    //           }
-    //         />
-    //       ),
-    //       label: (
-    //         <div
-    //           className={
-    //             location.pathname.includes("superadmin/managesettings/view")
-    //               ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-    //               : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-    //           }>
-    //           <Link to={"superadmin/managesettings/view"}>Manage Settings</Link>
-    //         </div>
-    //       ),
-    //     },
-    //     {
-    //       key: "18",
-    //       icon: (
-    //         <ProductOutlined
-    //           className={
-    //             location.pathname.includes("superadmin/manageunits/view")
-    //               ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-    //               : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-    //           }
-    //         />
-    //       ),
-    //       label: (
-    //         <div
-    //           className={
-    //             location.pathname.includes("superadmin/manageunits/view")
-    //               ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-    //               : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-    //           }>
-    //           <Link to={"superadmin/manageunits/view"}>Manage Units</Link>
-    //         </div>
-    //       ),
-    //     },
-    //   ],
-    // },
+
+    {
+      key: "sub33",
+      label: "Super Admin",
+      icon: (
+        <FileSearchOutlined
+          className={
+            location.pathname.includes("superadmin")
+              ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+              : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+          }
+        />
+      ),
+      children: [
+        {
+          key: "15",
+          icon: (
+            <ProductOutlined
+              className={
+                location.pathname.includes("superadmin/managelocations")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }
+            />
+          ),
+          label: (
+            <div
+              className={
+                location.pathname.includes("superadmin/managelocations")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }>
+              <Link to={"superadmin/managelocations"}>Manage Locations</Link>
+            </div>
+          ),
+        },
+        {
+          key: "12",
+          icon: (
+            <CalendarOutlined
+              className={
+                location.pathname.includes("superadmin/manageshops/view")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }
+            />
+          ),
+          label: (
+            <div
+              className={
+                location.pathname.includes("superadmin/manageshops/view")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+              }>
+              <Link to={"superadmin/manageshops/view"}> Manage Shops</Link>
+            </div>
+          ),
+        },
+        {
+          key: "13",
+          icon: (
+            <PhoneOutlined
+              className={
+                location.pathname.includes("superadmin/manageoutlets/view")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }
+            />
+          ),
+          label: (
+            <div
+              className={
+                location.pathname.includes("superadmin/manageoutlets/view")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }>
+              <Link to={"superadmin/manageoutlets/view"}>Manage Outlets</Link>
+            </div>
+          ),
+        },
+        {
+          key: "14",
+          icon: (
+            <ProductOutlined
+              className={
+                location.pathname.includes("superadmin/manageusers/view")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }
+            />
+          ),
+          label: (
+            <div
+              className={
+                location.pathname.includes("superadmin/manageusers/view")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }>
+              <Link to={"superadmin/manageusers/view"}>Manage Users</Link>
+            </div>
+          ),
+        },
+        {
+          key: "16",
+          icon: (
+            <ProductOutlined
+              className={
+                location.pathname.includes(
+                  "superadmin/manageheaderfooters/view"
+                )
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }
+            />
+          ),
+          label: (
+            <div
+              className={
+                location.pathname.includes(
+                  "superadmin/manageheaderfooters/view"
+                )
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }>
+              <Link to={"superadmin/manageheaderfooters/view"}>
+                Manage Header/Footer
+              </Link>
+            </div>
+          ),
+        },
+        {
+          key: "17",
+          icon: (
+            <ProductOutlined
+              className={
+                location.pathname.includes("superadmin/managesettings/view")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }
+            />
+          ),
+          label: (
+            <div
+              className={
+                location.pathname.includes("superadmin/managesettings/view")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }>
+              <Link to={"superadmin/managesettings/view"}>Manage Settings</Link>
+            </div>
+          ),
+        },
+        {
+          key: "18",
+          icon: (
+            <ProductOutlined
+              className={
+                location.pathname.includes("superadmin/manageunits/view")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }
+            />
+          ),
+          label: (
+            <div
+              className={
+                location.pathname.includes("superadmin/manageunits/view")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }>
+              <Link to={"superadmin/manageunits/view"}>Manage Units</Link>
+            </div>
+          ),
+        },
+      ],
+    },
 
     {
       key: "sub5",

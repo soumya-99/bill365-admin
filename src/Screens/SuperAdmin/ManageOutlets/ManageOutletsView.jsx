@@ -85,7 +85,7 @@ function ManageOutletsView() {
                 setSearch={(val) => setSearch(val)}
                 title={"Manage Outlets"}
                 btnText={"Add Outlet"}
-                onclick={() => onPress({ id: 0, id2: 0 })}
+                onclick={() => onPress({ id: 0 })}
                 flag={1}
                 headers={[
                   { name: "id", value: "Outlet ID" },

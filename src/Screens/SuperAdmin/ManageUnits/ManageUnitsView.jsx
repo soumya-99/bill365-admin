@@ -70,7 +70,7 @@ function ManageUnitsView() {
       <HeaderLayout
         title={"Manage Units"}
         btnText={"Add Unit"}
-        onPress={() => onPress({ id2: 0 })}
+        onPress={() => onPress({ sl_no: 0 })}
       />
       <section class="bg-gray-50 dark:bg-gray-900 p-3 ">
         <div class="mx-auto w-full">
@@ -81,7 +81,7 @@ function ManageUnitsView() {
                 setSearch={(val) => setSearch(val)}
                 title={"Manage Units"}
                 btnText={"Add Unit"}
-                onclick={() => onPress({ id: 0, id2: 0 })}
+                onclick={() => onPress({ sl_no: 0 })}
                 flag={1}
                 headers={[
                   { name: "sl_no", value: "Unit ID" },
