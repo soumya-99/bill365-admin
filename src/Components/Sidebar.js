@@ -29,15 +29,25 @@ import {
 } from "@ant-design/icons";
 import { Divider, Menu, Switch } from "antd";
 import IMG from "../Assets/Images/mainlogo.png";
+// import useAPI from "../Hooks/useApi";
+import axios from "axios";
+import { url } from "../Address/baseURL";
 
 function SidebarComp() {
   const location = useLocation();
   const paths = location.pathname.split("/");
   const [open, setOpen] = useState(false);
   const [placement, setPlacement] = useState("left");
+  const [userType, setUserType] = useState("left");
+
+  // const { response, callApi } = useAPI();
+
   useEffect(() => {
     setOpen(false);
   }, [location.pathname]);
+
+  var userId;
+
   const items = [
     //   {
     //     key: '1',
@@ -825,6 +835,22 @@ function SidebarComp() {
   const onClose = () => {
     setOpen(false);
   };
+
+  useEffect(() => {
+    userId = localStorage.getItem("user_id");
+    // callApi(`/admin/S_Admin/user_type?user_id=${userId}`, 0);
+    // callApi(`/admin/S_Admin/select_one_outlet?comp_id=${0}&br_id=${0}`, 0);
+
+    axios
+      .get(`${url}/admin/S_Admin/user_type?user_id=${userId}`)
+      .then((res) => {
+        setUserType(res?.data?.msg[0]?.user_type);
+      });
+
+    // console.log(response?.data?.msg[0]?.user_type);
+    // console.log(items.filter((item) => item.key === "sub33"));
+  }, []);
+
   return (
     <>
       <div className="bg-blue-300">
@@ -846,9 +872,13 @@ function SidebarComp() {
             <Menu
               className="mt-4"
               style={{ width: 256 }}
-              defaultOpenKeys={[""]}
+              defaultOpenKeys={["sub33", "15"]}
               mode="inline"
-              items={items}
+              items={
+                userType !== "S"
+                  ? items.filter((item) => item.key !== "sub33")
+                  : items.filter((item) => item.key === "sub33")
+              }
             />
           </div>
         </Drawer>
@@ -889,9 +919,13 @@ function SidebarComp() {
           <div>
             <Menu
               style={{ width: 256 }}
-              defaultOpenKeys={[""]}
+              defaultOpenKeys={["sub33", "15"]}
               mode="inline"
-              items={items}
+              items={
+                userType !== "S"
+                  ? items.filter((item) => item.key !== "sub33")
+                  : items.filter((item) => item.key === "sub33")
+              }
             />
           </div>
         </div>
