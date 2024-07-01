@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Button } from "primereact/button";
 import { DataTable } from "primereact/datatable";
+import { ContextMenu } from "primereact/contextmenu";
 import { Column } from "primereact/column";
 import EditIcon from "@mui/icons-material/Edit";
 import VisibilityIcon from "@mui/icons-material/Visibility";
@@ -31,7 +32,22 @@ const DatatableAdv = ({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
   });
   // const [id,setId]=useState(null)
+  const cm = useRef(null);
+  const menuModel = [
+    {
+      label: "View",
+      icon: "pi pi-fw pi-search",
+      command: () => console.log("VIEWWWWW"),
+    },
+    {
+      label: "Delete",
+      icon: "pi pi-fw pi-times",
+      command: () => console.log("DELETEEEEE"),
+    },
+  ];
+
   var id;
+
   const iconTemplate = () => {
     return flag == 1 ? (
       <EditIcon className="text-blue-900" />
@@ -39,6 +55,7 @@ const DatatableAdv = ({
       <VisibilityIcon className="text-blue-900" />
     );
   };
+
   const imageTemplate = (item) => {
     console.log(item);
     return flag == 3 ? (
@@ -47,6 +64,7 @@ const DatatableAdv = ({
       ""
     );
   };
+
   const onGlobalFilterChange = (e) => {
     const value = e.target.value;
     let _filters = { ...filters };
@@ -64,7 +82,11 @@ const DatatableAdv = ({
     console.log(id);
     onPress(id);
   };
+
   const onRowUnselect = (event) => {};
+
+  console.log(selectedProduct);
+
   return (
     <>
       {title && (
@@ -121,7 +143,18 @@ const DatatableAdv = ({
       )}
       <div>
         <div className="card  w-full">
+          {/* <ContextMenu
+            model={menuModel}
+            ref={cm}
+            onHide={() => setSelectedProduct(null)}
+          /> */}
           <DataTable
+            // onContextMenu={(e) => cm.current.show(e.originalEvent)}
+            // contextMenuSelection={selectedProduct}
+            // onContextMenuSelectionChange={(e) => {
+            //   setSelectedProduct(e.value);
+            //   console.log(e);
+            // }}
             value={data}
             showGridlines={true}
             stripedRows
@@ -157,7 +190,7 @@ const DatatableAdv = ({
                 // body={item.name=='catg_picture'? :''}
               ></Column>
             ))}
-            {flag == 1 && (
+            {/* {flag == 1 && (
               <Column
                 body={iconTemplate}
                 header={"Action"}
@@ -172,7 +205,7 @@ const DatatableAdv = ({
                 headerClassName="text-blue-900 bg-blue-300"
                 style={{ width: "10%" }}
                 frozen></Column>
-            )}
+            )} */}
           </DataTable>
         </div>
       </div>

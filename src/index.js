@@ -15,6 +15,10 @@ import { Democontext, loadingContext } from "./Context/Democontext";
 import Loader from "./Components/Loader";
 import Noresult from "./Screens/Noresult/Noresult";
 import Bill from "./Screens/Bill/Bill";
+import ManageItemsComp from "./Screens/SuperAdmin/ManageItems/ManageItemsComp";
+import ManageItemsView from "./Screens/SuperAdmin/ManageItems/ManageItemsView";
+import ManageItemsAddEdit from "./Screens/SuperAdmin/ManageItems/ManageItemsAdd";
+import ManageItemsAdd from "./Screens/SuperAdmin/ManageItems/ManageItemsAdd";
 
 const ManageCategoriesComp = lazy(() =>
   import("./Screens/SuperAdmin/ManageCategories/ManageCategoriesComp")
@@ -388,6 +392,20 @@ const router = createBrowserRouter([
                   {
                     path: "managecategory/:id/:id2",
                     element: <ManageCategoriesAddEdit />,
+                  },
+                ],
+              },
+              {
+                path: "manageitems",
+                element: <ManageItemsComp />,
+                children: [
+                  {
+                    path: "view",
+                    element: <ManageItemsView />,
+                  },
+                  {
+                    path: "manageitem",
+                    element: <ManageItemsAdd />,
                   },
                 ],
               },
