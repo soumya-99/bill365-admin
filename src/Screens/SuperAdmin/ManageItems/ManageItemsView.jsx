@@ -97,10 +97,10 @@ function ManageItemsView() {
               onChange={(e) => setCompId(e.target.value)}
               // onBlur={() => null}
               value={compId}>
-              <option selected="">Select Shop</option>
+              <option>Select Shop</option>
 
               {shops?.map((items, i) => (
-                <option key={i} value={items?.id}>
+                <option key={i} value={items?.id} selected={items?.id === 1}>
                   {items?.company_name}
                 </option>
               ))}

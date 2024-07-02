@@ -34,6 +34,8 @@ export const pathMap = {
   manageunits: "Manage Unit",
   managecategories: "Manage Categories",
   managecategory: "Add/Edit Category",
+  manageitems: "Manage Items",
+  manageitem: "Add/Edit Items",
   settings: "Settings",
   unit: "Units",
   itemdetails: "Item details",
