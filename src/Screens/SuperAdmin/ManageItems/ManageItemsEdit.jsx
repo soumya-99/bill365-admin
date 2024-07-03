@@ -88,6 +88,7 @@ function ManageItemsEdit() {
         sup_item_name: response?.data?.msg[0]?.item_name,
         sup_catg_id: +response?.data?.msg[0]?.catg_id,
         sup_unit_id: +response?.data?.msg[0]?.unit_id,
+        sup_hsn_code: response?.data?.msg[0]?.hsn_code,
         sup_bar_code: response?.data?.msg[0]?.bar_code,
         sup_price: +response?.data?.msg[0]?.price,
         sup_discount: +response?.data?.msg[0]?.discount,
@@ -121,6 +122,7 @@ function ManageItemsEdit() {
     sup_catg_id: "",
     sup_unit_id: "",
     sup_bar_code: "",
+    sup_hsn_code: "",
     sup_price: "",
     sup_discount: "",
     sup_cgst: "",
@@ -139,6 +141,7 @@ function ManageItemsEdit() {
       item_name: values?.sup_item_name,
       catg_id: +values?.sup_catg_id,
       unit_id: +params?.id3,
+      hsn_code: values?.sup_hsn_code,
       bar_code: values?.sup_bar_code,
       price: +values?.sup_price,
       discount: +values?.sup_discount,
@@ -153,6 +156,7 @@ function ManageItemsEdit() {
     sup_catg_id: Yup.string().required("Category is required."),
     sup_unit_id: Yup.string().required("Unit is required."),
     sup_bar_code: Yup.string().required("Barcode is required."),
+    sup_hsn_code: Yup.string().required("HSN Code is required."),
     sup_price: Yup.string().required("Price is required."),
     sup_discount: Yup.string().required("Discount is required."),
     sup_cgst: Yup.string().required("CGST is required."),
@@ -198,7 +202,7 @@ function ManageItemsEdit() {
           </h2>
           <form onSubmit={formik.handleSubmit}>
             <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
-              <div class="w-full">
+              <div class="sm:col-span-2">
                 <label
                   for="sup_item_name"
                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -218,6 +222,29 @@ function ManageItemsEdit() {
                 {formik.errors.sup_item_name && formik.touched.sup_item_name ? (
                   <div className="text-red-500 text-sm">
                     {formik.errors.sup_item_name}
+                  </div>
+                ) : null}
+              </div>
+              <div class="w-full">
+                <label
+                  for="sup_hsn_code"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  HSN Code
+                </label>
+                <input
+                  type="text"
+                  name="sup_hsn_code"
+                  id="sup_hsn_code"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.sup_hsn_code}
+                  placeholder="HSN Code"
+                  required=""
+                />
+                {formik.errors.sup_hsn_code && formik.touched.sup_hsn_code ? (
+                  <div className="text-red-500 text-sm">
+                    {formik.errors.sup_hsn_code}
                   </div>
                 ) : null}
               </div>
