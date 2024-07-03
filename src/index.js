@@ -19,6 +19,7 @@ import ManageItemsComp from "./Screens/SuperAdmin/ManageItems/ManageItemsComp";
 import ManageItemsView from "./Screens/SuperAdmin/ManageItems/ManageItemsView";
 import ManageItemsAddEdit from "./Screens/SuperAdmin/ManageItems/ManageItemsAdd";
 import ManageItemsAdd from "./Screens/SuperAdmin/ManageItems/ManageItemsAdd";
+import ManageItemsEdit from "./Screens/SuperAdmin/ManageItems/ManageItemsEdit";
 
 const ManageCategoriesComp = lazy(() =>
   import("./Screens/SuperAdmin/ManageCategories/ManageCategoriesComp")
@@ -404,8 +405,12 @@ const router = createBrowserRouter([
                     element: <ManageItemsView />,
                   },
                   {
-                    path: "manageitem",
+                    path: "manageitemadd",
                     element: <ManageItemsAdd />,
+                  },
+                  {
+                    path: "manageitemedit/:id/:id2/:id3",
+                    element: <ManageItemsEdit />,
                   },
                 ],
               },

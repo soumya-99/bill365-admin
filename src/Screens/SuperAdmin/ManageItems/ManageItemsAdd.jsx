@@ -123,6 +123,18 @@ function ManageItemsAdd() {
   //   });
   // };
 
+  useEffect(() => {
+    if (response?.data?.suc == 0 || response?.data?.msg.length <= 0) {
+      Message("error", "Something went wrong!");
+    } else {
+      if (isCalled && response?.data?.suc == 1) {
+        setCalled(false);
+        Message("success", "Success!");
+        setData(() => []);
+      }
+    }
+  }, [response]);
+
   const handleSendData = () => {
     setCalled(true);
     // comp = localStorage.getItem("comp_id");

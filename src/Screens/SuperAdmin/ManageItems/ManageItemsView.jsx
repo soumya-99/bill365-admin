@@ -56,9 +56,20 @@ function ManageItemsView() {
     // callApi(`/admin/S_Admin/select_one_outlet?comp_id=${0}&br_id=${0}`, 0);
   }, [compId]);
 
-  const onPress = (data) => {
+  const onPress = () => {
+    navigation("/home/superadmin/manageitems/manageitemadd");
+  };
+
+  const onPressEdit = (data) => {
     console.log(data);
-    navigation("/home/superadmin/manageitems/manageitem/");
+    navigation(
+      "/home/superadmin/manageitems/manageitemedit/" +
+        data?.item_id +
+        "/" +
+        data?.comp_id +
+        "/" +
+        data?.unit_id
+    );
   };
 
   useEffect(() => {
@@ -80,44 +91,48 @@ function ManageItemsView() {
       <HeaderLayout
         title={"Manage Items"}
         btnText={"Add Item"}
-        onPress={() => onPress({ id: 0 })}
+        onPress={() => onPress()}
       />
-      <section class="bg-gray-50 dark:bg-gray-900 p-3 ">
-        <div class="mx-auto w-full">
-          <div className="my-4">
-            <label
-              htmlFor="brand"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-              Select Shop
-            </label>
-            <select
-              id="comp_id"
-              name="comp_id"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-              onChange={(e) => setCompId(e.target.value)}
-              // onBlur={() => null}
-              value={compId}>
-              <option>Select Shop</option>
+      <section class="dark:bg-gray-900 p-3 ">
+        <div class="mx-auto">
+          <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
+            <div className="my-4 sm:col-span-2">
+              <label
+                htmlFor="brand"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                Select Shop
+              </label>
+              <select
+                id="comp_id"
+                name="comp_id"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                onChange={(e) => setCompId(e.target.value)}
+                // onBlur={() => null}
+                value={compId}>
+                <option>Select Shop</option>
 
-              {shops?.map((items, i) => (
-                <option key={i} value={items?.id} selected={items?.id === 1}>
-                  {items?.company_name}
-                </option>
-              ))}
-            </select>
-            {called && !compId ? (
-              <div className="text-red-500 text-sm">Shop Name is required</div>
-            ) : null}
+                {shops?.map((items, i) => (
+                  <option key={i} value={items?.id} selected={items?.id === 1}>
+                    {items?.company_name}
+                  </option>
+                ))}
+              </select>
+              {called && !compId ? (
+                <div className="text-red-500 text-sm">
+                  Shop Name is required
+                </div>
+              ) : null}
+            </div>
           </div>
 
           <div class="bg-blue-900 dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
             <div class="overflow-x-auto">
               <DatatableAdv
-                onPress={(data) => onPress(data)}
+                onPress={(data) => onPressEdit(data)}
                 setSearch={(val) => setSearch(val)}
                 title={"Manage Items"}
                 btnText={"Add Item"}
-                onclick={() => onPress({ id: 0 })}
+                onclick={() => onPress()}
                 flag={1}
                 headers={[
                   { name: "id", value: "#" },

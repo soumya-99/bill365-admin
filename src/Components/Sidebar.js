@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Resizable from "react-resizable-layout";
 
 import { Link, useLocation } from "react-router-dom";
 import { Drawer } from "antd";
@@ -873,6 +874,8 @@ function SidebarComp() {
     // console.log(items.filter((item) => item.key === "sub33"));
   }, []);
 
+  const [sidebarWidth, setSidebarWidth] = useState(256);
+
   return (
     <>
       <div className="bg-blue-300">
@@ -930,25 +933,27 @@ function SidebarComp() {
         id="separator-sidebar"
         className=" overflow-y-auto fixed top-0 bg-blue-300 left-0 z-40 w-64 max-h-screen transition-transform -translate-x-full overflow-x-hidden sm:translate-x-0"
         aria-label="Sidebar">
-        <div className="h-full  bg-blue-300 sticky top-0 dark:bg-gray-800">
-          <div className="bg-white w-64 flex justify-center py-4 sticky top-0 z-10">
-            <Link
-              to={"/home/report/daybook"}
-              className="flex items-center space-x-3 rtl:space-x-reverse">
-              <img src={IMG} className="h-16 mx-5" alt="Flowbite Logo" />
-            </Link>
-          </div>
-          <div>
-            <Menu
-              style={{ width: 256 }}
-              defaultOpenKeys={["sub33", "15"]}
-              mode="inline"
-              items={
-                userType !== "S"
-                  ? items.filter((item) => item.key !== "sub33")
-                  : items.filter((item) => item.key === "sub33")
-              }
-            />
+        <div>
+          <div className="h-full  bg-blue-300 sticky top-0 dark:bg-gray-800">
+            <div className="bg-white w-64 flex justify-center py-4 sticky top-0 z-10">
+              <Link
+                to={"/home/report/daybook"}
+                className="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src={IMG} className="h-16 mx-5" alt="Flowbite Logo" />
+              </Link>
+            </div>
+            <div>
+              <Menu
+                style={{ width: 256 }}
+                defaultOpenKeys={["sub33", "15"]}
+                mode="inline"
+                items={
+                  userType !== "S"
+                    ? items.filter((item) => item.key !== "sub33")
+                    : items.filter((item) => item.key === "sub33")
+                }
+              />
+            </div>
           </div>
         </div>
       </aside>
