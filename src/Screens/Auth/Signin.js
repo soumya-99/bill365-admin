@@ -90,7 +90,7 @@ function Signin() {
       onError={(error) => {
         console.error(error);
       }}>
-      <div className="bg-blue-900 flex justify-center items-center h-screen w-full bg-line bg-no-repeat bg-cover">
+      {/* <div className="bg-blue-900 flex justify-center items-center h-screen w-full bg-line bg-no-repeat bg-cover">
         <div className="md:ml-12 grid grid-cols-2 gap-0">
           <div className="hidden md:block md:col-span-1">
             <div className="mt-24 mb-10 bg-white rounded-tl-lg rounded-bl-lg h-auto w-full text-black p-8 font-semibold text-xl shadow-xl">
@@ -149,6 +149,92 @@ function Signin() {
                   </button>
                 </div>
               </form>
+            </div>
+          </div>
+        </div>
+      </div> */}
+
+      {/* ==================================================================== */}
+      <div
+        className="bg-blue-900 flex justify-center min-h-screen min-w-screen 
+    items-center
+    p-2 shadow-lg
+    ">
+        <div
+          className="
+      grid 
+      grid-cols-2 
+      gap-0 h-auto shadow-lg">
+          <div
+            className="hidden 
+        sm:block rounded-l-3xl border-0 border-r border-r-slate-100">
+            <img
+              className="w-full h-full rounded-l-3xl"
+              src={`${IMG}`}
+              alt=""
+            />
+          </div>
+          <div
+            className={`p-5 
+        col-span-2 sm:col-span-1 
+        bg-white h-full space-y-5 w-full
+        rounded-r-3xl rounded-l-3xl lg:rounded-l-none
+       
+        `}>
+            <div>
+              <div
+                className={`max-w-full flex-col items-center justify-center mx-auto mt-7`}>
+                <div className="flex items-center justify-center">
+                  <img src={`${logo}`} className="h-32" alt="Flowbite Logo" />
+                </div>
+                <form onSubmit={formik.handleSubmit} className="w-full py-6">
+                  <div className="pt-6 block">
+                    <label className="text-sm text-gray-600">Your email</label>
+                    <input
+                      type="text"
+                      name="email"
+                      value={formik.values.email}
+                      className="block border-gray-300 text-[13px] pt-2 p-1 rounded-lg h- w-full border "
+                      placeholder="name@company.com"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                    />
+                    {formik.errors.email && formik.touched.email ? (
+                      <div className="text-red-500 text-sm">
+                        {formik.errors.email}
+                      </div>
+                    ) : null}
+                  </div>
+                  <div className="pt-6 block">
+                    <label className="text-sm text-gray-600">
+                      Your password
+                    </label>
+                    <input
+                      type="password"
+                      name="password"
+                      value={formik.values.password}
+                      className="block border-gray-300 text-[13px] pt-1 p-1 rounded-lg h- w-full border "
+                      placeholder="*******"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                    />
+                    {formik.errors.password && formik.touched.password ? (
+                      <div className="text-red-500 text-sm">
+                        {formik.errors.password}
+                      </div>
+                    ) : null}
+                  </div>
+
+                  <div className="pt-5 pb-4 block text-sm">
+                    <button
+                      disabled={!formik.isValid}
+                      type="submit"
+                      className="bg-blue-900 hover:bg-blue-800 w-full text-white p-3 rounded-md disabled:bg-blue-400 dark:bg-white dark:text-white">
+                      Sign In
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
