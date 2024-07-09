@@ -23,7 +23,10 @@ function App() {
               itemSelectedColor: "#404198",
               itemHoverColor: "#404198",
             },
-            Switch: { colorPrimary: "#404198" },
+            Switch: {
+              colorPrimary: "#404198",
+              colorPrimaryHover: "#404198CC",
+            },
           },
         }}>
         <Outlet />
