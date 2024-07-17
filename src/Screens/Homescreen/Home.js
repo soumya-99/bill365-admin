@@ -9,6 +9,9 @@ import { ErrorBoundary } from "react-error-boundary";
 import Error from "../../Components/Error";
 import { useNavigate } from "react-router-dom";
 import { pathMap } from "../../Assets/Data/BreadCrumbMap";
+
+import Background from "../../Assets/Images/bg.jpg";
+
 function Home() {
   let pathnames = [];
   const location = useLocation();
@@ -36,12 +39,17 @@ function Home() {
         {localStorage.getItem("email_id") && <Header />}
         {localStorage.getItem("email_id") && <SidebarComp />}
 
-        <div className="p-6 sm:ml-64 bg-blue-300 min-h-screen ">
+        <div className="p-6 sm:ml-64 bg-blue-300 min-h-screen">
           <div
             className={
               pathnames.length != 1
                 ? "border-2 h-auto p-3 bg-white border-white shadow-lg rounded-xl dark:border-gray-700 "
-                : "border-2 h-auto p-3 bg-blue-300 border-blue-300 rounded-xl dark:border-gray-700 "
+                : "border-2 h-auto p-3 bg-blue-300 border-blue-300 rounded-xl dark:border-gray-700"
+            }
+            style={
+              {
+                // background: `url(${Background})`,
+              }
             }>
             {pathnames?.length > 1 && (
               <BreadCrumb model={pathnames} className="text-xs" />

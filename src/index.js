@@ -203,9 +203,9 @@ const router = createBrowserRouter([
         children: [
           {
             path: "",
-            // element: <HomeScreen />,
-            // redirect:'report'
-            redirect: "report/daybook",
+            element: <HomeScreen />,
+            // redirect: "report",
+            // redirect: "report/daybook",
           },
           {
             path: "report",

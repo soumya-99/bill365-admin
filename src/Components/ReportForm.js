@@ -1,8 +1,10 @@
 import React, { useContext, useState } from "react";
+import "./ReportForm.css";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import axios from "axios";
 import { url } from "../Address/baseURL";
+
 function ReportForm({ title, onPress, flag, outlet }) {
   console.log(url);
   const [d, setD] = useState([]);
@@ -48,10 +50,10 @@ function ReportForm({ title, onPress, flag, outlet }) {
       flag == 1
         ? validationSchemaUser
         : flag == 2
-          ? validationSchemaPay
-          : flag == 3
-            ? validationSchemaItem
-            : validationSchema,
+        ? validationSchemaPay
+        : flag == 3
+        ? validationSchemaItem
+        : validationSchema,
 
     validateOnMount: true,
   });
@@ -92,7 +94,7 @@ function ReportForm({ title, onPress, flag, outlet }) {
   };
 
   return (
-    <section className="bg-white dark:bg-gray-900">
+    <section className="glassmorphicReport bg-white bg-opacity-65 bg-blend-luminosity dark:bg-gray-900">
       <div className="py-8 px-4 mx-auto max-w-2xl lg:py-16">
         <h2 className="mb-4 text-xl font-bold text-blue-900 dark:text-white">
           {title}

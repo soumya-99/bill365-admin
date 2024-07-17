@@ -33,8 +33,8 @@ function Signin() {
         Message("info", "Welcome back, admin!");
       }, 1000);
     } else {
-      navigate("home/report/daybook");
-      // navigate('home')
+      // navigate("home/report/daybook");
+      navigate("home");
     }
   }, []);
   useEffect(() => {
@@ -54,8 +54,8 @@ function Signin() {
       localStorage.setItem("phone_no", response?.data?.msg[0].phone_no);
       localStorage.setItem("email_id", response?.data?.msg[0].email_id);
       setCalled(false);
-      navigate("home/report/daybook");
-      // navigate('home')
+      // navigate("home/report/daybook");
+      navigate("home");
     } else {
       if (called) Message("error", "Incorrect credentials!");
       setCalled(false);
