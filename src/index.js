@@ -20,6 +20,7 @@ import ManageItemsView from "./Screens/SuperAdmin/ManageItems/ManageItemsView";
 import ManageItemsAddEdit from "./Screens/SuperAdmin/ManageItems/ManageItemsAdd";
 import ManageItemsAdd from "./Screens/SuperAdmin/ManageItems/ManageItemsAdd";
 import ManageItemsEdit from "./Screens/SuperAdmin/ManageItems/ManageItemsEdit";
+import StockIn from "./Screens/Stock/StockIn";
 
 const ManageCategoriesComp = lazy(() =>
   import("./Screens/SuperAdmin/ManageCategories/ManageCategoriesComp")
@@ -159,9 +160,9 @@ const CustomerAddEdit = lazy(() =>
 const UserComp = lazy(() => import("./Screens/Manage/User/UserComp"));
 const UserView = lazy(() => import("./Screens/Manage/User/UserView"));
 const AddUser = lazy(() => import("./Screens/Manage/User/AddUser"));
-const StockComp = lazy(() => import("./Screens/Manage/Stock/StockComp"));
-const StockView = lazy(() => import("./Screens/Manage/Stock/StockView"));
-const StockEdit = lazy(() => import("./Screens/Manage/Stock/StockEdit"));
+const StockComp = lazy(() => import("./Screens/Stock/ManageStock/StockComp"));
+const StockView = lazy(() => import("./Screens/Stock/ManageStock/StockView"));
+const StockEdit = lazy(() => import("./Screens/Stock/ManageStock/StockEdit"));
 const CategoryComp = lazy(() =>
   import("./Screens/Master/Categories/CategoryComp")
 );
@@ -499,10 +500,6 @@ const router = createBrowserRouter([
           },
           {
             path: "settings",
-            element: <Settings />,
-          },
-          {
-            path: "settings",
 
             element: <SettingsComp />,
             children: [
@@ -616,8 +613,30 @@ const router = createBrowserRouter([
                   },
                 ],
               },
+              // {
+              //   path: "stock",
+
+              //   element: <StockComp />,
+              //   children: [
+              //     {
+              //       path: "view",
+              //       element: <StockView />,
+              //     },
+              //     {
+              //       path: "stockedit/:id/:br_id",
+              //       element: <StockEdit />,
+              //     },
+              //   ],
+              // },
+            ],
+          },
+          {
+            path: "stock",
+
+            element: <StockComp />,
+            children: [
               {
-                path: "stock",
+                path: "stockview",
 
                 element: <StockComp />,
                 children: [
@@ -631,8 +650,13 @@ const router = createBrowserRouter([
                   },
                 ],
               },
+              {
+                path: "stockin",
+                element: <StockIn />,
+              },
             ],
           },
+
           // {
           //   path: "unit",
           //   element: <Unit />,

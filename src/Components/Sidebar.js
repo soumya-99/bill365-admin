@@ -759,28 +759,28 @@ function SidebarComp() {
         />
       ),
       children: [
-        {
-          key: "stock",
-          icon: (
-            <DatabaseOutlined
-              className={
-                location.pathname.includes("manage/stock/view")
-                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-              }
-            />
-          ),
-          label: (
-            <div
-              className={
-                location.pathname.includes("manage/stock/view")
-                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
-                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
-              }>
-              <Link to={"manage/stock/view"}>Stock</Link>
-            </div>
-          ),
-        },
+        // {
+        //   key: "stock",
+        //   icon: (
+        //     <DatabaseOutlined
+        //       className={
+        //         location.pathname.includes("manage/stock/view")
+        //           ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+        //           : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+        //       }
+        //     />
+        //   ),
+        //   label: (
+        //     <div
+        //       className={
+        //         location.pathname.includes("manage/stock/view")
+        //           ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+        //           : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+        //       }>
+        //       <Link to={"manage/stock/view"}>Stock</Link>
+        //     </div>
+        //   ),
+        // },
 
         {
           key: "outlet",
@@ -845,6 +845,65 @@ function SidebarComp() {
                   : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 text-xs text-wrap group"
               }>
               <Link to={"manage/customer/view"}>Customer Management</Link>
+            </div>
+          ),
+        },
+      ],
+    },
+    {
+      key: "sub55",
+      label: "Stock",
+      icon: (
+        <TableOutlined
+          className={
+            location.pathname.includes("stock")
+              ? "  font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white hover:duration-100  dark:hover:bg-gray-700 group"
+              : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+          }
+        />
+      ),
+      children: [
+        {
+          key: "stock",
+          icon: (
+            <DatabaseOutlined
+              className={
+                location.pathname.includes("stock/stockview/view")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }
+            />
+          ),
+          label: (
+            <div
+              className={
+                location.pathname.includes("stock/stockview/view")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }>
+              <Link to={"stock/stockview/view"}>Stock</Link>
+            </div>
+          ),
+        },
+        {
+          key: "stockin",
+          icon: (
+            <DatabaseOutlined
+              className={
+                location.pathname.includes("stock/stockin")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }
+            />
+          ),
+          label: (
+            <div
+              className={
+                location.pathname.includes("stock/stockin")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }>
+              <Link to={"stock/stockin"}>Stock In</Link>
             </div>
           ),
         },

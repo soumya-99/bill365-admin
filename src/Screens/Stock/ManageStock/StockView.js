@@ -45,7 +45,9 @@ function StockView() {
     console.log(response);
   }, []);
   const onPress = (data) => {
-    navigation("/home/manage/stock/stockedit/" + data?.id + "/" + data?.br_id);
+    navigation(
+      "/home/stock/stockview/stockedit/" + data?.id + "/" + data?.br_id
+    );
   };
   return (
     <div className="py-1 w-full ">
