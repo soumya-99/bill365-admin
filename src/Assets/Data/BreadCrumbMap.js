@@ -37,6 +37,8 @@ export const pathMap = {
   manageitems: "Manage Items",
   manageitemadd: "Add Items",
   manageitemedit: "Edit Items",
+  stockin: "Stock In",
+  stockview: "View",
   settings: "Settings",
   unit: "Units",
   itemdetails: "Item details",
