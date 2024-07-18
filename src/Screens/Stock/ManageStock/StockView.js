@@ -52,7 +52,7 @@ function StockView() {
   return (
     <div className="py-1 w-full ">
       <HeaderLayout title={"Stock"} btnText={""} />
-      <section class="bg-gray-50 dark:bg-gray-900 p-3 ">
+      <section class="dark:bg-gray-900 p-3">
         <div class="mx-auto w-full">
           <div class="bg-blue-900 dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
             <div class="overflow-x-auto">
