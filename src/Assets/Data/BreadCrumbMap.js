@@ -38,6 +38,7 @@ export const pathMap = {
   manageitemadd: "Add Items",
   manageitemedit: "Edit Items",
   stockin: "Stock In",
+  stockout: "Stock Out",
   stockview: "View",
   settings: "Settings",
   unit: "Units",

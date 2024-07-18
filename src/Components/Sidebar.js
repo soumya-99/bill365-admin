@@ -907,6 +907,28 @@ function SidebarComp() {
             </div>
           ),
         },
+        {
+          key: "stockout",
+          icon: (
+            <DatabaseOutlined
+              className={
+                location.pathname.includes("stock/stockout")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }
+            />
+          ),
+          label: (
+            <div
+              className={
+                location.pathname.includes("stock/stockout")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }>
+              <Link to={"stock/stockout"}>Stock Out</Link>
+            </div>
+          ),
+        },
       ],
     },
   ];

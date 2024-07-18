@@ -21,6 +21,7 @@ import ManageItemsAddEdit from "./Screens/SuperAdmin/ManageItems/ManageItemsAdd"
 import ManageItemsAdd from "./Screens/SuperAdmin/ManageItems/ManageItemsAdd";
 import ManageItemsEdit from "./Screens/SuperAdmin/ManageItems/ManageItemsEdit";
 import StockIn from "./Screens/Stock/StockIn";
+import StockOut from "./Screens/Stock/StockOut";
 
 const ManageCategoriesComp = lazy(() =>
   import("./Screens/SuperAdmin/ManageCategories/ManageCategoriesComp")
@@ -653,6 +654,10 @@ const router = createBrowserRouter([
               {
                 path: "stockin",
                 element: <StockIn />,
+              },
+              {
+                path: "stockout",
+                element: <StockOut />,
               },
             ],
           },
