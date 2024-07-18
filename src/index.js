@@ -15,13 +15,21 @@ import { Democontext, loadingContext } from "./Context/Democontext";
 import Loader from "./Components/Loader";
 import Noresult from "./Screens/Noresult/Noresult";
 import Bill from "./Screens/Bill/Bill";
-import ManageItemsComp from "./Screens/SuperAdmin/ManageItems/ManageItemsComp";
-import ManageItemsView from "./Screens/SuperAdmin/ManageItems/ManageItemsView";
-import ManageItemsAddEdit from "./Screens/SuperAdmin/ManageItems/ManageItemsAdd";
-import ManageItemsAdd from "./Screens/SuperAdmin/ManageItems/ManageItemsAdd";
-import ManageItemsEdit from "./Screens/SuperAdmin/ManageItems/ManageItemsEdit";
-import StockIn from "./Screens/Stock/StockIn";
-import StockOut from "./Screens/Stock/StockOut";
+
+const ManageItemsComp = lazy(() =>
+  import("./Screens/SuperAdmin/ManageItems/ManageItemsComp")
+);
+const ManageItemsView = lazy(() =>
+  import("./Screens/SuperAdmin/ManageItems/ManageItemsView")
+);
+const ManageItemsAdd = lazy(() =>
+  import("./Screens/SuperAdmin/ManageItems/ManageItemsAdd")
+);
+const ManageItemsEdit = lazy(() =>
+  import("./Screens/SuperAdmin/ManageItems/ManageItemsEdit")
+);
+const StockIn = lazy(() => import("./Screens/Stock/StockIn"));
+const StockOut = lazy(() => import("./Screens/Stock/StockOut"));
 
 const ManageCategoriesComp = lazy(() =>
   import("./Screens/SuperAdmin/ManageCategories/ManageCategoriesComp")

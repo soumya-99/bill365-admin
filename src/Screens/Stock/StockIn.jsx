@@ -134,7 +134,7 @@ function StockIn() {
     // st_in_price: Yup.number().required("Price is required"),
     // st_in_cgst: Yup.number().required("Item is required"),
     // st_in_sgst: Yup.number().required("Item is required"),
-    st_qty: Yup.number().required("Quantity is required"),
+    st_qty: Yup.number().min(1).required("Quantity is required"),
   });
 
   const [formValues, setValues] = useState(initialValues);

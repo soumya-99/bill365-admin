@@ -133,7 +133,10 @@ function StockOut() {
     sto_br_id: Yup.number().required("Outlet is required"),
     sto_item_id: Yup.number().required("Item is required"),
     sto_damage_flag: Yup.string().required("Type is required"),
-    sto_qty: Yup.number().max(availableStock).required("Quantity is required"),
+    sto_qty: Yup.number()
+      .max(availableStock)
+      .min(1)
+      .required("Quantity is required"),
   });
 
   const [formValues, setValues] = useState(initialValues);
