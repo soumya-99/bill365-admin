@@ -42,7 +42,7 @@ function StockEdit() {
           setCalled(false);
           DurationMessage();
           setTimeout(() => {
-            navigation("/home/manage/stock/view");
+            navigation("/home/stock/stockview/view");
           }, 4500);
         }
         // setDataSet(response?.data?.msg)
@@ -50,10 +50,12 @@ function StockEdit() {
       }
     }
   }, [response]);
+
   useEffect(() => {
     comp = localStorage.getItem("comp_id");
     callApi("/admin/stock_list", 1, { comp_id: +comp, item_id: +params.id });
   }, []);
+
   const onSubmit = () => {
     setCalled(true);
     comp = localStorage.getItem("comp_id");
@@ -65,6 +67,29 @@ function StockEdit() {
       stock_less: +less,
     });
   };
+
+  useEffect(() => {
+    setDataSet(
+      response?.data?.msg?.filter(
+        (e) =>
+          e?.branch_name
+            ?.toString()
+            ?.toLowerCase()
+            ?.includes(search?.toString()?.toLowerCase()) ||
+          e?.item_name
+            ?.toString()
+            ?.toLowerCase()
+            ?.includes(search?.toString()?.toLowerCase()) ||
+          e?.stock
+            ?.toString()
+            ?.toLowerCase()
+            ?.includes(search?.toString()?.toLowerCase())
+      )
+    );
+
+    console.log("RRRRRRR", response?.data?.msg);
+  }, [search]);
+
   return (
     <>
       <Backbtn />

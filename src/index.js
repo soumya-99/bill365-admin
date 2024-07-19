@@ -16,6 +16,7 @@ import Loader from "./Components/Loader";
 import Noresult from "./Screens/Noresult/Noresult";
 import Bill from "./Screens/Bill/Bill";
 
+const StockReport = lazy(() => import("./Screens/Reports/StockReport"));
 const ManageItemsComp = lazy(() =>
   import("./Screens/SuperAdmin/ManageItems/ManageItemsComp")
 );
@@ -277,6 +278,10 @@ const router = createBrowserRouter([
               {
                 path: "customerledger",
                 element: <CustomerLedger />,
+              },
+              {
+                path: "stockreport",
+                element: <StockReport />,
               },
             ],
           },

@@ -18,6 +18,7 @@ const DatatableAdv = ({
   searchBy,
   onclick,
   setSearch,
+  disabled = false,
 }) => {
   // console.log(data[0]?.catg_picture)
   const k = 0;
@@ -171,9 +172,11 @@ const DatatableAdv = ({
             styleClass="p-datatable-gridlines"
             selectionMode="single"
             selection={selectedProduct}
-            onSelectionChange={(e) => setSelectedProduct(e.value)}
+            onSelectionChange={
+              !disabled && ((e) => setSelectedProduct(e.value))
+            }
             dataKey="id"
-            onRowSelect={onRowSelect}
+            onRowSelect={!disabled && onRowSelect}
             onRowUnselect={onRowUnselect}
             metaKeySelection={false}
             //    filters={filters} filterDisplay="row"

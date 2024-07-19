@@ -296,6 +296,28 @@ function SidebarComp() {
             </div>
           ),
         },
+        {
+          key: "84",
+          icon: (
+            <UserSwitchOutlined
+              className={
+                location.pathname.includes("report/stockreport")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }
+            />
+          ),
+          label: (
+            <div
+              className={
+                location.pathname.includes("report/stockreport")
+                  ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
+                  : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+              }>
+              <Link to={"report/stockreport"}>Stock Report</Link>
+            </div>
+          ),
+        },
       ],
     },
 
