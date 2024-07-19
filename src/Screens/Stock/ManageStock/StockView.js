@@ -15,6 +15,7 @@ function StockView() {
   const [search, setSearch] = useState("");
 
   var comp;
+
   useEffect(() => {
     console.log(response);
     if (Array.isArray(response?.data?.msg)) setDataSet(response?.data?.msg);
@@ -30,6 +31,7 @@ function StockView() {
       }
     }
   }, [response]);
+
   useEffect(() => {
     setDataSet(
       response?.data?.msg?.filter(
@@ -39,16 +41,41 @@ function StockView() {
       )
     );
   }, [search]);
+
   useEffect(() => {
     comp = localStorage.getItem("comp_id");
     callApi("/admin/stock_list", 1, { comp_id: +comp, item_id: 0 });
     console.log(response);
   }, []);
+
   const onPress = (data) => {
     navigation(
       "/home/stock/stockview/stockedit/" + data?.id + "/" + data?.br_id
     );
   };
+
+  useEffect(() => {
+    setDataSet(
+      response?.data?.msg?.filter(
+        (e) =>
+          e?.branch_name
+            ?.toString()
+            ?.toLowerCase()
+            ?.includes(search?.toString()?.toLowerCase()) ||
+          e?.item_name
+            ?.toString()
+            ?.toLowerCase()
+            ?.includes(search?.toString()?.toLowerCase()) ||
+          e?.stock
+            ?.toString()
+            ?.toLowerCase()
+            ?.includes(search?.toString()?.toLowerCase())
+      )
+    );
+
+    console.log("RRRRRRR", response?.data?.msg);
+  }, [search]);
+
   return (
     <div className="py-1 w-full ">
       <HeaderLayout title={"Stock"} btnText={""} />

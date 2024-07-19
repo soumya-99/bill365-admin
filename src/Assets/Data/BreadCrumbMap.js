@@ -15,6 +15,7 @@ export const pathMap = {
   creditreport: "Credit Report",
   itemwisereport: "Itemwise Report",
   daybook: "Day Book Report",
+  stockreport: "Stock Report",
   cancelbill: "Cancelled Bill Report",
   search: "Search",
   bydate: "Search by date",

@@ -68,28 +68,6 @@ function StockEdit() {
     });
   };
 
-  useEffect(() => {
-    setDataSet(
-      response?.data?.msg?.filter(
-        (e) =>
-          e?.branch_name
-            ?.toString()
-            ?.toLowerCase()
-            ?.includes(search?.toString()?.toLowerCase()) ||
-          e?.item_name
-            ?.toString()
-            ?.toLowerCase()
-            ?.includes(search?.toString()?.toLowerCase()) ||
-          e?.stock
-            ?.toString()
-            ?.toLowerCase()
-            ?.includes(search?.toString()?.toLowerCase())
-      )
-    );
-
-    console.log("RRRRRRR", response?.data?.msg);
-  }, [search]);
-
   return (
     <>
       <Backbtn />
