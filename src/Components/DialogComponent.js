@@ -79,7 +79,7 @@ function DialogComponent({ visible, flag, onPress }) {
               </div>
             </p>
           )}
-          {flag == 4 && (
+          {/* {flag == 4 && (
             <p className="m-0">
               Do you want to logout?
               <div className="flex justify-center">
@@ -100,7 +100,7 @@ function DialogComponent({ visible, flag, onPress }) {
                 </button>
               </div>
             </p>
-          )}
+          )} */}
         </p>
       </Dialog>
     </div>

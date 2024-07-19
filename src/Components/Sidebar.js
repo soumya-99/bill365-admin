@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Resizable from "react-resizable-layout";
 
 import { Link, useLocation } from "react-router-dom";
-import { Drawer } from "antd";
+import { Drawer, Button } from "antd";
 
 import {
   AppstoreOutlined,
@@ -26,6 +26,7 @@ import {
   UsergroupAddOutlined,
   UserOutlined,
   GlobalOutlined,
+  LogoutOutlined,
   AccountBookOutlined,
 } from "@ant-design/icons";
 import { Divider, Menu, Switch } from "antd";
@@ -33,6 +34,7 @@ import IMG from "../Assets/Images/mainlogo.png";
 // import useAPI from "../Hooks/useApi";
 import axios from "axios";
 import { url } from "../Address/baseURL";
+import DialogComponent from "./DialogComponent";
 
 function SidebarComp() {
   const location = useLocation();
@@ -40,8 +42,17 @@ function SidebarComp() {
   const [open, setOpen] = useState(false);
   const [placement, setPlacement] = useState("left");
   const [userType, setUserType] = useState("left");
+  const [visible, setVisible] = useState(false);
+  const [flag, setFlag] = useState();
 
   // const { response, callApi } = useAPI();
+
+  const handleCloseProfile = (routeTo, flag) => {
+    if (flag) {
+      setFlag(flag);
+      setVisible(true);
+    }
+  };
 
   useEffect(() => {
     setOpen(false);
@@ -980,7 +991,7 @@ function SidebarComp() {
   const [sidebarWidth, setSidebarWidth] = useState(256);
 
   return (
-    <>
+    <div>
       <div className="bg-blue-300">
         <Drawer
           className="md:hidden w-72 p-0"
@@ -1034,33 +1045,58 @@ function SidebarComp() {
 
       <aside
         id="separator-sidebar"
-        className=" overflow-y-auto fixed top-0 bg-blue-300 left-0 z-40 w-64 max-h-screen transition-transform -translate-x-full overflow-x-hidden sm:translate-x-0"
+        className="overflow-y-auto fixed top-0 bg-blue-300 left-0 z-40 w-64 max-h-screen transition-transform -translate-x-full overflow-x-hidden sm:translate-x-0"
         aria-label="Sidebar">
         <div>
-          <div className="h-full  bg-blue-300 sticky top-0 dark:bg-gray-800">
-            <div className="bg-white w-64 flex justify-center py-4 sticky top-0 z-10">
+          <div className="h-full bg-blue-300 sticky top-0 dark:bg-gray-800">
+            <div className="bg-white w-64 flex justify-center py-4 sticky top-0 z-10 pt-10">
               <Link
                 to={"/home/report/daybook"}
                 className="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src={IMG} className="h-16 mx-5" alt="Flowbite Logo" />
               </Link>
             </div>
-            <div>
-              <Menu
-                style={{ width: 256 }}
-                defaultOpenKeys={["sub33", "15"]}
-                mode="inline"
-                items={
-                  userType !== "S"
-                    ? items.filter((item) => item.key !== "sub33")
-                    : items.filter((item) => item.key === "sub33")
-                }
-              />
-            </div>
+            {/* <div className="relative"
+              > */}
+            <Menu
+              style={{ width: 256 }}
+              defaultOpenKeys={["sub33", "15"]}
+              mode="inline"
+              items={
+                userType !== "S"
+                  ? items.filter((item) => item.key !== "sub33")
+                  : items.filter((item) => item.key === "sub33")
+              }
+            />
+
+            {/* </div> */}
           </div>
         </div>
       </aside>
-    </>
+      <div className="bg-white z-50 hidden sm:block py-2 px-2 bottom-0 fixed">
+        <button
+          className="bg-blue-50 text-blue-900 hover:text-blue-50 hover:font-bold p-3 rounded-xl w-60 flex justify-start gap-4 items-center hover:bg-blue-900 transition-all duration-300 text-normal"
+          onClick={() => handleCloseProfile("/", 3)}>
+          <LogoutOutlined
+          // style={{
+          //   fontSize: 25,
+          //   fontWeight: "bolder",
+          // }}
+          // className="flex items-center p-2 text-blue-900 rounded-lg dark:text-white hover:duration-100 dark:hover:bg-gray-700 group hover:text-blue-100"
+          />
+          Log out
+        </button>
+
+        {/* <Button type="dashed" className="p-5 text-center font-extrabold">
+          Log Out
+        </Button> */}
+      </div>
+      <DialogComponent
+        visible={visible}
+        flag={flag}
+        onPress={() => setVisible(false)}
+      />
+    </div>
   );
 }
 
