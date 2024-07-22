@@ -1,4 +1,5 @@
 import React, { lazy, Suspense } from "react";
+import "primeicons/primeicons.css";
 import { Skeleton } from "primereact/skeleton";
 import ReactDOM from "react-dom/client";
 import "./index.css";

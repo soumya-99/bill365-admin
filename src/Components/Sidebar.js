@@ -61,18 +61,20 @@ function SidebarComp() {
   var userId;
 
   const items = [
-    //   {
-    //     key: '1',
-    //     icon: <DashboardOutlined />,
-    //     label:
-    //     (
-    //       <div className={location.pathname.includes('bydate')?'bg-blue-900 text-white flex items-center p-2 my-2 rounded-lg dark:text-white hover:bg-blue-900 hover:duration-100   dark:hover:bg-gray-700 group':'flex items-center p-2 text-gray-600 rounded-lg dark:text-white hover:bg-blue-900 hover:duration-100   dark:hover:bg-gray-700 group'}>
-    // <Link to={'/home'} >
-    //     Dashboard
-    //     </Link>
-    //     </div>
-    //     )
-    //   },
+    {
+      key: "1",
+      icon: <DashboardOutlined />,
+      label: (
+        <div
+          className={
+            location.pathname.includes("home")
+              ? "font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white hover:duration-100  dark:hover:bg-gray-700 group"
+              : "flex items-center p-2  rounded-lg dark:text-white  hover:duration-100   dark:hover:bg-gray-700 group"
+          }>
+          <Link to={"/home"}>Dashboard</Link>
+        </div>
+      ),
+    },
 
     {
       key: "sub1",
