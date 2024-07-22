@@ -13,8 +13,12 @@ module.exports = {
         line: "url('Assets/Images/shiny.svg')",
         simple: "url('Assets/Images/simple.svg')",
         rect: "url('Assets/Images/rect.svg')",
-        ani: "url('Assets/Images/ani.svg')",
-        anitwo: "url('Assets/Images/anitwo.svg')",
+        // ani: "url('Assets/Images/ani.svg')",
+        ani: "url('Assets/Images/pink_1_shape.svg')",
+        // anitwo: "url('Assets/Images/anitwo.svg')",
+        anitwo: "url('Assets/Images/green_1_shape.svg')",
+        ani3: "url('Assets/Images/purple_1_shape.svg')",
+        ani4: "url('Assets/Images/amber_1_shape.svg')",
       },
       backgroundColor: {
         blue: {

@@ -122,7 +122,7 @@ const HomeScreen = () => {
       <div className="flex flex-col sm:grid sm:grid-cols-4 gap-4">
         <div className="col-span-1 sm:w-full">
           <div className=" transition-all hover:-translate-y-4 hover:scale-105 duration-300 cursor-pointer">
-            <div className="card mb-0 bg-white p-6 rounded-xl shadow-2xl hover:border-t-8 hover:border-pink-200 transition-all duration-300 active:scale-90">
+            <div className="card mb-0 bg-ani bg-no-repeat bg-cover bg-white p-6 rounded-xl shadow-2xl hover:border-t-8 hover:border-pink-200 transition-all duration-300 active:scale-90">
               <div className="flex justify-between mb-3 gap-4">
                 <div>
                   <span className="block text-gray-600 text-normal font-sans font-bold mb-3">
@@ -143,7 +143,7 @@ const HomeScreen = () => {
         </div>
         <div className="col-span-1 sm:w-full">
           <div className="transition-all hover:-translate-y-4 hover:scale-105 duration-300 cursor-pointer">
-            <div className="card mb-0 bg-white p-6 rounded-xl shadow-2xl hover:border-t-8 hover:border-green-200 transition-all duration-300 active:scale-90">
+            <div className="card mb-0 bg-anitwo bg-no-repeat bg-cover bg-white p-6 rounded-xl shadow-2xl hover:border-t-8 hover:border-green-200 transition-all duration-300 active:scale-90">
               <div className="flex justify-between mb-3">
                 <div>
                   <span className="block text-gray-600 text-normal font-sans font-bold mb-3">
@@ -164,7 +164,8 @@ const HomeScreen = () => {
         </div>
         <div className="col-span-1 sm:w-full">
           <div className="transition-all hover:-translate-y-4 hover:scale-105 duration-300 cursor-pointer">
-            <div className="card mb-0 bg-white p-6 rounded-xl shadow-2xl hover:border-t-8 hover:border-purple-300 transition-all duration-300 active:scale-90">
+            <div className="card mb-0 bg-ani3 bg-no-repeat bg-cover bg-white p-6 rounded-xl shadow-2xl hover:border-t-8 hover:border-purple-300 transition-all duration-300 active:scale-90">
+              {/* <div className="card mb-0 bg-gradient-to-l from-purple-300 to-white p-6 rounded-xl shadow-2xl hover:border-t-8 hover:border-purple-300 transition-all duration-300 active:scale-90"> */}
               <div className="flex justify-between mb-3">
                 <div>
                   <span className="block text-gray-600 text-normal font-sans font-bold mb-3">
@@ -185,7 +186,7 @@ const HomeScreen = () => {
         </div>
         <div className="col-span-1 sm:w-full ">
           <div className="transition-all hover:-translate-y-4 hover:scale-105 duration-300 cursor-pointer">
-            <div className="card mb-0 bg-white p-6 rounded-xl shadow-2xl hover:border-t-8 hover:border-amber-200 transition-all duration-300 active:scale-90">
+            <div className="card mb-0 bg-ani4 bg-no-repeat bg-cover bg-white p-6 rounded-xl shadow-2xl hover:border-t-8 hover:border-amber-200 transition-all duration-300 active:scale-90">
               <div className="flex justify-between mb-3">
                 <div>
                   <span className="block text-gray-600 text-normal font-sans font-bold mb-3">
