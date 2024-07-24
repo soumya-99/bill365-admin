@@ -16,6 +16,9 @@ import { Democontext, loadingContext } from "./Context/Democontext";
 import Loader from "./Components/Loader";
 import Noresult from "./Screens/Noresult/Noresult";
 import Bill from "./Screens/Bill/Bill";
+import ManageStockComp from "./Screens/SuperAdmin/ManageStock/ManageStockComp";
+import ManageStockView from "./Screens/SuperAdmin/ManageStock/ManageStockView";
+import ManageStockAdd from "./Screens/SuperAdmin/ManageStock/ManageStockAdd";
 
 const StockReport = lazy(() => import("./Screens/Reports/StockReport"));
 const ManageItemsComp = lazy(() =>
@@ -428,6 +431,24 @@ const router = createBrowserRouter([
                     path: "manageitemedit/:id/:id2/:id3",
                     element: <ManageItemsEdit />,
                   },
+                ],
+              },
+              {
+                path: "managestock",
+                element: <ManageStockComp />,
+                children: [
+                  {
+                    path: "view",
+                    element: <ManageStockView />,
+                  },
+                  {
+                    path: "managestockadd",
+                    element: <ManageStockAdd />,
+                  },
+                  // {
+                  //   path: "manageitemedit/:id/:id2/:id3",
+                  //   element: <ManageItemsEdit />,
+                  // },
                 ],
               },
               {

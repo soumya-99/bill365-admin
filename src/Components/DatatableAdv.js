@@ -19,11 +19,12 @@ const DatatableAdv = ({
   onclick,
   setSearch,
   disabled = false,
+  // onDownloadClick,
 }) => {
+  const dt = useRef(null);
   // console.log(data[0]?.catg_picture)
   const k = 0;
-  const paginatorLeft = <Button type="button" icon="pi pi-refresh" text />;
-  const paginatorRight = <Button type="button" icon="pi pi-download" text />;
+
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [globalFilterValue, setGlobalFilterValue] = useState("");
   // const [search,set]
@@ -87,6 +88,52 @@ const DatatableAdv = ({
   const onRowUnselect = (event) => {};
 
   console.log(selectedProduct);
+
+  // const exportCSV = (selectionOnly) => {
+  //   dt.current.exportCSV({ selectionOnly });
+  // };
+
+  const exportExcel = () => {
+    import("xlsx").then((xlsx) => {
+      const worksheet = xlsx.utils.json_to_sheet(data);
+      const workbook = { Sheets: { data: worksheet }, SheetNames: ["data"] };
+      const excelBuffer = xlsx.write(workbook, {
+        bookType: "xlsx",
+        type: "array",
+      });
+
+      saveAsExcelFile(excelBuffer, "products");
+    });
+  };
+
+  const saveAsExcelFile = (buffer, fileName) => {
+    import("file-saver").then((module) => {
+      if (module && module.default) {
+        let EXCEL_TYPE =
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8";
+        let EXCEL_EXTENSION = ".xlsx";
+        const data = new Blob([buffer], {
+          type: EXCEL_TYPE,
+        });
+
+        module.default.saveAs(
+          data,
+          fileName + "_export_" + new Date().getTime() + EXCEL_EXTENSION
+        );
+      }
+    });
+  };
+
+  // const paginatorLeft = <Button type="button" icon="pi pi-refresh" text />;
+  const paginatorRight = (
+    <Button
+      type="button"
+      icon="pi pi-download"
+      text
+      // onClick={() => exportCSV(false)}
+      onClick={exportExcel}
+    />
+  );
 
   return (
     <>
@@ -167,7 +214,7 @@ const DatatableAdv = ({
             tableStyle={{ minWidth: "100%", fontSize: "14px" }}
             paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
             currentPageReportTemplate="{first} to {last} of {totalRecords}"
-            paginatorLeft={paginatorLeft}
+            // paginatorLeft={paginatorLeft}
             paginatorRight={paginatorRight}
             styleClass="p-datatable-gridlines"
             selectionMode="single"
@@ -209,6 +256,32 @@ const DatatableAdv = ({
                 style={{ width: "10%" }}
                 frozen></Column>
             )} */}
+          </DataTable>
+        </div>
+
+        <div className="card hidden w-full shadow-2xl">
+          <DataTable
+            // footerColumnGroup={totals ? footerGroup : ""}
+            value={data}
+            showGridlines={true}
+            stripedRows
+            scrollable
+            paginator
+            rows={data?.length}
+            rowsPerPageOptions={[3, 5, 10, 25, 50]}
+            tableStyle={{ minWidth: "100%" }}
+            paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
+            currentPageReportTemplate="{first} to {last} of {totalRecords}"
+            ref={dt}>
+            {headers &&
+              headers.map((item, index) => (
+                <Column
+                  key={index}
+                  field={item.name}
+                  header={item.name}
+                  headerClassName="bg-blue-900 text-white"
+                  style={{ width: "10%" }}></Column>
+              ))}
           </DataTable>
         </div>
       </div>

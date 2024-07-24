@@ -11,7 +11,7 @@ import axios from "axios";
 import { url } from "../../../Address/baseURL";
 import Backbtn from "../../../Components/Backbtn";
 
-function ManageItemsAdd() {
+function ManageStockAdd() {
   const params = useParams();
   const { response, callApi } = useAPI();
   const navigation = useNavigate();
@@ -28,7 +28,8 @@ function ManageItemsAdd() {
   const [outlets, setOutlets] = useState(() => []);
   const [categories, setCategories] = useState(() => []);
   const [categoryId, setCategoryId] = useState(() => []);
-  const [compId, setCompId] = useState(() => null);
+  const [compId, setCompId] = useState(() => 1);
+  const [branchId, setBranchId] = useState(() => 1);
   const [shops, setShops] = useState(() => []);
   const [locations, setLocations] = useState(() => []);
 
@@ -70,11 +71,9 @@ function ManageItemsAdd() {
   useEffect(() => {
     // callApi(`/admin/S_Admin/select_location`, 0);
     axios
-      .get(
-        `${url}/admin/S_Admin/select_category?comp_id=${compId || 1}&catg_id=0`
-      )
+      .get(`${url}/admin/S_Admin/select_outlet?comp_id=${compId || 1}`)
       .then((res) => {
-        setCategories(res?.data?.msg);
+        setOutlets(res?.data?.msg);
         console.log(res);
       })
       .catch((err) => {
@@ -153,11 +152,11 @@ function ManageItemsAdd() {
 
     var data = new FormData();
     data.append("comp_id", +compId);
-    data.append("catg_id", +categoryId);
+    data.append("br_id", +branchId);
     data.append("created_by", userId);
     data.append("file", newFile);
 
-    callApi("/admin/S_Admin/insert_excel", 1, data);
+    callApi("/admin/S_Admin/stock_in", 1, data);
   };
 
   return (
@@ -167,7 +166,7 @@ function ManageItemsAdd() {
       <section className="bg-white dark:bg-gray-900">
         <div className="py-8 px-4 mx-auto max-w-2xl lg:py-16">
           <h2 className="mb-4 text-xl font-bold text-blue-900 dark:text-white">
-            {params.id == 0 ? "Add items" : "Update item"}
+            {params.id == 0 ? "Add stock" : "Update stock"}
           </h2>
           {/* <form onSubmit={formik.handleSubmit}> */}
           <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
@@ -202,7 +201,7 @@ function ManageItemsAdd() {
               <label
                 htmlFor="brand"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                Select Category
+                Select Outlet
               </label>
               <select
                 id="cat_id"
@@ -210,20 +209,20 @@ function ManageItemsAdd() {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                 onChange={(e) => {
                   console.log("TTTTTTTTTTTTTTTTTTTTT", e);
-                  setCategoryId(e.target.value);
+                  setBranchId(e.target.value);
                 }}
                 // onBlur={() => null}
-                value={categoryId}>
-                <option selected="">Select Category</option>
+                value={branchId}>
+                <option selected="">Select Outlet</option>
 
-                {categories?.map((items, i) => (
-                  <option key={i} value={items?.sl_no}>
-                    {items?.category_name}
+                {outlets?.map((items, i) => (
+                  <option key={i} value={items?.id}>
+                    {items?.branch_name}
                   </option>
                 ))}
               </select>
-              {isCalled && !categoryId ? (
-                <div className="text-red-500 text-sm">Category is required</div>
+              {isCalled && !branchId ? (
+                <div className="text-red-500 text-sm">Outlet is required</div>
               ) : null}
             </div>
 
@@ -282,13 +281,9 @@ function ManageItemsAdd() {
                 // onclick={() => null}
                 // flag={1}
                 headers={[
-                  { name: "hsn_code", value: "HSN" },
-                  { name: "bar_code", value: "Barcode" },
+                  { name: "item_id", value: "Item ID" },
                   { name: "item_name", value: "Item Name" },
-                  { name: "price", value: "Price" },
-                  { name: "discount", value: "Discount" },
-                  { name: "cgst", value: "CGST" },
-                  { name: "sgst", value: "SGST" },
+                  { name: "stock", value: "Stock" },
                 ]}
                 data={data}
               />
@@ -300,4 +295,4 @@ function ManageItemsAdd() {
   );
 }
 
-export default ManageItemsAdd;
+export default ManageStockAdd;

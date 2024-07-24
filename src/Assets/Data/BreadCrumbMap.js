@@ -38,6 +38,8 @@ export const pathMap = {
   manageitems: "Manage Items",
   manageitemadd: "Add Items",
   manageitemedit: "Edit Items",
+  managestock: "Manage Stock",
+  managestockadd: "Stock Add",
   stockin: "Stock In",
   stockout: "Stock Out",
   stockview: "View",
