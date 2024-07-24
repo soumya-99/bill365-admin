@@ -9,8 +9,8 @@ import { Row } from "primereact/row";
 
 function DatatableComp({ headers, data, span, totals }) {
   console.log(headers, data, span, totals);
-  const paginatorLeft = <Button type="button" icon="pi pi-refresh" text />;
-  const paginatorRight = <Button type="button" icon="pi pi-download" text />;
+  // const paginatorLeft = <Button type="button" icon="pi pi-refresh" text />;
+  // const paginatorRight = <Button type="button" icon="pi pi-download" text />;
   const footerGroup = (
     <ColumnGroup>
       <Row>
@@ -40,8 +40,9 @@ function DatatableComp({ headers, data, span, totals }) {
         tableStyle={{ minWidth: "100%" }}
         paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
         currentPageReportTemplate="{first} to {last} of {totalRecords}"
-        paginatorLeft={paginatorLeft}
-        paginatorRight={paginatorRight}>
+        // paginatorLeft={paginatorLeft}
+        // paginatorRight={paginatorRight}
+      >
         {headers.map((item, index) => (
           <Column
             key={index}

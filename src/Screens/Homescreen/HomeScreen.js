@@ -12,10 +12,16 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 
 import "./HomeScreen.css";
 import { Card, Col, Row, Statistic } from "antd";
+import DashboardCard from "../../Components/DashboardCard";
+import useAPI from "../../Hooks/useApi";
 
 const HomeScreen = () => {
   const [chartData, setChartData] = useState({});
   const [chartOptions, setChartOptions] = useState({});
+  const [called, setCalled] = useState(false);
+  const [users, setUsers] = useState();
+  const { response, callApi } = useAPI();
+  var comp;
 
   useEffect(() => {
     const documentStyle = getComputedStyle(document.documentElement);
@@ -117,94 +123,81 @@ const HomeScreen = () => {
     setChartOptionsLine(options);
   }, []);
 
+  let DASHBOARD_DATA = [];
+
+  useEffect(() => {
+    comp = localStorage.getItem("comp_id");
+    callApi("/admin/user_list", 1, { comp_id: +comp, br_id: 0 });
+    setCalled(!called);
+  }, []);
+
+  useEffect(() => {
+    setUsers(response?.data?.msg);
+    setCalled(!called);
+  }, [called]);
+
+  // useEffect(() => {
+  DASHBOARD_DATA = [
+    {
+      header: "Users",
+      body: users?.length?.toString(),
+      footerNumber: "24",
+      footerText: "new since last visit",
+      borderColor: "border-pink-200",
+      primaryTextColor: "text-pink-900",
+      secondaryColor: "bg-pink-200",
+      svg: "bg-ani",
+    },
+    {
+      header: "Cash",
+      body: "152",
+      footerNumber: "24",
+      footerText: "new since last visit",
+      borderColor: "border-green-200",
+      primaryTextColor: "text-green-900",
+      secondaryColor: "bg-green-200",
+      svg: "bg-anitwo",
+    },
+    {
+      header: "Stocks",
+      body: "152",
+      footerNumber: "24",
+      footerText: "new since last visit",
+      borderColor: "border-purple-300",
+      primaryTextColor: "text-blue-900",
+      secondaryColor: "bg-blue-100",
+      svg: "bg-ani3",
+    },
+    {
+      header: "Bills",
+      body: "152",
+      footerNumber: "24",
+      footerText: "new since last visit",
+      borderColor: "border-amber-200",
+      primaryTextColor: "text-amber-900",
+      secondaryColor: "bg-amber-200",
+      svg: "bg-ani4",
+    },
+  ];
+  // }, []);
+
   return (
     <>
       <div className="flex flex-col sm:grid sm:grid-cols-4 gap-4">
-        <div className="col-span-1 sm:w-full">
-          <div className=" transition-all hover:-translate-y-4 hover:scale-105 duration-300 cursor-pointer">
-            <div className="card mb-0 bg-ani bg-no-repeat bg-cover bg-white p-6 rounded-xl shadow-2xl hover:border-t-8 hover:border-pink-200 transition-all duration-300 active:scale-90">
-              <div className="flex justify-between mb-3 gap-4">
-                <div>
-                  <span className="block text-gray-600 text-normal font-sans font-bold mb-3">
-                    Users
-                  </span>
-                  <div className="text-2xl font-bold">152</div>
-                </div>
-                <div
-                  className="flex items-center justify-center bg-pink-200 rounded"
-                  style={{ width: "2.5rem", height: "2.5rem" }}>
-                  <i className="pi pi-user text-pink-900 text-xl" />
-                </div>
-              </div>
-              <span className=" text-pink-900 font-medium">24 new </span>
-              <span className="text-500">since last visit</span>
-            </div>
+        {DASHBOARD_DATA?.map((item, i) => (
+          <div key={i} className="col-span-1 sm:w-full">
+            <DashboardCard
+              header={item?.header}
+              body={item?.body}
+              footerNumber={item?.footerNumber}
+              footerText={item?.footerText}
+              borderColor={item?.borderColor}
+              primaryTextColor={item?.primaryTextColor}
+              secondaryColor={item?.secondaryColor}
+              svg={item?.svg}
+            />
           </div>
-        </div>
-        <div className="col-span-1 sm:w-full">
-          <div className="transition-all hover:-translate-y-4 hover:scale-105 duration-300 cursor-pointer">
-            <div className="card mb-0 bg-anitwo bg-no-repeat bg-cover bg-white p-6 rounded-xl shadow-2xl hover:border-t-8 hover:border-green-200 transition-all duration-300 active:scale-90">
-              <div className="flex justify-between mb-3">
-                <div>
-                  <span className="block text-gray-600 text-normal font-sans font-bold mb-3">
-                    Cash
-                  </span>
-                  <div className="font-bold text-2xl">152</div>
-                </div>
-                <div
-                  className="flex items-center justify-center bg-green-200 rounded"
-                  style={{ width: "2.5rem", height: "2.5rem" }}>
-                  <i className="pi pi-money-bill text-green-900 text-xl" />
-                </div>
-              </div>
-              <span className="text-green-900 font-medium">24 new </span>
-              <span className="text-500">since last visit</span>
-            </div>
-          </div>
-        </div>
-        <div className="col-span-1 sm:w-full">
-          <div className="transition-all hover:-translate-y-4 hover:scale-105 duration-300 cursor-pointer">
-            <div className="card mb-0 bg-ani3 bg-no-repeat bg-cover bg-white p-6 rounded-xl shadow-2xl hover:border-t-8 hover:border-purple-300 transition-all duration-300 active:scale-90">
-              {/* <div className="card mb-0 bg-gradient-to-l from-purple-300 to-white p-6 rounded-xl shadow-2xl hover:border-t-8 hover:border-purple-300 transition-all duration-300 active:scale-90"> */}
-              <div className="flex justify-between mb-3">
-                <div>
-                  <span className="block text-gray-600 text-normal font-sans font-bold mb-3">
-                    Stocks
-                  </span>
-                  <div className="font-bold text-2xl">152</div>
-                </div>
-                <div
-                  className="flex items-center justify-center bg-blue-100 rounded"
-                  style={{ width: "2.5rem", height: "2.5rem" }}>
-                  <i className="pi pi-database text-blue-900 text-xl" />
-                </div>
-              </div>
-              <span className="text-blue-900 font-medium">24 new </span>
-              <span className="text-500">since last visit</span>
-            </div>
-          </div>
-        </div>
-        <div className="col-span-1 sm:w-full ">
-          <div className="transition-all hover:-translate-y-4 hover:scale-105 duration-300 cursor-pointer">
-            <div className="card mb-0 bg-ani4 bg-no-repeat bg-cover bg-white p-6 rounded-xl shadow-2xl hover:border-t-8 hover:border-amber-200 transition-all duration-300 active:scale-90">
-              <div className="flex justify-between mb-3">
-                <div>
-                  <span className="block text-gray-600 text-normal font-sans font-bold mb-3">
-                    Bills
-                  </span>
-                  <div className="font-bold text-2xl">152</div>
-                </div>
-                <div
-                  className="flex items-center justify-center bg-amber-200 rounded"
-                  style={{ width: "2.5rem", height: "2.5rem" }}>
-                  <i className="pi pi-receipt text-amber-900 text-xl" />
-                </div>
-              </div>
-              <span className="text-amber-900 font-medium">24 new </span>
-              <span className="text-500">since last visit</span>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
 
       <div className="grid grid-cols-5 gap-5 my-10 align-middle -z-50">
