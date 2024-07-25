@@ -212,7 +212,7 @@ function ManageStockAdd() {
                   setBranchId(e.target.value);
                 }}
                 // onBlur={() => null}
-                value={branchId}>
+                value={branchId || 1}>
                 <option selected="">Select Outlet</option>
 
                 {outlets?.map((items, i) => (
