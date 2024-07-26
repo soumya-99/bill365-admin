@@ -140,7 +140,7 @@ const DatatableAdv = ({
       {title && (
         <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
           <div class="w-full">
-            <div class="flex items-center justify-evenly ">
+            <div class="flex items-center justify-evenly gap-2">
               <h2 className="text-xl font-bold bg-blue-900 text-white dark:text-white sm:block hidden">
                 {title}
               </h2>
@@ -148,7 +148,7 @@ const DatatableAdv = ({
               <label for="simple-search" class="sr-only">
                 Search
               </label>
-              <div class="relative w-full md:w-1/2">
+              <div class="relative w-full mr-2">
                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                   <svg
                     aria-hidden="true"

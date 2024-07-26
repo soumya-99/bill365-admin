@@ -671,21 +671,21 @@ const router = createBrowserRouter([
 
             element: <StockComp />,
             children: [
-              {
-                path: "stockview",
+              // {
+              //   path: "stockview",
 
-                element: <StockComp />,
-                children: [
-                  {
-                    path: "view",
-                    element: <StockView />,
-                  },
-                  {
-                    path: "stockedit/:id/:br_id",
-                    element: <StockEdit />,
-                  },
-                ],
-              },
+              //   element: <StockComp />,
+              //   children: [
+              //     {
+              //       path: "view",
+              //       element: <StockView />,
+              //     },
+              //     {
+              //       path: "stockedit/:id/:br_id",
+              //       element: <StockEdit />,
+              //     },
+              //   ],
+              // },
               {
                 path: "stockin",
                 element: <StockIn />,
