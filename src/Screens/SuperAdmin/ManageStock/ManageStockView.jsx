@@ -83,7 +83,7 @@ function ManageStockView() {
   const onPressEdit = (data) => {
     console.log(data);
     navigation(
-      "/home/superadmin/manageitems/manageitemedit/" +
+      "/home/superadmin/managestock/" +
         data?.item_id +
         "/" +
         data?.comp_id +
@@ -185,6 +185,7 @@ function ManageStockView() {
                   { name: "stock", value: "Stock" },
                 ]}
                 data={dataSet}
+                disabled
               />
             </div>
           </div>
