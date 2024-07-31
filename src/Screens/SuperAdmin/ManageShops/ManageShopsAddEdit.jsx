@@ -54,8 +54,10 @@ function ManageShopsAddEdit() {
         sh_phone_no: response?.data?.msg[0].phone_no,
         sh_email_id: response?.data?.msg[0].email_id,
         sh_active_flag: response?.data?.msg[0].active_flag,
+        sh_contact_person: response?.data?.msg[0].contact_person,
         sh_max_user: response?.data?.msg[0].max_user,
         sh_web_portal: response?.data?.msg[0].web_portal,
+        sh_mode: response?.data?.msg[0].mode,
       };
       setValues(rsp);
       //  setBill(response?.data?.msg[0].bill_address)
@@ -85,6 +87,8 @@ function ManageShopsAddEdit() {
     sh_active_flag: "",
     sh_max_user: "",
     sh_web_portal: "",
+    sh_contact_person: "",
+    sh_mode: "",
   };
 
   const onSubmit = (values) => {
@@ -95,25 +99,26 @@ function ManageShopsAddEdit() {
     callApi("/admin/S_Admin/add_edit_shop", 1, {
       id: +params.id,
       company_name: values?.sh_company_name,
-      address: values?.sh_company_name,
-      location: values?.sh_location,
-      contact_person: "",
-      phone_no: values?.sh_phone_no,
+      address: values?.sh_address,
+      location: +values?.sh_location,
+      contact_person: values?.sh_contact_person,
+      phone_no: +values?.sh_phone_no,
       email_id: values?.sh_email_id,
-      logo: "",
+      // logo: "",
       web_portal: values?.sh_web_portal,
       active_flag: values?.sh_active_flag,
       max_user: +values?.sh_max_user,
       user_id: userId,
+      mode: values?.sh_mode,
     });
   };
 
   const validationSchema = Yup.object({
     sh_company_name: Yup.string().required("Company Name is required."),
-    sh_address: Yup.string().required("Company Address is required."),
-    sh_location: Yup.string().required("Location is required."),
-    sh_phone_no: Yup.string().required("Phone no. is required."),
-    sh_email_id: Yup.string().required("Email is required."),
+    // sh_address: Yup.string().required("Company Address is required."),
+    // sh_location: Yup.string().required("Location is required."),
+    // sh_phone_no: Yup.string().required("Phone no. is required."),
+    // sh_email_id: Yup.string().required("Email is required."),
     sh_active_flag: Yup.string().required("Active Flag is required."),
     sh_max_user: Yup.number().min(0).max(20).required("Max user is required."),
     sh_web_portal: Yup.string().required("Web Portal is required."),
@@ -305,6 +310,57 @@ function ManageShopsAddEdit() {
                 {formik.errors.sh_max_user && formik.touched.sh_max_user ? (
                   <div className="text-red-500 text-sm">
                     {formik.errors.sh_max_user}
+                  </div>
+                ) : null}
+              </div>
+              <div class="w-full">
+                <label
+                  for="sh_contact_person"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  Contact Person
+                </label>
+                <input
+                  type="text"
+                  name="sh_contact_person"
+                  id="sh_contact_person"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.sh_contact_person}
+                  placeholder="Contact Person"
+                  required=""
+                />
+                {formik.errors.sh_contact_person &&
+                formik.touched.sh_contact_person ? (
+                  <div className="text-red-500 text-sm">
+                    {formik.errors.sh_contact_person}
+                  </div>
+                ) : null}
+              </div>
+
+              <div className="w-full">
+                <label
+                  for="sh_mode"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  Mode
+                </label>
+                <select
+                  disabled={params.id == 0}
+                  id="sh_mode"
+                  name="sh_mode"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.sh_mode}>
+                  {/* <option>Select Mode</option> */}
+                  <option selected value="N">
+                    Normal
+                  </option>
+                  <option value="C">Calculator</option>
+                </select>
+                {formik.errors.sh_mode && formik.touched.sh_mode ? (
+                  <div className="text-red-500 text-sm">
+                    {formik.errors.sh_mode}
                   </div>
                 ) : null}
               </div>

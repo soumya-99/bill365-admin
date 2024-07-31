@@ -136,7 +136,7 @@ function ManageOutletsAddEdit() {
       comp_id: +values?.o_comp_id,
       branch_name: values?.o_branch_name,
       branch_address: values?.o_branch_address,
-      location: values?.o_location,
+      location: +values?.o_location,
       contact_person: values?.o_email_id,
       phone_no: +values?.o_phone_no,
       email_id: values?.o_email_id,
@@ -148,11 +148,11 @@ function ManageOutletsAddEdit() {
     // u_br_id: Yup.string().required("Outlet is required."),
     o_comp_id: Yup.string().required("Company is required."),
     o_branch_name: Yup.string().required("Outlet name is required."),
-    o_branch_address: Yup.string().required("Outlet address is required."),
-    o_location: Yup.string().required("Location is required."),
-    o_contact_person: Yup.string().required("Contact person is required."),
-    o_phone_no: Yup.string().required("Phone no. is required."),
-    o_email_id: Yup.string().required("Email is required."),
+    // o_branch_address: Yup.string().required("Outlet address is required."),
+    // o_location: Yup.string().required("Location is required."),
+    // o_contact_person: Yup.string().required("Contact person is required."),
+    // o_phone_no: Yup.string().required("Phone no. is required."),
+    // o_email_id: Yup.string().required("Email is required."),
   });
 
   const [formValues, setValues] = useState(initialValues);
