@@ -23,6 +23,8 @@ function ManageShopsAddEdit() {
   const [outlets, setOutlets] = useState(() => []);
   const [shops, setShops] = useState(() => []);
 
+  const [userTypeText, setUserTypeText] = useState(() => "");
+
   var comp, userId;
 
   useEffect(() => {
@@ -55,8 +57,8 @@ function ManageShopsAddEdit() {
         u_user_name: response?.data?.msg[0].user_name,
         u_user_type: response?.data?.msg[0].user_type,
         u_user_id: response?.data?.msg[0].user_id,
-        u_phone_no: +response?.data?.msg[0].phone_no,
-        u_email_id: response?.data?.msg[0].email_id,
+        // u_phone_no: +response?.data?.msg[0].phone_no,
+        // u_email_id: response?.data?.msg[0].email_id,
         u_password: response?.data?.msg[0].password,
         u_active_flag: response?.data?.msg[0].active_flag,
         u_login_flag: response?.data?.msg[0].login_flag,
@@ -88,8 +90,8 @@ function ManageShopsAddEdit() {
     u_user_name: "",
     u_user_type: "",
     u_user_id: "",
-    u_phone_no: "",
-    u_email_id: "",
+    // u_phone_no: "",
+    // u_email_id: "",
     // device_id: string,
     u_password: "",
     u_active_flag: "",
@@ -102,20 +104,39 @@ function ManageShopsAddEdit() {
     console.log(values, params.id);
     // comp = localStorage.getItem("comp_id");
     userId = localStorage.getItem("user_id");
-    callApi("/admin/S_Admin/add_edit_user", 1, {
-      id: +params.id,
-      comp_id: +values?.u_comp_id,
-      br_id: +values?.u_br_id,
-      user_name: values?.u_user_name,
-      user_type: values?.u_user_type,
-      user_id: values?.u_user_id,
-      phone_no: +values?.u_phone_no,
-      email_id: values?.u_email_id,
-      password: values?.u_password,
-      active_flag: values?.u_active_flag,
-      login_flag: values?.u_login_flag,
-      created_by: userId,
-    });
+
+    let payload =
+      params.id != 0
+        ? {
+            id: +params.id,
+            comp_id: +values?.u_comp_id,
+            br_id: +values?.u_br_id,
+            user_name: values?.u_user_name,
+            user_type: values?.u_user_type,
+            user_id: values?.u_user_id,
+            // phone_no: +values?.u_phone_no,
+            // email_id: values?.u_email_id,
+            password: values?.u_password,
+            active_flag: values?.u_active_flag,
+            login_flag: values?.u_login_flag,
+            created_by: userId,
+          }
+        : {
+            id: +params.id,
+            comp_id: +values?.u_comp_id,
+            br_id: +values?.u_br_id,
+            user_name: values?.u_user_name,
+            user_type: values?.u_user_type,
+            user_id: values?.u_user_id,
+            // phone_no: +values?.u_phone_no,
+            // email_id: values?.u_email_id,
+            active_flag: "Y",
+            login_flag: "N",
+            password: values?.u_password,
+            created_by: userId,
+          };
+
+    callApi("/admin/S_Admin/add_edit_user", 1, payload);
   };
 
   const validationSchema = Yup.object({
@@ -124,11 +145,11 @@ function ManageShopsAddEdit() {
     u_user_name: Yup.string().required("User name is required."),
     u_user_type: Yup.string().required("User type is required."),
     u_user_id: Yup.string().required("User ID is required."),
-    u_phone_no: Yup.string().required("Phone number is required."),
-    u_email_id: Yup.string().required("Email id is required."),
+    // u_phone_no: Yup.string().required("Phone number is required."),
+    // u_email_id: Yup.string().required("Email id is required."),
     u_password: Yup.string().required("Password is required."),
-    u_active_flag: Yup.string().required("Active flag is required."),
-    u_login_flag: Yup.string().required("Login flag is required."),
+    // u_active_flag: Yup.string().required("Active flag is required."),
+    // u_login_flag: Yup.string().required("Login flag is required."),
     // u_created_by: Yup.string().required(" is required."),
   });
 
@@ -158,6 +179,19 @@ function ManageShopsAddEdit() {
         Message("error", err);
       });
   }, [formik.values.u_comp_id]);
+
+  useEffect(() => {
+    if (
+      formik.values.u_user_type === "U" ||
+      formik.values.u_user_type === "M"
+    ) {
+      setUserTypeText("PHONE_NO");
+    } else if (formik.values.u_user_type === "A") {
+      setUserTypeText("EMAIL");
+    } else {
+      setUserTypeText("NONE");
+    }
+  }, [formik.values.u_user_type]);
 
   return (
     <>
@@ -276,26 +310,42 @@ function ManageShopsAddEdit() {
                 <label
                   for="u_user_id"
                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  User ID
+                  {userTypeText === "PHONE_NO"
+                    ? "User ID (Phone Number)"
+                    : userTypeText === "EMAIL"
+                    ? "User ID (Email)"
+                    : "User ID"}
                 </label>
                 <input
-                  type="text"
+                  disabled={userTypeText === "NONE"}
+                  type={userTypeText === "PHONE_NO" ? "number" : "email"}
                   name="u_user_id"
                   id="u_user_id"
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.u_user_id}
-                  placeholder="98367XXXXX or abc@email.com"
+                  // placeholder="98367XXXXX or abc@email.com"
+                  placeholder={
+                    userTypeText === "PHONE_NO"
+                      ? "98367XXXXX"
+                      : userTypeText === "EMAIL"
+                      ? "abc@email.com"
+                      : "Choose User Type"
+                  }
                   required=""
                 />
+                <div className="text-blue-600 text-xs">
+                  For Admin User, write Email. For normal User/Manager, write
+                  Phone Number.
+                </div>
                 {formik.errors.u_user_id && formik.touched.u_user_id ? (
                   <div className="text-red-500 text-sm">
                     {formik.errors.u_user_id}
                   </div>
                 ) : null}
               </div>
-              <div class="w-full">
+              {/* <div class="w-full">
                 <label
                   for="u_phone_no"
                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -340,7 +390,7 @@ function ManageShopsAddEdit() {
                     {formik.errors.u_email_id}
                   </div>
                 ) : null}
-              </div>
+              </div> */}
               <div class="w-full">
                 <label
                   for="u_password"
@@ -364,52 +414,60 @@ function ManageShopsAddEdit() {
                   </div>
                 ) : null}
               </div>
-              <div>
-                <label
-                  for="u_active_flag"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Active Flag
-                </label>
-                <select
-                  id="u_active_flag"
-                  name="u_active_flag"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.u_active_flag}>
-                  <option selected="">Select Active Status</option>
-                  <option value="Y">Yes</option>
-                  <option value="N">No</option>
-                </select>
-                {formik.errors.u_active_flag && formik.touched.u_active_flag ? (
-                  <div className="text-red-500 text-sm">
-                    {formik.errors.u_active_flag}
+              {params.id != 0 && (
+                <>
+                  <div>
+                    <label
+                      for="u_active_flag"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                      Active Flag
+                    </label>
+                    <select
+                      id="u_active_flag"
+                      name="u_active_flag"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.u_active_flag}>
+                      <option selected="">Select Active Status</option>
+                      <option value="Y">Yes</option>
+                      <option value="N">No</option>
+                    </select>
+                    {formik.errors.u_active_flag &&
+                    formik.touched.u_active_flag ? (
+                      <div className="text-red-500 text-sm">
+                        {formik.errors.u_active_flag}
+                      </div>
+                    ) : null}
                   </div>
-                ) : null}
-              </div>
-              <div>
-                <label
-                  for="u_login_flag"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Login Flag
-                </label>
-                <select
-                  id="u_login_flag"
-                  name="u_login_flag"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.u_login_flag}>
-                  <option selected="">Select Login Status</option>
-                  <option value="Y">Yes</option>
-                  <option value="N">No</option>
-                </select>
-                {formik.errors.u_login_flag && formik.touched.u_login_flag ? (
-                  <div className="text-red-500 text-sm">
-                    {formik.errors.u_login_flag}
+                  <div>
+                    <label
+                      for="u_login_flag"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                      Login Flag
+                    </label>
+                    <select
+                      id="u_login_flag"
+                      name="u_login_flag"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.u_login_flag}>
+                      <option>Select Login Status</option>
+                      <option value="Y">Yes</option>
+                      <option selected value="N">
+                        No
+                      </option>
+                    </select>
+                    {formik.errors.u_login_flag &&
+                    formik.touched.u_login_flag ? (
+                      <div className="text-red-500 text-sm">
+                        {formik.errors.u_login_flag}
+                      </div>
+                    ) : null}
                   </div>
-                ) : null}
-              </div>
+                </>
+              )}
             </div>
             <div className="flex justify-center">
               {params.id == 0 && (

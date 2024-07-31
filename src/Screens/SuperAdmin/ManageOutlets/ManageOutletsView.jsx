@@ -15,7 +15,7 @@ function ManageOutletsView() {
   const [resp, setRestp] = useState();
   const [isReport, setIsReport] = useState(false);
   const [compId, setCompId] = useState(null);
-  const [shops, setShops] = useState();
+  const [shops, setShops] = useState(() => []);
   const [dataSet, setDataSet] = useState();
   const [search, setSearch] = useState();
 
