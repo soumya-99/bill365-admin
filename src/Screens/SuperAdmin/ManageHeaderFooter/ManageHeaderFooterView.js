@@ -52,19 +52,7 @@ function ManageShopsView() {
             ?.toString()
             ?.toLowerCase()
             .includes(search?.toString().toLowerCase()) ||
-          e.header1
-            ?.toString()
-            .toLowerCase()
-            .includes(search?.toString().toLowerCase()) ||
-          e.header2
-            ?.toString()
-            .toLowerCase()
-            .includes(search?.toString().toLowerCase()) ||
-          e.footer1
-            ?.toString()
-            .toLowerCase()
-            .includes(search?.toString().toLowerCase()) ||
-          e.footer2
+          e.company_name
             ?.toString()
             .toLowerCase()
             .includes(search?.toString().toLowerCase())
