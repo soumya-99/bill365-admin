@@ -135,10 +135,10 @@ function ManageItemsView() {
                 onclick={() => onPress()}
                 flag={1}
                 headers={[
-                  { name: "id", value: "#" },
+                  // { name: "id", value: "#" },
                   { name: "item_id", value: "Item ID" },
                   { name: "hsn_code", value: "HSN" },
-                  { name: "catg_id", value: "Cat. ID" },
+                  // { name: "catg_id", value: "Cat. ID" },
                   //   { name: "comp_id", value: "Company ID" },
                   { name: "item_name", value: "Item Name" },
                   { name: "price", value: "Price" },
