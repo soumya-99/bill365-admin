@@ -61,7 +61,7 @@ function ManageUnitsAddEdit() {
       console.log(response);
       const rsp = {
         su_comp_id: +response?.data?.msg[0].comp_id,
-        su_unit_name: +response?.data?.msg[0].comp_id,
+        su_unit_name: response?.data?.msg[0].unit_name,
       };
       setValues(rsp);
       //  setBill(response?.data?.msg[0].bill_address)
