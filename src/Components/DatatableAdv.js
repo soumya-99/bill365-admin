@@ -141,7 +141,7 @@ const DatatableAdv = ({
         <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
           <div class="w-full">
             <div class="flex items-center justify-evenly gap-2">
-              <h2 className="text-xl font-bold bg-blue-900 text-white dark:text-white sm:block hidden">
+              <h2 className="text-xl font-bold bg-blue-900 text-nowrap text-white dark:text-white sm:block hidden">
                 {title}
               </h2>
 
