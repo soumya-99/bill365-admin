@@ -77,7 +77,7 @@ function ManageSettingsView() {
                 flag={1}
                 headers={[
                   { name: "comp_id", value: "Company ID" },
-                  { name: "company_name", value: "Name" },
+                  { name: "company_name", value: "Company" },
                   // { name: "rcpt_type", value: "Receipt Type" },
                   // { name: "gst_flag", value: "GST Flag" },
                   // { name: "gst_type", value: "GST Type" },

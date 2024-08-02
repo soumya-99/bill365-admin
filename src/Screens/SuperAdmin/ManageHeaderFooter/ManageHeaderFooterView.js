@@ -79,7 +79,7 @@ function ManageShopsView() {
                 flag={1}
                 headers={[
                   { name: "comp_id", value: "Company ID" },
-                  { name: "company_name", value: "Name" },
+                  { name: "company_name", value: "Company" },
                   // { name: "header1", value: "Header 1" },
                   // { name: "on_off_flag1", value: "Header 1 Flag" },
                   // { name: "header2", value: "Header 2" },
