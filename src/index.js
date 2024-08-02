@@ -5,21 +5,22 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import {
-  createBrowserRouter,
-  HashRouter,
-  redirect,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Notfound from "./Screens/Notfound/Notfound";
 import { Democontext, loadingContext } from "./Context/Democontext";
 import Loader from "./Components/Loader";
 import Noresult from "./Screens/Noresult/Noresult";
 import Bill from "./Screens/Bill/Bill";
-import ManageStockComp from "./Screens/SuperAdmin/ManageStock/ManageStockComp";
-import ManageStockView from "./Screens/SuperAdmin/ManageStock/ManageStockView";
-import ManageStockAdd from "./Screens/SuperAdmin/ManageStock/ManageStockAdd";
 
+const ManageStockComp = lazy(() =>
+  import("./Screens/SuperAdmin/ManageStock/ManageStockComp")
+);
+const ManageStockView = lazy(() =>
+  import("./Screens/SuperAdmin/ManageStock/ManageStockView")
+);
+const ManageStockAdd = lazy(() =>
+  import("./Screens/SuperAdmin/ManageStock/ManageStockAdd")
+);
 const StockReport = lazy(() => import("./Screens/Reports/StockReport"));
 const ManageItemsComp = lazy(() =>
   import("./Screens/SuperAdmin/ManageItems/ManageItemsComp")
@@ -196,6 +197,7 @@ const OutletView = lazy(() => import("./Screens/Manage/Outlet/OutletView"));
 const OutletAddEdit = lazy(() =>
   import("./Screens/Manage/Outlet/OutletAddEdit")
 );
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -746,6 +748,7 @@ const router = createBrowserRouter([
     element: <Notfound />,
   },
 ]);
+
 root.render(
   <Democontext>
     <Suspense

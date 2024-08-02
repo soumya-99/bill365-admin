@@ -41,7 +41,7 @@ function SidebarComp() {
   const paths = location.pathname.split("/");
   const [open, setOpen] = useState(false);
   const [placement, setPlacement] = useState("left");
-  const [userType, setUserType] = useState("left");
+  const [userType, setUserType] = useState("");
   const [visible, setVisible] = useState(false);
   const [flag, setFlag] = useState();
 
