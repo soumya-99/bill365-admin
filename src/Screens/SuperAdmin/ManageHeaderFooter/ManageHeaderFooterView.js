@@ -91,14 +91,15 @@ function ManageShopsView() {
                 flag={1}
                 headers={[
                   { name: "comp_id", value: "Company ID" },
-                  { name: "header1", value: "Header 1" },
-                  { name: "on_off_flag1", value: "Header 1 Flag" },
-                  { name: "header2", value: "Header 2" },
-                  { name: "on_off_flag2", value: "Header 2 Flag" },
-                  { name: "footer1", value: "Footer 1" },
-                  { name: "on_off_flag3", value: "Footer 1 Flag" },
-                  { name: "footer2", value: "Footer 2" },
-                  { name: "on_off_flag4", value: "Footer 2 Flag" },
+                  { name: "company_name", value: "Name" },
+                  // { name: "header1", value: "Header 1" },
+                  // { name: "on_off_flag1", value: "Header 1 Flag" },
+                  // { name: "header2", value: "Header 2" },
+                  // { name: "on_off_flag2", value: "Header 2 Flag" },
+                  // { name: "footer1", value: "Footer 1" },
+                  // { name: "on_off_flag3", value: "Footer 1 Flag" },
+                  // { name: "footer2", value: "Footer 2" },
+                  // { name: "on_off_flag4", value: "Footer 2 Flag" },
                   // { name: "max_user", value: "Max User" },
                 ]}
                 data={dataSet}
