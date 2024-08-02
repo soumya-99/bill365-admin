@@ -58,6 +58,9 @@ function ManageShopsAddEdit() {
         sh_max_user: response?.data?.msg[0].max_user,
         sh_web_portal: response?.data?.msg[0].web_portal,
         sh_mode: response?.data?.msg[0].mode,
+        sh_location: response?.data?.msg[0].location
+          ? response?.data?.msg[0].location
+          : "", //etao ami korechhi ebong beshhhhhh korechhiiiiiii
       };
       setValues(rsp);
       //  setBill(response?.data?.msg[0].bill_address)
@@ -72,7 +75,7 @@ function ManageShopsAddEdit() {
         setCalled(false);
         DurationMessage();
         setTimeout(() => {
-          navigation("/home/superadmin/manageshops");
+          navigation("/home/superadmin/manageshops/view");
         }, 4500);
       }
     }
@@ -100,7 +103,7 @@ function ManageShopsAddEdit() {
       id: +params.id,
       company_name: values?.sh_company_name,
       address: values?.sh_address,
-      location: +values?.sh_location,
+      location: values?.sh_location ? +values?.sh_location : 0, //ami korechhi besh korechhi
       contact_person: values?.sh_contact_person,
       phone_no: +values?.sh_phone_no,
       email_id: values?.sh_email_id,
