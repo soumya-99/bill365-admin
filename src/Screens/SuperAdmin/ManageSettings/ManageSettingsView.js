@@ -44,11 +44,16 @@ function ManageSettingsView() {
 
   useEffect(() => {
     setDataSet(
-      response?.data?.msg?.filter((e) =>
-        e.comp_id
-          ?.toString()
-          ?.toLowerCase()
-          .includes(search?.toString().toLowerCase())
+      response?.data?.msg?.filter(
+        (e) =>
+          e.comp_id
+            ?.toString()
+            ?.toLowerCase()
+            .includes(search?.toString().toLowerCase()) ||
+          e.company_name
+            ?.toString()
+            ?.toLowerCase()
+            .includes(search?.toString().toLowerCase())
       )
     );
   }, [search]);
@@ -72,16 +77,17 @@ function ManageSettingsView() {
                 flag={1}
                 headers={[
                   { name: "comp_id", value: "Company ID" },
-                  { name: "rcpt_type", value: "Receipt Type" },
-                  { name: "gst_flag", value: "GST Flag" },
-                  { name: "gst_type", value: "GST Type" },
-                  { name: "pay_mode", value: "Pay Mode" },
-                  { name: "stock_flag", value: "Stock Flag" },
-                  { name: "discount_type", value: "Discount Type" },
-                  { name: "discount_position", value: "Discount Position" },
-                  { name: "price_type", value: "Price Type" },
-                  { name: "kot_flag", value: "KOT Flag" },
-                  { name: "refund_days", value: "Refund Days" },
+                  { name: "company_name", value: "Name" },
+                  // { name: "rcpt_type", value: "Receipt Type" },
+                  // { name: "gst_flag", value: "GST Flag" },
+                  // { name: "gst_type", value: "GST Type" },
+                  // { name: "pay_mode", value: "Pay Mode" },
+                  // { name: "stock_flag", value: "Stock Flag" },
+                  // { name: "discount_type", value: "Discount Type" },
+                  // { name: "discount_position", value: "Discount Position" },
+                  // { name: "price_type", value: "Price Type" },
+                  // { name: "kot_flag", value: "KOT Flag" },
+                  // { name: "refund_days", value: "Refund Days" },
                 ]}
                 data={dataSet}
               />
