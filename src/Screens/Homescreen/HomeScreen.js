@@ -14,14 +14,20 @@ import "./HomeScreen.css";
 import { Card, Col, Row, Statistic } from "antd";
 import DashboardCard from "../../Components/DashboardCard";
 import useAPI from "../../Hooks/useApi";
+import axios from "axios";
+import { url } from "../../Address/baseURL";
 
 const HomeScreen = () => {
   const [chartData, setChartData] = useState({});
   const [chartOptions, setChartOptions] = useState({});
   const [called, setCalled] = useState(false);
   const [users, setUsers] = useState();
+  const [userType, setUserType] = useState("");
+
   const { response, callApi } = useAPI();
+
   var comp;
+  var userId;
 
   useEffect(() => {
     const documentStyle = getComputedStyle(document.documentElement);
@@ -181,6 +187,21 @@ const HomeScreen = () => {
   ];
   // }, []);
 
+  useEffect(() => {
+    userId = localStorage.getItem("user_id");
+    // callApi(`/admin/S_Admin/user_type?user_id=${userId}`, 0);
+    // callApi(`/admin/S_Admin/select_one_outlet?comp_id=${0}&br_id=${0}`, 0);
+
+    axios
+      .get(`${url}/admin/S_Admin/user_type?user_id=${userId}`)
+      .then((res) => {
+        setUserType(res?.data?.msg[0]?.user_type);
+      });
+
+    // console.log(response?.data?.msg[0]?.user_type);
+    // console.log(items.filter((item) => item.key === "sub33"));
+  }, []);
+
   return (
     <>
       <div className="flex flex-col sm:grid sm:grid-cols-4 gap-4">
@@ -200,32 +221,36 @@ const HomeScreen = () => {
         ))}
       </div>
 
-      <div className="grid grid-cols-5 gap-5 my-10 align-middle -z-50">
-        <div className="col-span-2 bg-white z-10 rounded-2xl flex justify-center items-center shadow-xl h-fit p-10">
-          <Chart
-            type="doughnut"
-            data={chartData}
-            options={chartOptions}
-            style={{
-              width: "70%",
-              height: 350,
-            }}
-          />
+      {userType !== "S" ? (
+        <div className="grid grid-cols-5 gap-5 my-10 align-middle -z-50">
+          <div className="col-span-2 bg-white z-10 rounded-2xl flex justify-center items-center shadow-xl h-fit p-10">
+            <Chart
+              type="doughnut"
+              data={chartData}
+              options={chartOptions}
+              style={{
+                width: "70%",
+                height: 350,
+              }}
+            />
+          </div>
+          <div className="col-span-3 bg-white z-10 rounded-2xl flex justify-center items-center shadow-xl h-fit p-10">
+            <Chart
+              type="line"
+              data={chartDataLine}
+              options={chartOptionsLine}
+              // height="380px"
+              className="my-16"
+              style={{
+                width: "90%",
+                height: 350,
+              }}
+            />
+          </div>
         </div>
-        <div className="col-span-3 bg-white z-10 rounded-2xl flex justify-center items-center shadow-xl h-fit p-10">
-          <Chart
-            type="line"
-            data={chartDataLine}
-            options={chartOptionsLine}
-            // height="380px"
-            className="my-16"
-            style={{
-              width: "90%",
-              height: 350,
-            }}
-          />
-        </div>
-      </div>
+      ) : (
+        <div className="mt-5 text-2xl">Superuser Dashboard</div>
+      )}
     </>
 
     // <div className="grid">

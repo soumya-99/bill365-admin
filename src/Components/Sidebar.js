@@ -28,6 +28,8 @@ import {
   GlobalOutlined,
   LogoutOutlined,
   AccountBookOutlined,
+  BarsOutlined,
+  PushpinOutlined,
 } from "@ant-design/icons";
 import { Divider, Menu, Switch } from "antd";
 import IMG from "../Assets/Images/mainlogo.png";
@@ -575,7 +577,7 @@ function SidebarComp() {
         {
           key: "15",
           icon: (
-            <ProductOutlined
+            <PushpinOutlined
               className={
                 location.pathname.includes("superadmin/managelocations")
                   ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
@@ -691,7 +693,7 @@ function SidebarComp() {
         {
           key: "17",
           icon: (
-            <ProductOutlined
+            <SettingOutlined
               className={
                 location.pathname.includes("superadmin/managesettings/view")
                   ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
@@ -735,7 +737,7 @@ function SidebarComp() {
         {
           key: "19",
           icon: (
-            <ProductOutlined
+            <AppstoreOutlined
               className={
                 location.pathname.includes("superadmin/managecategories/view")
                   ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
@@ -759,7 +761,7 @@ function SidebarComp() {
         {
           key: "20",
           icon: (
-            <ProductOutlined
+            <BarsOutlined
               className={
                 location.pathname.includes("superadmin/manageitems/view")
                   ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
@@ -781,7 +783,7 @@ function SidebarComp() {
         {
           key: "21",
           icon: (
-            <ProductOutlined
+            <DatabaseOutlined
               className={
                 location.pathname.includes("superadmin/managestock/view")
                   ? " font-semibold flex items-center p-2 my-2 rounded-lg dark:text-white  hover:duration-100  dark:hover:bg-gray-700 group"
