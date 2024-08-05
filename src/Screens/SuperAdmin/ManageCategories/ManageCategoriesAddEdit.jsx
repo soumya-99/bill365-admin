@@ -10,6 +10,7 @@ import { Message } from "../../../Components/Message";
 import { Image } from "antd";
 import Backbtn from "../../../Components/Backbtn";
 import { url } from "../../../Address/baseURL";
+import { DurationMessage } from "../../../Components/DurationMessage";
 
 const CROP_AREA_ASPECT = 1 / 1;
 
@@ -44,6 +45,8 @@ function ManageCategoriesAddEdit() {
         0
       );
     // setDataSet(response?.data?.msg)
+
+    localStorage.setItem("compIdx", `${params.id2}`);
   }, [isCalled]);
 
   useEffect(() => {
@@ -93,7 +96,11 @@ function ManageCategoriesAddEdit() {
     } else {
       if (isCalled && response?.data?.suc == 1) {
         setCalled(false);
-        Message("success", "Success!");
+        // Message("success", "Success!");
+        DurationMessage();
+        setTimeout(() => {
+          navigation("/home/superadmin/managecategories/view");
+        }, 4500);
       }
     }
   }, [response]);

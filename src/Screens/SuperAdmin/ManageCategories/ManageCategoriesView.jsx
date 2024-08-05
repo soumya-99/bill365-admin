@@ -22,6 +22,7 @@ function ManageCategoriesView() {
   var comp;
 
   useEffect(() => {
+    setCompId(compId ?? localStorage.getItem("compIdx") ?? 1);
     console.log(response);
     setDataSet(response?.data?.msg);
 
@@ -52,11 +53,17 @@ function ManageCategoriesView() {
 
   useEffect(() => {
     // comp = localStorage.getItem("comp_id");
+    let compIdx = compId ?? localStorage.getItem("compIdx") ?? 1;
+
     callApi(
-      `/admin/S_Admin/select_category?comp_id=${compId || 1}&catg_id=${0}`,
+      `/admin/S_Admin/select_category?comp_id=${compIdx}&catg_id=${0}`,
       0
     );
     // callApi(`/admin/S_Admin/select_one_outlet?comp_id=${0}&br_id=${0}`, 0);
+  }, [compId]);
+
+  useEffect(() => {
+    localStorage.removeItem("compIdx");
   }, [compId]);
 
   const onPress = (data) => {
