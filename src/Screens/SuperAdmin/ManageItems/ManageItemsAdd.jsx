@@ -10,6 +10,7 @@ import { DurationMessage } from "../../../Components/DurationMessage";
 import axios from "axios";
 import { url } from "../../../Address/baseURL";
 import Backbtn from "../../../Components/Backbtn";
+import DownloadIcon from "@mui/icons-material/FileDownload";
 
 function ManageItemsAdd() {
   const params = useParams();
@@ -153,11 +154,11 @@ function ManageItemsAdd() {
 
     var data = new FormData();
     data.append("comp_id", +compId);
-    data.append("catg_id", +categoryId);
+    // data.append("catg_id", +categoryId);
     data.append("created_by", userId);
     data.append("file", newFile);
 
-    callApi("/admin/S_Admin/insert_excel", 1, data);
+    callApi("/admin/S_Admin/insert_item_excel", 1, data);
   };
 
   return (
@@ -170,7 +171,7 @@ function ManageItemsAdd() {
             Add items
           </h2>
           {/* <form onSubmit={formik.handleSubmit}> */}
-          <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
+          <div className="grid gap-2 sm:grid-cols-3 sm:gap-6 align-baseline justify-center">
             <div>
               <label
                 htmlFor="brand"
@@ -198,7 +199,7 @@ function ManageItemsAdd() {
                 </div>
               ) : null}
             </div>
-            <div>
+            {/* <div>
               <label
                 htmlFor="brand"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -225,9 +226,9 @@ function ManageItemsAdd() {
               {isCalled && !categoryId ? (
                 <div className="text-red-500 text-sm">Category is required</div>
               ) : null}
-            </div>
+            </div> */}
 
-            <div className="sm:col-span-2">
+            <div className="w-full">
               <label
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 for="file_input">
@@ -248,8 +249,17 @@ function ManageItemsAdd() {
               <p
                 className="mt-1 text-sm text-gray-500 dark:text-gray-300"
                 id="file_input_help">
-                Only .xlsx, .xls is allowed.
+                Only .xlsx, .xls is allowed. Download the format.
               </p>
+            </div>
+
+            <div className="mt-5">
+              <a
+                target="_blank"
+                href="https://docs.google.com/spreadsheets/d/1oK1-LfnjLMsnv8liguJM_v-DXxaG9f2b/edit?usp=sharing&ouid=118172780691361065981&rtpof=true&sd=true"
+                className="mb-4 inline-flex bg-blue-900 items-center justify-center sm:mr-14 px-5 py-2.5 mt-2 sm:mt-2 text-sm font-medium text-center text-white bg-primary-700 rounded-full h-10 w-10  focus:ring-4 mx-3 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+                <DownloadIcon />
+              </a>
             </div>
           </div>
 
@@ -289,6 +299,7 @@ function ManageItemsAdd() {
                   { name: "discount", value: "Discount" },
                   { name: "cgst", value: "CGST" },
                   { name: "sgst", value: "SGST" },
+                  // { name: "stock", value: "Stock" },
                 ]}
                 data={data}
               />

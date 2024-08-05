@@ -14,7 +14,7 @@ function ManageItemsView() {
   const { response, callApi } = useAPI();
   const [resp, setRestp] = useState();
   const [isReport, setIsReport] = useState(false);
-  const [dataSet, setDataSet] = useState();
+  const [dataSet, setDataSet] = useState([]);
   const [search, setSearch] = useState();
   const [compId, setCompId] = useState(null);
   const [shops, setShops] = useState(() => []);
@@ -23,6 +23,7 @@ function ManageItemsView() {
 
   useEffect(() => {
     console.log(response);
+    // setDataSet([])
     setDataSet(response?.data?.msg);
 
     if (response?.data?.msg?.length <= 0) {
@@ -35,7 +36,7 @@ function ManageItemsView() {
         setCalled(false);
       }
     }
-  }, [response]);
+  }, [response, compId]);
 
   useEffect(() => {
     // callApi(`/admin/S_Admin/select_location`, 0);
@@ -145,6 +146,7 @@ function ManageItemsView() {
                   { name: "discount", value: "Discount" },
                   { name: "cgst", value: "CGST" },
                   { name: "sgst", value: "SGST" },
+                  // { name: "stock", value: "Stock" },
                   //   { name: "phone_no", value: "Phone Number" },
                   //   { name: "email_id", value: "Email" },
                 ]}

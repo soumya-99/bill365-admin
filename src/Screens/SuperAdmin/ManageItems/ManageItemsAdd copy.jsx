@@ -10,9 +10,8 @@ import { DurationMessage } from "../../../Components/DurationMessage";
 import axios from "axios";
 import { url } from "../../../Address/baseURL";
 import Backbtn from "../../../Components/Backbtn";
-import DownloadIcon from "@mui/icons-material/FileDownload";
 
-function ManageStockAdd() {
+function ManageItemsAdd() {
   const params = useParams();
   const { response, callApi } = useAPI();
   const navigation = useNavigate();
@@ -29,11 +28,9 @@ function ManageStockAdd() {
   const [outlets, setOutlets] = useState(() => []);
   const [categories, setCategories] = useState(() => []);
   const [categoryId, setCategoryId] = useState(() => []);
-  const [compId, setCompId] = useState(() => 1);
-  const [branchId, setBranchId] = useState(() => 1);
+  const [compId, setCompId] = useState(() => null);
   const [shops, setShops] = useState(() => []);
   const [locations, setLocations] = useState(() => []);
-  const [itemStockData, setItemStockData] = useState(() => []);
 
   var comp, userId;
 
@@ -73,9 +70,11 @@ function ManageStockAdd() {
   useEffect(() => {
     // callApi(`/admin/S_Admin/select_location`, 0);
     axios
-      .get(`${url}/admin/S_Admin/select_outlet?comp_id=${compId || 1}`)
+      .get(
+        `${url}/admin/S_Admin/select_category?comp_id=${compId || 1}&catg_id=0`
+      )
       .then((res) => {
-        setOutlets(res?.data?.msg);
+        setCategories(res?.data?.msg);
         console.log(res);
       })
       .catch((err) => {
@@ -125,8 +124,8 @@ function ManageStockAdd() {
   // };
 
   useEffect(() => {
-    if (response?.data?.suc == 0 || response?.data?.msg?.length <= 0) {
-      // Message("error", "Something went wrong!");
+    if (response?.data?.suc == 0 || response?.data?.msg.length <= 0) {
+      Message("error", "Something went wrong!");
     } else {
       if (isCalled && response?.data?.suc == 1) {
         setCalled(false);
@@ -154,62 +153,12 @@ function ManageStockAdd() {
 
     var data = new FormData();
     data.append("comp_id", +compId);
-    data.append("br_id", +branchId);
+    data.append("catg_id", +categoryId);
     data.append("created_by", userId);
     data.append("file", newFile);
 
-    callApi("/admin/S_Admin/stock_in", 1, data);
-
-    // console.log("RRRRRRRRRRRRRR", res)
-    // if (response?.data?.msg?.suc == 1) {
-    //   DurationMessage();
-    // }
-    // setTimeout(() => {
-    //   navigation("home/superadmin/managestock/view");
-    // }, 4500);
+    callApi("/admin/S_Admin/insert_excel", 1, data);
   };
-
-  // useEffect(() => {
-  //   console.log(response);
-  //   const updatedDataSet = response?.data?.msg?.map((item) => ({
-  //     ...item,
-  //     stock: 0,
-  //   }));
-  //   setDataSet(updatedDataSet);
-
-  //   if (response?.data?.msg?.length <= 0) {
-  //     Message("error", "No data!");
-  //     // setIsReport(false);
-  //   }
-  // }, [compId, branchId]);
-
-  useEffect(() => {
-    // comp = localStorage.getItem("comp_id");
-    // callApi(`/admin/S_Admin/item_detail?comp_id=${compId || 1}`, 0);
-    // callApi(
-    //   `/admin/S_Admin/item_stock?comp_id=${+compId || 1}&br_id=${
-    //     +branchId || 1
-    //   }`,
-    //   0
-    // );
-
-    axios
-      .get(
-        `${url}/admin/S_Admin/item_stock?comp_id=${+compId || 1}&br_id=${
-          +branchId || 1
-        }`
-      )
-      .then((res) => {
-        setItemStockData(
-          res?.data?.msg?.map((item) => ({
-            ...item,
-            stock: 0,
-          }))
-        );
-      });
-  }, [compId, branchId]);
-
-  console.log("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDD", itemStockData);
 
   return (
     <>
@@ -218,7 +167,7 @@ function ManageStockAdd() {
       <section className="bg-white dark:bg-gray-900">
         <div className="py-8 px-4 mx-auto max-w-2xl lg:py-16">
           <h2 className="mb-4 text-xl font-bold text-blue-900 dark:text-white">
-            {params.id == 0 ? "Add stock" : "Update stock"}
+            Add items
           </h2>
           {/* <form onSubmit={formik.handleSubmit}> */}
           <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
@@ -253,7 +202,7 @@ function ManageStockAdd() {
               <label
                 htmlFor="brand"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                Select Outlet
+                Select Category
               </label>
               <select
                 id="cat_id"
@@ -261,20 +210,20 @@ function ManageStockAdd() {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                 onChange={(e) => {
                   console.log("TTTTTTTTTTTTTTTTTTTTT", e);
-                  setBranchId(e.target.value);
+                  setCategoryId(e.target.value);
                 }}
                 // onBlur={() => null}
-                value={branchId || 1}>
-                <option selected="">Select Outlet</option>
+                value={categoryId}>
+                <option selected="">Select Category</option>
 
-                {outlets?.map((items, i) => (
-                  <option key={i} value={items?.id}>
-                    {items?.branch_name}
+                {categories?.map((items, i) => (
+                  <option key={i} value={items?.sl_no}>
+                    {items?.category_name}
                   </option>
                 ))}
               </select>
-              {isCalled && !branchId ? (
-                <div className="text-red-500 text-sm">Outlet is required</div>
+              {isCalled && !categoryId ? (
+                <div className="text-red-500 text-sm">Category is required</div>
               ) : null}
             </div>
 
@@ -302,17 +251,6 @@ function ManageStockAdd() {
                 Only .xlsx, .xls is allowed.
               </p>
             </div>
-
-            {/* <div>
-              <div className="mt-5">
-                <button
-                  target="_blank"
-                  href="https://docs.google.com/spreadsheets/d/1oK1-LfnjLMsnv8liguJM_v-DXxaG9f2b/edit?usp=sharing&ouid=118172780691361065981&rtpof=true&sd=true"
-                  className="mb-4 inline-flex bg-blue-900 items-center justify-center sm:mr-14 px-5 py-2.5 mt-2 sm:mt-2 text-sm font-medium text-center text-white bg-primary-700 rounded-full h-10 w-10 focus:ring-4 mx-3 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
-                  <DownloadIcon />
-                </button>
-              </div>
-            </div> */}
           </div>
 
           <div className="flex justify-center">
@@ -344,33 +282,15 @@ function ManageStockAdd() {
                 // onclick={() => null}
                 // flag={1}
                 headers={[
-                  { name: "item_id", value: "Item ID" },
+                  { name: "hsn_code", value: "HSN" },
+                  { name: "bar_code", value: "Barcode" },
                   { name: "item_name", value: "Item Name" },
-                  { name: "stock", value: "Stock" },
+                  { name: "price", value: "Price" },
+                  { name: "discount", value: "Discount" },
+                  { name: "cgst", value: "CGST" },
+                  { name: "sgst", value: "SGST" },
                 ]}
                 data={data}
-              />
-            </div>
-          </div>
-        )}
-
-        {data?.length == 0 && (
-          <div class="bg-blue-900 dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
-            <div class="overflow-x-auto">
-              <DatatableAdv
-                // onPress={(data) => onPressEdit(data)}
-                // setSearch={(val) => setSearch(val)}
-                // title={"Manage Stock"}
-                // btnText={"Add Stock"}
-                // onclick={() => onPress()}
-                flag={1}
-                headers={[
-                  { name: "item_id", value: "#" },
-                  { name: "item_name", value: "Item Name" },
-                  { name: "stock", value: "Stock" },
-                ]}
-                data={itemStockData}
-                disabled
               />
             </div>
           </div>
@@ -380,4 +300,4 @@ function ManageStockAdd() {
   );
 }
 
-export default ManageStockAdd;
+export default ManageItemsAdd;
