@@ -22,6 +22,7 @@ function ManageOutletsView() {
   var comp;
 
   useEffect(() => {
+    setCompId(compId ?? localStorage.getItem("compIdx") ?? 1);
     console.log(response);
     setDataSet(response?.data?.msg);
 
@@ -52,8 +53,14 @@ function ManageOutletsView() {
 
   useEffect(() => {
     // comp = localStorage.getItem("comp_id");
-    callApi(`/admin/S_Admin/select_outlet?comp_id=${compId || 1}`, 0);
+    let compIdx = compId ?? localStorage.getItem("compIdx") ?? 1;
+
+    callApi(`/admin/S_Admin/select_outlet?comp_id=${compIdx}`, 0);
     // callApi(`/admin/S_Admin/select_one_outlet?comp_id=${0}&br_id=${0}`, 0);
+  }, [compId]);
+
+  useEffect(() => {
+    localStorage.removeItem("compIdx");
   }, [compId]);
 
   const onPress = (data) => {

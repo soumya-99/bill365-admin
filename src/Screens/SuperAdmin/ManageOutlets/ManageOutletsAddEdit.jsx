@@ -40,6 +40,8 @@ function ManageOutletsAddEdit() {
         `/admin/S_Admin/select_one_outlet?comp_id=${params.id2}&br_id=${params.id}`,
         0
       );
+
+    localStorage.setItem("compIdx", `${params.id2}`);
   }, [isCalled]);
 
   useEffect(() => {
