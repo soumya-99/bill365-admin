@@ -22,6 +22,7 @@ function ManageUnitsView() {
   var comp;
 
   useEffect(() => {
+    setCompId(compId ?? localStorage.getItem("compIdx") ?? 1);
     console.log(response);
     setDataSet(response?.data?.msg);
 
@@ -52,11 +53,14 @@ function ManageUnitsView() {
 
   useEffect(() => {
     // comp = localStorage.getItem("comp_id");
-    callApi(
-      `/admin/S_Admin/select_unit?comp_id=${compId || 1}&unit_id=${0}`,
-      0
-    );
+    let compIdx = compId ?? localStorage.getItem("compIdx") ?? 1;
+
+    callApi(`/admin/S_Admin/select_unit?comp_id=${compIdx}&unit_id=${0}`, 0);
     // callApi(`/admin/S_Admin/select_one_outlet?comp_id=${0}&br_id=${0}`, 0);
+  }, [compId]);
+
+  useEffect(() => {
+    localStorage.removeItem("compIdx");
   }, [compId]);
 
   const onPress = (data) => {

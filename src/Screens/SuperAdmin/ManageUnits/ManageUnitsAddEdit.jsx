@@ -40,6 +40,8 @@ function ManageUnitsAddEdit() {
         `/admin/S_Admin/select_unit?comp_id=${params.id2}&unit_id=${params.id}`,
         0
       );
+
+    localStorage.setItem("compIdx", `${params.id2}`);
   }, [isCalled]);
 
   useEffect(() => {
