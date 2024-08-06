@@ -117,7 +117,7 @@ function ManageShopsAddEdit() {
   };
 
   const validationSchema = Yup.object({
-    sh_company_name: Yup.string().required("Company Name is required."),
+    sh_company_name: Yup.string().required("Shop Name is required."),
     // sh_address: Yup.string().required("Company Address is required."),
     // sh_location: Yup.string().required("Location is required."),
     // sh_phone_no: Yup.string().required("Phone no. is required."),

@@ -111,7 +111,7 @@ function ManageHeaderFooterAddEdit() {
   };
 
   const validationSchema = Yup.object({
-    m_comp_id: Yup.string().required("Company is required."),
+    m_comp_id: Yup.string().required("Shop is required."),
     // m_header1: Yup.string().required("Header 1 is required."),
     // m_on_off_flag1: Yup.string().required("Company is required."),
     // m_header2: Yup.string().required("Company is required."),
