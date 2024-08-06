@@ -81,13 +81,13 @@ function ManageHeaderFooterAddEdit() {
   const initialValues = {
     m_comp_id: "",
     m_header1: "",
-    m_on_off_flag1: "",
+    m_on_off_flag1: "N",
     m_header2: "",
-    m_on_off_flag2: "",
+    m_on_off_flag2: "N",
     m_footer1: "",
-    m_on_off_flag3: "",
+    m_on_off_flag3: "N",
     m_footer2: "",
-    m_on_off_flag4: "",
+    m_on_off_flag4: "N",
     // m_created_by: userId,
   };
 
@@ -212,7 +212,7 @@ function ManageHeaderFooterAddEdit() {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.m_on_off_flag1}>
-                  <option selected="">Select Header 1 Flag</option>
+                  {/* <option selected="">Select Header 1 Flag</option> */}
                   <option value="Y">On</option>
                   <option value="N">Off</option>
                 </select>
@@ -260,7 +260,7 @@ function ManageHeaderFooterAddEdit() {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.m_on_off_flag2}>
-                  <option selected="">Select Header 2 Flag</option>
+                  {/* <option selected="">Select Header 2 Flag</option> */}
                   <option value="Y">On</option>
                   <option value="N">Off</option>
                 </select>
@@ -308,7 +308,7 @@ function ManageHeaderFooterAddEdit() {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.m_on_off_flag3}>
-                  <option selected="">Select Footer 1 Flag</option>
+                  {/* <option selected="">Select Footer 1 Flag</option> */}
                   <option value="Y">On</option>
                   <option value="N">Off</option>
                 </select>
@@ -356,7 +356,7 @@ function ManageHeaderFooterAddEdit() {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.m_on_off_flag4}>
-                  <option selected="">Select Footer 2 Flag</option>
+                  {/* <option selected="">Select Footer 2 Flag</option> */}
                   <option value="Y">On</option>
                   <option value="N">Off</option>
                 </select>
