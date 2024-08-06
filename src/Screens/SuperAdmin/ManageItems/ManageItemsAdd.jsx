@@ -11,6 +11,8 @@ import axios from "axios";
 import { url } from "../../../Address/baseURL";
 import Backbtn from "../../../Components/Backbtn";
 import DownloadIcon from "@mui/icons-material/FileDownload";
+import { Link } from "react-router-dom";
+import ITEMS_MASTER_XLSX from "../../../Assets/Data/Files/item_master.xlsx";
 
 function ManageItemsAdd() {
   const params = useParams();
@@ -256,8 +258,9 @@ function ManageItemsAdd() {
             <div className="mt-5">
               <a
                 target="_blank"
-                href="https://docs.google.com/spreadsheets/d/1oK1-LfnjLMsnv8liguJM_v-DXxaG9f2b/edit?usp=sharing&ouid=118172780691361065981&rtpof=true&sd=true"
-                className="mb-4 inline-flex bg-blue-900 items-center justify-center sm:mr-14 px-5 py-2.5 mt-2 sm:mt-2 text-sm font-medium text-center text-white bg-primary-700 rounded-full h-10 w-10  focus:ring-4 mx-3 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+                href={ITEMS_MASTER_XLSX}
+                className="mb-4 inline-flex bg-blue-900 items-center justify-center sm:mr-14 px-5 py-2.5 mt-2 sm:mt-2 text-sm font-medium text-center text-white bg-primary-700 rounded-full h-10 w-10  focus:ring-4 mx-3 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
+                download>
                 <DownloadIcon />
               </a>
             </div>
