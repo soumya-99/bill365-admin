@@ -53,7 +53,7 @@ function ManageItemsView() {
 
   useEffect(() => {
     // comp = localStorage.getItem("comp_id");
-    callApi(`/admin/S_Admin/item_detail?comp_id=${compId || 1}`, 0);
+    callApi(`/admin/S_Admin/item_detail?comp_id=${compId}`, 0);
     // callApi(`/admin/S_Admin/select_one_outlet?comp_id=${0}&br_id=${0}`, 0);
   }, [compId]);
 
@@ -110,10 +110,12 @@ function ManageItemsView() {
                 onChange={(e) => setCompId(e.target.value)}
                 // onBlur={() => null}
                 value={compId}>
-                <option>Select Shop</option>
+                <option selected value={undefined}>
+                  Select Shop
+                </option>
 
                 {shops?.map((items, i) => (
-                  <option key={i} value={items?.id} selected={items?.id === 1}>
+                  <option key={i} value={items?.id}>
                     {items?.company_name}
                   </option>
                 ))}

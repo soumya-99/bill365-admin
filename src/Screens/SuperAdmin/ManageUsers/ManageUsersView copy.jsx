@@ -123,7 +123,7 @@ function ManageUsersView() {
               </option>
 
               {shops?.map((items, i) => (
-                <option key={i} value={items?.id}>
+                <option key={i} value={items?.id} selected={items?.id === 1}>
                   {items?.company_name}
                 </option>
               ))}
@@ -150,7 +150,7 @@ function ManageUsersView() {
               </option>
 
               {outlets?.map((items, i) => (
-                <option key={i} value={items?.id}>
+                <option key={i} value={items?.id} selected={items?.id === 1}>
                   {items?.branch_name}
                 </option>
               ))}

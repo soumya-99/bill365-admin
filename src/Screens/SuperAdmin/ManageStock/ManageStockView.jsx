@@ -55,7 +55,7 @@ function ManageStockView() {
   useEffect(() => {
     // callApi(`/admin/S_Admin/select_location`, 0);
     axios
-      .get(`${url}/admin/S_Admin/select_outlet?comp_id=${compId || 1}`)
+      .get(`${url}/admin/S_Admin/select_outlet?comp_id=${compId}`)
       .then((res) => {
         setOutlets(res?.data?.msg);
         console.log(res);
@@ -69,9 +69,7 @@ function ManageStockView() {
     // comp = localStorage.getItem("comp_id");
     // callApi(`/admin/S_Admin/item_detail?comp_id=${compId || 1}`, 0);
     callApi(
-      `/admin/S_Admin/item_stock?comp_id=${compId || 1}&br_id=${
-        selectedOutlet || 1
-      }`,
+      `/admin/S_Admin/item_stock?comp_id=${compId}&br_id=${selectedOutlet}`,
       0
     );
   }, [compId, selectedOutlet]);
@@ -129,10 +127,12 @@ function ManageStockView() {
                 onChange={(e) => setCompId(e.target.value)}
                 // onBlur={() => null}
                 value={compId}>
-                <option>Select Shop</option>
+                <option selected value={undefined}>
+                  Select Shop
+                </option>
 
                 {shops?.map((items, i) => (
-                  <option key={i} value={items?.id} selected={items?.id === 1}>
+                  <option key={i} value={items?.id}>
                     {items?.company_name}
                   </option>
                 ))}
@@ -156,10 +156,12 @@ function ManageStockView() {
                 onChange={(e) => setSelectedOutlet(e.target.value)}
                 // onBlur={() => null}
                 value={selectedOutlet}>
-                <option>Select outlet</option>
+                <option selected value={undefined}>
+                  Select outlet
+                </option>
 
                 {outlets?.map((items, i) => (
-                  <option key={i} value={items?.id} selected={items?.id === 1}>
+                  <option key={i} value={items?.id}>
                     {items?.branch_name}
                   </option>
                 ))}

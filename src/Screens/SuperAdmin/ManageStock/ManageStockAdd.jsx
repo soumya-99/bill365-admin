@@ -29,8 +29,8 @@ function ManageStockAdd() {
   const [outlets, setOutlets] = useState(() => []);
   const [categories, setCategories] = useState(() => []);
   const [categoryId, setCategoryId] = useState(() => []);
-  const [compId, setCompId] = useState(() => 1);
-  const [branchId, setBranchId] = useState(() => 1);
+  const [compId, setCompId] = useState(() => null);
+  const [branchId, setBranchId] = useState(() => null);
   const [shops, setShops] = useState(() => []);
   const [locations, setLocations] = useState(() => []);
   const [itemStockData, setItemStockData] = useState(() => []);
@@ -73,7 +73,7 @@ function ManageStockAdd() {
   useEffect(() => {
     // callApi(`/admin/S_Admin/select_location`, 0);
     axios
-      .get(`${url}/admin/S_Admin/select_outlet?comp_id=${compId || 1}`)
+      .get(`${url}/admin/S_Admin/select_outlet?comp_id=${compId}`)
       .then((res) => {
         setOutlets(res?.data?.msg);
         console.log(res);
@@ -195,9 +195,7 @@ function ManageStockAdd() {
 
     axios
       .get(
-        `${url}/admin/S_Admin/item_stock?comp_id=${+compId || 1}&br_id=${
-          +branchId || 1
-        }`
+        `${url}/admin/S_Admin/item_stock?comp_id=${+compId}&br_id=${+branchId}`
       )
       .then((res) => {
         setItemStockData(
@@ -235,7 +233,9 @@ function ManageStockAdd() {
                 onChange={(e) => setCompId(e.target.value)}
                 // onBlur={() => null}
                 value={compId}>
-                <option selected="">Select Shop</option>
+                <option selected value={undefined}>
+                  Select Shop
+                </option>
 
                 {shops?.map((items, i) => (
                   <option key={i} value={items?.id}>
@@ -264,8 +264,10 @@ function ManageStockAdd() {
                   setBranchId(e.target.value);
                 }}
                 // onBlur={() => null}
-                value={branchId || 1}>
-                <option selected="">Select Outlet</option>
+                value={branchId}>
+                <option selected value={undefined}>
+                  Select Outlet
+                </option>
 
                 {outlets?.map((items, i) => (
                   <option key={i} value={items?.id}>

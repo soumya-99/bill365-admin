@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams, useNavigate } from "react-router";
 import * as Yup from "yup";
 import { useFormik } from "formik";
@@ -8,6 +8,8 @@ import { DurationMessage } from "../../../Components/DurationMessage";
 import axios from "axios";
 import { url } from "../../../Address/baseURL";
 import Backbtn from "../../../Components/Backbtn";
+import { Toast } from "primereact/toast";
+import { message } from "antd";
 
 function ManageShopsAddEdit() {
   const params = useParams();
@@ -26,6 +28,21 @@ function ManageShopsAddEdit() {
   const [userTypeText, setUserTypeText] = useState(() => "");
 
   var comp, userId;
+
+  // const [messageApi, contextHolder] = message.useMessage();
+  // const info = () => {
+  //   messageApi.error("Something went wrong!");
+  // };
+
+  // const toast = useRef(null);
+
+  // const show = () => {
+  //   toast.current.show({
+  //     severity: "info ",
+  //     summary: "Error",
+  //     detail: "Somehting went wrong!",
+  //   });
+  // };
 
   useEffect(() => {
     console.log(params);
@@ -71,7 +88,10 @@ function ManageShopsAddEdit() {
     }
     // setDataSet(response?.data?.msg)
     if (response?.data?.suc == 0 || response?.data?.msg.length <= 0) {
+      console.log(":RRRRRRRRRRSSSSSSSSSSSS", response);
       Message("error", "Something went wrong!");
+      // message.info("This is a normal message");
+      // show();
     } else {
       if (isCalled && response?.data?.suc == 1) {
         setCalled(false);
@@ -147,7 +167,12 @@ function ManageShopsAddEdit() {
     u_user_id: Yup.string().required("User ID is required."),
     // u_phone_no: Yup.string().required("Phone number is required."),
     // u_email_id: Yup.string().required("Email id is required."),
-    u_password: Yup.string().required("Password is required."),
+    // u_password: Yup.string().required("Password is required."),
+    u_password: Yup.string().when("u_user_type", {
+      is: (val) => val === "A",
+      then: () => Yup.string().required("Password is required"),
+      otherwise: () => Yup.string().optional(),
+    }),
     // u_active_flag: Yup.string().required("Active flag is required."),
     // u_login_flag: Yup.string().required("Login flag is required."),
     // u_created_by: Yup.string().required(" is required."),
@@ -162,6 +187,10 @@ function ManageShopsAddEdit() {
     enableReinitialize: true,
     validateOnMount: true,
   });
+
+  // useEffect(() => {
+
+  // }, [formik.values.])
 
   useEffect(() => {
     console.log(formik.values.u_comp_id);
@@ -195,6 +224,7 @@ function ManageShopsAddEdit() {
 
   return (
     <>
+      {/* <Toast ref={toast} /> */}
       <Backbtn />
 
       <section class="bg-white dark:bg-gray-900">
@@ -391,29 +421,31 @@ function ManageShopsAddEdit() {
                   </div>
                 ) : null}
               </div> */}
-              <div class="w-full">
-                <label
-                  for="u_password"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  name="u_password"
-                  id="u_password"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.u_password}
-                  placeholder="qwerty1234..."
-                  required=""
-                />
-                {formik.errors.u_password && formik.touched.u_password ? (
-                  <div className="text-red-500 text-sm">
-                    {formik.errors.u_password}
-                  </div>
-                ) : null}
-              </div>
+              {formik.values.u_user_type === "A" && (
+                <div class="w-full">
+                  <label
+                    for="u_password"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    name="u_password"
+                    id="u_password"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.u_password}
+                    placeholder="qwerty1234..."
+                    required=""
+                  />
+                  {formik.errors.u_password && formik.touched.u_password ? (
+                    <div className="text-red-500 text-sm">
+                      {formik.errors.u_password}
+                    </div>
+                  ) : null}
+                </div>
+              )}
               {params.id != 0 && (
                 <>
                   <div>

@@ -22,7 +22,7 @@ function ManageOutletsView() {
   var comp;
 
   useEffect(() => {
-    setCompId(compId ?? localStorage.getItem("compIdx") ?? undefined);
+    setCompId(compId ?? localStorage.getItem("compIdx") ?? 1);
     console.log(response);
     setDataSet(response?.data?.msg);
 
@@ -53,7 +53,7 @@ function ManageOutletsView() {
 
   useEffect(() => {
     // comp = localStorage.getItem("comp_id");
-    let compIdx = compId ?? localStorage.getItem("compIdx") ?? undefined;
+    let compIdx = compId ?? localStorage.getItem("compIdx") ?? 1;
 
     callApi(`/admin/S_Admin/select_outlet?comp_id=${compIdx}`, 0);
     // callApi(`/admin/S_Admin/select_one_outlet?comp_id=${0}&br_id=${0}`, 0);
@@ -112,12 +112,10 @@ function ManageOutletsView() {
             onChange={(e) => setCompId(e.target.value)}
             // onBlur={() => null}
             value={compId}>
-            <option selected value={undefined}>
-              Select Shop
-            </option>
+            <option>Select Shop</option>
 
             {shops?.map((items, i) => (
-              <option key={i} value={items?.id}>
+              <option key={i} value={items?.id} selected={items?.id === 1}>
                 {items?.company_name}
               </option>
             ))}
