@@ -64,7 +64,7 @@ function ManageSettingsView() {
         btnText={"Add Settings"}
         onPress={() => onPress({ comp_id: 0 })}
       />
-      <section class="bg-gray-50 dark:bg-gray-900 p-3 ">
+      <section class="dark:bg-gray-900 p-3 ">
         <div class="mx-auto w-full">
           <div class="bg-blue-900 dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
             <div class="overflow-x-auto">

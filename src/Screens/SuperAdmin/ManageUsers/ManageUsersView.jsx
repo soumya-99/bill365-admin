@@ -105,7 +105,7 @@ function ManageUsersView() {
         btnText={"Add User"}
         onPress={() => onPress({ id: 0 })}
       />
-      <section class="bg-gray-50 dark:bg-gray-900 p-3 ">
+      <section class="dark:bg-gray-900 p-3 ">
         <div class="my-4 grid gap-4 sm:grid-cols-2 sm:gap-6">
           <div>
             <label

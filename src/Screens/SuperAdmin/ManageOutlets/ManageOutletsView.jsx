@@ -98,7 +98,7 @@ function ManageOutletsView() {
         btnText={"Add Outlet"}
         onPress={() => onPress({ id: 0 })}
       />
-      <section class="bg-gray-50 dark:bg-gray-900 p-3 ">
+      <section class="dark:bg-gray-900 p-3 ">
         <div className="my-4 w-full">
           <label
             htmlFor="brand"

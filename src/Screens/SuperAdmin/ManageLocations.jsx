@@ -124,7 +124,7 @@ function ManageLocations() {
       />
     );
   };
-  
+
   return (
     <div className="py-1 w-full">
       <HeaderLayout
@@ -132,7 +132,7 @@ function ManageLocations() {
         btnText={"Add Location"}
         onPress={handleClickOpen}
       />
-      <section class="bg-gray-50 dark:bg-gray-900 p-3 ">
+      <section class="dark:bg-gray-900 p-3 ">
         {/* <div class="mx-auto w-full px-4 lg:px-12"> */}
         <div class="mx-auto w-full">
           <div class="bg-blue-900 dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
