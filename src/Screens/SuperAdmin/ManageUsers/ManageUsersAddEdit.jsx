@@ -136,7 +136,7 @@ function ManageShopsAddEdit() {
             user_id: values?.u_user_id,
             // phone_no: +values?.u_phone_no,
             // email_id: values?.u_email_id,
-            password: values?.u_password,
+            password: values?.u_password || "",
             active_flag: values?.u_active_flag,
             login_flag: values?.u_login_flag,
             created_by: userId,
@@ -152,7 +152,7 @@ function ManageShopsAddEdit() {
             // email_id: values?.u_email_id,
             active_flag: "Y",
             login_flag: "N",
-            password: values?.u_password,
+            password: values?.u_password || "",
             created_by: userId,
           };
 

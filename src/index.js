@@ -11,9 +11,13 @@ import { Democontext, loadingContext } from "./Context/Democontext";
 import Loader from "./Components/Loader";
 import Noresult from "./Screens/Noresult/Noresult";
 import Bill from "./Screens/Bill/Bill";
-import CategorywiseItemsComp from "./Screens/SuperAdmin/CategorywiseItems/CategorywiseItemsComp";
-import CategorywiseItemsAdd from "./Screens/SuperAdmin/CategorywiseItems/CategorywiseItemsAdd";
 
+const CategorywiseItemsComp = lazy(() =>
+  import("./Screens/SuperAdmin/CategorywiseItems/CategorywiseItemsComp")
+);
+const CategorywiseItemsAdd = lazy(() =>
+  import("./Screens/SuperAdmin/CategorywiseItems/CategorywiseItemsAdd")
+);
 const ManageStockComp = lazy(() =>
   import("./Screens/SuperAdmin/ManageStock/ManageStockComp")
 );

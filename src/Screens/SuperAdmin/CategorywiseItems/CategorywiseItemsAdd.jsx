@@ -211,6 +211,8 @@ function CategorywiseItemsAdd() {
               onChange={onChange}
               onSelectChange={onSelectChange}
               onScroll={onScroll}
+              //   showSearch
+              //   onSearch={handleSearch}
               render={(item) => item.title}
             />
           </div>
