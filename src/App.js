@@ -27,6 +27,18 @@ function App() {
               colorPrimary: "#404198",
               colorPrimaryHover: "#404198CC",
             },
+            Transfer: {
+              colorBgContainer: "#40419822",
+              controlItemBgActive: "#40419811",
+            },
+            Button: {
+              colorPrimary: "#404198",
+              colorPrimaryHover: "#404198CC",
+              colorPrimaryActive: "#404198BB",
+            },
+            Checkbox: {
+              colorPrimary: "#404198",
+            },
           },
         }}>
         <Outlet />

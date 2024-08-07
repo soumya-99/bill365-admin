@@ -11,6 +11,8 @@ import { Democontext, loadingContext } from "./Context/Democontext";
 import Loader from "./Components/Loader";
 import Noresult from "./Screens/Noresult/Noresult";
 import Bill from "./Screens/Bill/Bill";
+import CategorywiseItemsComp from "./Screens/SuperAdmin/CategorywiseItems/CategorywiseItemsComp";
+import CategorywiseItemsAdd from "./Screens/SuperAdmin/CategorywiseItems/CategorywiseItemsAdd";
 
 const ManageStockComp = lazy(() =>
   import("./Screens/SuperAdmin/ManageStock/ManageStockComp")
@@ -414,6 +416,16 @@ const router = createBrowserRouter([
                   {
                     path: "managecategory/:id/:id2",
                     element: <ManageCategoriesAddEdit />,
+                  },
+                ],
+              },
+              {
+                path: "categorywiseitems",
+                element: <CategorywiseItemsComp />,
+                children: [
+                  {
+                    path: "add",
+                    element: <CategorywiseItemsAdd />,
                   },
                 ],
               },
