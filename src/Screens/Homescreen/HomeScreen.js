@@ -137,10 +137,10 @@ const HomeScreen = () => {
     setCalled(!called);
   }, []);
 
-  useEffect(() => {
-    setUsers(response?.data?.msg);
-    setCalled(!called);
-  }, [called]);
+  // useEffect(() => {
+  //   setUsers(response?.data?.msg);
+  //   setCalled(!called);
+  // }, [called]);
 
   // useEffect(() => {
   DASHBOARD_DATA = [

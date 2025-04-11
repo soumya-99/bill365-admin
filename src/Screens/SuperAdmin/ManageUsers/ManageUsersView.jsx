@@ -53,6 +53,7 @@ function ManageUsersView() {
 
   useEffect(() => {
     // callApi(`/admin/S_Admin/select_location`, 0);
+    if (!compId) return;
     axios
       .get(`${url}/admin/S_Admin/select_outlet?comp_id=${compId}`)
       .then((res) => {
@@ -66,6 +67,10 @@ function ManageUsersView() {
 
   useEffect(() => {
     // comp = localStorage.getItem("comp_id");
+    if (!compId || !selectedOutlet) {
+      setCalled(true);
+      return;
+    }
     callApi(
       `/admin/S_Admin/select_user_by_shop?comp_id=${compId}&br_id=${selectedOutlet}`,
       0
